@@ -1,0 +1,36 @@
+:root{
+
+    /* ===== Cores ===== */
+
+    --primary: #6D28D9;
+    --primary-hover: #5B21B6;
+
+    --background: #F8FAFC;
+
+    --sidebar: #111827;
+
+    --navbar: #FFFFFF;
+
+    --card: #FFFFFF;
+
+    --text: #1E293B;
+
+    --border: #E5E7EB;
+
+    --success: #22C55E;
+
+    --warning: #F59E0B;
+
+    --danger: #EF4444;
+
+    /* ===== Layout ===== */
+
+    --sidebar-width:260px;
+
+    --navbar-height:70px;
+
+    --radius:12px;
+
+    --transition:.3s;
+
+}

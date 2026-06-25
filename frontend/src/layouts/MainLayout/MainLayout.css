@@ -1,0 +1,19 @@
+.layout{
+
+    display:flex;
+
+}
+
+.content{
+
+    margin-left:260px;
+
+    width:100%;
+
+}
+
+main{
+
+    padding:30px;
+
+}
