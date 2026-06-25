@@ -1,124 +1,55 @@
 import "./Sidebar.css";
 
-import {
-    LayoutDashboard,
-    GraduationCap,
-    Users,
-    School,
-    BookOpen,
-    ClipboardCheck,
-    NotebookPen,
-    BarChart3,
-    UserCog,
-    Settings
-} from "lucide-react";
+import { NavLink } from "react-router-dom";
+
+import { CircleUserRound } from "lucide-react";
+
+import { MENU } from "../../constants/menu";
 
 const Sidebar = () => {
+  return (
+    <aside className="sidebar">
+      <div className="logo">
+        <h2>EVE</h2>
+        <span>Educational Vision Ecosystem</span>
+      </div>
 
-    return (
+      <nav>
+        <ul>
+          {MENU.map((item) => {
+            const Icon = item.icon;
 
-        <aside className="sidebar">
+            return (
+              <li key={item.route}>
+                <NavLink
+                  to={item.route}
+                  className={({ isActive }) =>
+                    isActive ? "menu-link active" : "menu-link"
+                  }
+                >
+                  <Icon size={20} />
 
-            <div className="logo">
+                  <span>{item.title}</span>
+                </NavLink>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
 
-                <h2>EVE</h2>
+      <div className="sidebar-footer">
+        <div className="user-avatar">
+          <CircleUserRound size={42} />
+        </div>
 
-                <span>Educational Vision Ecosystem</span>
+        <div className="user-info">
+          <strong>Raphael Santos</strong>
 
-            </div>
-
-            <nav>
-
-                <ul>
-
-                    <li>
-
-                        <LayoutDashboard size={20} />
-
-                        <span>Dashboard</span>
-
-                    </li>
-
-                    <li>
-
-                        <GraduationCap size={20} />
-
-                        <span>Alunos</span>
-
-                    </li>
-
-                    <li>
-
-                        <Users size={20} />
-
-                        <span>Professores</span>
-
-                    </li>
-
-                    <li>
-
-                        <School size={20} />
-
-                        <span>Turmas</span>
-
-                    </li>
-
-                    <li>
-
-                        <BookOpen size={20} />
-
-                        <span>Disciplinas</span>
-
-                    </li>
-
-                    <li>
-
-                        <ClipboardCheck size={20} />
-
-                        <span>Presenças</span>
-
-                    </li>
-
-                    <li>
-
-                        <NotebookPen size={20} />
-
-                        <span>Notas</span>
-
-                    </li>
-
-                    <li>
-
-                        <BarChart3 size={20} />
-
-                        <span>Relatórios</span>
-
-                    </li>
-
-                    <li>
-
-                        <UserCog size={20} />
-
-                        <span>Usuários</span>
-
-                    </li>
-
-                    <li>
-
-                        <Settings size={20} />
-
-                        <span>Configurações</span>
-
-                    </li>
-
-                </ul>
-
-            </nav>
-
-        </aside>
-
-    );
-
+          <span>Administrador</span>
+        </div>
+      </div>
+    </aside>
+  );
 };
 
 export default Sidebar;
