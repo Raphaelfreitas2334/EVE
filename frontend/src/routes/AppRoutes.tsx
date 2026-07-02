@@ -14,14 +14,15 @@ import Grades from "../pages/Grades/Grades";
 import Reports from "../pages/Reports/Reports";
 import Users from "../pages/Users/Users";
 import Settings from "../pages/Settings/Settings";
+import Home from "../pages/Home/Home";
 
 const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        <Route path="/" element={<Navigate to="/home" />} />
 
-        <Route path="/login" element={<Login />} />
+        <Route path="/home" element={<Home />} />
 
         <Route element={<MainLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
@@ -43,6 +44,8 @@ const AppRoutes = () => {
           <Route path="/users" element={<Users />} />
 
           <Route path="/settings" element={<Settings />} />
+
+          <Route path="/login" element={<Login />} />
         </Route>
       </Routes>
     </BrowserRouter>

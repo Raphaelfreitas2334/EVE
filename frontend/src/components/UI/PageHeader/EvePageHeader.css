@@ -1,0 +1,33 @@
+.eve-page-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:32px;
+
+}
+
+.eve-page-header h1{
+
+    font-size:34px;
+
+    font-weight:700;
+
+    color:var(--text);
+
+    margin-bottom:8px;
+
+}
+
+.eve-page-header p{
+
+    color:var(--text-secondary);
+
+    font-size:16px;
+
+    line-height:1.6;
+
+}

@@ -1,60 +1,33 @@
 import "./Dashboard.css";
 
-import { GraduationCap, Users, School, ClipboardCheck } from "lucide-react";
+import EvePageHeader from "../../components/UI/PageHeader";
 
-import StatCard from "../../components/StatCard/StatCard";
-import WelcomeCard from "./components/WelcomeCard/WelcomeCard";
-import SectionTitle from "../../components/SectionTitle/SectionTitle";
-import Panel from "../../components/Panel/Panel";
+import DashboardStats from "./components/DashboardStats/DashboardStats";
 
-const dashboard = {
-  students: 1245,
-  teachers: 82,
-  classes: 36,
-  attendance: "94%",
-};
+import DashboardInsights from "./components/DashboardInsights/DashboardInsights";
+
+import IntelligenceCenter from "./components/IntelligenceCenter";
+import DashboardCharts from "./components/DashboardCharts/DashboardCharts";
+  
 
 const Dashboard = () => {
   return (
-    <>
-      <h1>Dashboard</h1>
+    <main>
 
-      <WelcomeCard name="Raphael" />
-
-      <SectionTitle
-        title="Indicadores"
-        subtitle="Visão geral da instituição."
+      <EvePageHeader
+        title="Dashboard"
+        subtitle="Veja os principais indicadores da sua instituição."
       />
 
-      <div className="dashboard-stats">
-        <StatCard
-          title="Alunos"
-          value={dashboard.students}
-          icon={GraduationCap}
-        />
+      <DashboardStats />
 
-        <StatCard title="Professores" value={dashboard.teachers} icon={Users} />
+      <IntelligenceCenter />
 
-        <StatCard title="Turmas" value={dashboard.classes} icon={School} />
+      <DashboardInsights />
+      <br/>
+      <DashboardCharts />
 
-        <StatCard
-          title="Frequência"
-          value={dashboard.attendance}
-          icon={ClipboardCheck}
-        />
-
-        <SectionTitle
-          title="Análises"
-          subtitle="Indicadores estratégicos da instituição."
-        />
-
-        <div className="dashboard-panels">
-          <Panel title="Alunos em risco">Em breve...</Panel>
-
-          <Panel title="Frequência por turma">Em breve...</Panel>
-        </div>
-      </div>
-    </>
+    </main>
   );
 };
 

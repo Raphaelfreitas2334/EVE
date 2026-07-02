@@ -1,0 +1,71 @@
+.eve-stat-card{
+
+    background:white;
+
+    border-radius:24px;
+
+    padding:28px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.05);
+
+    transition:.30s;
+
+    cursor:pointer;
+
+}
+
+.eve-stat-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.10);
+
+}
+
+.stat-icon{
+
+    width:56px;
+
+    height:56px;
+
+    border-radius:16px;
+
+    background:#F3E8FF;
+
+    color:#6D28D9;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-bottom:22px;
+
+}
+
+.stat-title{
+
+    color:#6B7280;
+
+    font-size:14px;
+
+}
+
+.eve-stat-card h2{
+
+    margin:10px 0;
+
+    font-size:36px;
+
+    color:#111827;
+
+}
+
+.eve-stat-card p{
+
+    color:#22C55E;
+
+    font-weight:600;
+
+}

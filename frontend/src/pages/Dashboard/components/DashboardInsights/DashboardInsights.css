@@ -1,0 +1,57 @@
+.insights-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-bottom:24px;
+
+}
+
+.insights-header svg{
+
+    color:var(--primary);
+
+}
+
+.insights-header h2{
+
+    color:var(--text);
+
+}
+
+.insights-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.insight-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    padding:16px;
+
+    border-radius:var(--radius-md);
+
+    background:var(--background);
+
+}
+
+.insight-item svg{
+
+    color:var(--primary);
+
+    flex-shrink:0;
+
+}

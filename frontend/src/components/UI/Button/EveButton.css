@@ -1,0 +1,110 @@
+.eve-button{
+
+    width:100%;
+
+    height:58px;
+
+    border:none;
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.30s;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    position:relative;
+}
+
+/* ================= PRIMARY ================= */
+
+.eve-button-primary{
+
+    color:white;
+
+    background:linear-gradient(
+        135deg,
+        #7C3AED,
+        #6D28D9,
+        #5B21B6
+    );
+
+    box-shadow:
+        0 12px 35px rgba(109,40,217,.35);
+}
+
+.eve-button-primary:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 20px 45px rgba(109,40,217,.45);
+}
+
+.eve-button-primary:active{
+
+    transform:scale(.98);
+}
+
+/* ================= SECONDARY ================= */
+
+.eve-button-secondary{
+
+    background:#EEF2FF;
+
+    color:#6D28D9;
+}
+
+/* ================= SUCCESS ================= */
+
+.eve-button-success{
+
+    background:#16A34A;
+
+    color:white;
+}
+
+/* ================= DANGER ================= */
+
+.eve-button-danger{
+
+    background:#DC2626;
+
+    color:white;
+}
+
+/* ================= OUTLINE ================= */
+
+.eve-button-outline{
+
+    background:white;
+
+    color:#6D28D9;
+
+    border:2px solid #6D28D9;
+}
+
+.button-arrow{
+
+    margin-left:12px;
+
+    transition:.3s;
+
+    font-size:18px;
+}
+
+.eve-button-primary:hover .button-arrow{
+
+    transform:translateX(5px);
+}
