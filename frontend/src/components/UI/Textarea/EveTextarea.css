@@ -1,0 +1,57 @@
+.eve-textarea-group {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.eve-textarea-label {
+  font-size: 14px;
+
+  font-weight: 600;
+
+  color: var(--text);
+}
+
+.eve-textarea {
+  width: 100%;
+
+  min-height: 120px;
+
+  padding: 14px 16px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  resize: vertical;
+
+  background: var(--card);
+
+  color: var(--text);
+
+  font-size: 15px;
+
+  transition: 0.2s;
+
+  font-family: inherit;
+}
+
+.eve-textarea:focus {
+  outline: none;
+
+  border-color: var(--primary);
+
+  box-shadow: 0 0 0 4px rgba(109, 40, 217, 0.08);
+}
+
+.eve-textarea::placeholder {
+  color: var(--text-secondary);
+}
+
+.eve-textarea-error {
+  color: #dc2626;
+
+  font-size: 13px;
+}

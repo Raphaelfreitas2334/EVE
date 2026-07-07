@@ -1,132 +1,77 @@
 import "./EveInput.css";
 
 import { useState } from "react";
-import type {
-    InputHTMLAttributes,
-    ReactNode,
-} from "react";
+import type { InputHTMLAttributes } from "react";
 
-import {
-    Eye,
-    EyeOff,
-} from "lucide-react";
+import { Mail, Lock, Eye, EyeOff } from "lucide-react";
 
-interface EveInputProps
-    extends InputHTMLAttributes<HTMLInputElement> {
+import FormField from "../../Forms/FormField";
 
-    label?: string;
+interface EveInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  label?: string;
 
-    error?: string;
+  required?: boolean;
 
-    icon?: ReactNode;
+  helper?: string;
 
+  error?: string;
+
+  success?: string;
 }
 
 const EveInput = ({
-    label,
-    error,
-    icon,
-    type = "text",
-    className = "",
-    ...rest
+  label,
+  required,
+  helper,
+  error,
+  success,
+  type,
+  className = "",
+  ...rest
 }: EveInputProps) => {
+  const [showPassword, setShowPassword] = useState(false);
 
-    const [showPassword, setShowPassword] = useState(false);
+  const isPassword = type === "password";
 
-    const isPassword = type === "password";
+  return (
+    <FormField
+      label={label}
+      required={required}
+      helper={helper}
+      error={error}
+      success={success}
+    >
+      <div
+        className={`
+                    eve-input-wrapper
+                    ${error ? "has-error" : ""}
+                    ${success ? "has-success" : ""}
+                `}
+      >
+        {type === "email" ? (
+          <Mail size={18} className="input-icon" />
+        ) : isPassword ? (
+          <Lock size={18} className="input-icon" />
+        ) : null}
 
-    return (
+        <input
+          type={isPassword ? (showPassword ? "text" : "password") : type}
+          className={`eve-input ${className}`}
+          {...rest}
+        />
 
-        <div className="eve-input-group">
-
-            {
-
-                label && (
-
-                    <label className="eve-input-label">
-
-                        {label}
-
-                    </label>
-
-                )
-
-            }
-
-            <div className="eve-input-wrapper">
-
-                {
-
-                    icon && (
-
-                        <span className="input-icon">
-
-                            {icon}
-
-                        </span>
-
-                    )
-
-                }
-
-                <input
-                    type={
-                        isPassword
-                            ? showPassword
-                                ? "text"
-                                : "password"
-                            : type
-                    }
-                    className={`eve-input ${className}`}
-                    {...rest}
-                />
-
-                {
-
-                    isPassword && (
-
-                        <button
-                            type="button"
-                            className="toggle-password"
-                            onClick={() =>
-                                setShowPassword(!showPassword)
-                            }
-                        >
-
-                            {
-
-                                showPassword
-                                    ? <EyeOff size={18}/>
-                                    : <Eye size={18}/>
-
-                            }
-
-                        </button>
-
-                    )
-
-                }
-
-            </div>
-
-            {
-
-                error && (
-
-                    <span className="eve-input-error">
-
-                        {error}
-
-                    </span>
-
-                )
-
-            }
-
-        </div>
-
-    );
-
+        {isPassword && (
+          <button
+            type="button"
+            className="toggle-password"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+          </button>
+        )}
+      </div>
+    </FormField>
+  );
 };
 
 export default EveInput;

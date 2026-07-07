@@ -1,102 +1,77 @@
 import "./EveSelect.css";
 
-import type {
-    ChangeEventHandler,
-} from "react";
+import type { ChangeEventHandler } from "react";
 
 import { ChevronDown } from "lucide-react";
 
+import FormField from "../../Forms/FormField";
+
 interface Option {
+  value: string;
 
-    value: string;
-
-    label: string;
-
+  label: string;
 }
 
 interface EveSelectProps {
+  label?: string;
 
-    label?: string;
+  required?: boolean;
 
-    value?: string;
+  helper?: string;
 
-    options: Option[];
+  error?: string;
 
-    placeholder?: string;
+  success?: string;
 
-    onChange?: ChangeEventHandler<HTMLSelectElement>;
+  value?: string;
 
+  options: Option[];
+
+  placeholder?: string;
+
+  onChange?: ChangeEventHandler<HTMLSelectElement>;
 }
 
 const EveSelect = ({
-    label,
-    value,
-    options,
-    placeholder = "Selecione...",
-    onChange,
+  label,
+  required,
+  helper,
+  error,
+  success,
+  value,
+  options,
+  placeholder = "Selecione...",
+  onChange,
 }: EveSelectProps) => {
+  return (
+    <FormField
+      label={label}
+      required={required}
+      helper={helper}
+      error={error}
+      success={success}
+    >
+      <div
+        className={`
+                    eve-select-wrapper
+                    ${error ? "has-error" : ""}
+                    ${success ? "has-success" : ""}
+                `}
+      >
+        <select value={value} onChange={onChange}>
+          <option value="">{placeholder}</option>
 
-    return (
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
 
-        <div className="eve-select">
-
-            {
-
-                label && (
-
-                    <label>
-
-                        {label}
-
-                    </label>
-
-                )
-
-            }
-
-            <div className="eve-select-wrapper">
-
-                <select
-                    value={value}
-                    onChange={onChange}
-                >
-
-                    <option value="">
-
-                        {placeholder}
-
-                    </option>
-
-                    {
-
-                        options.map(option => (
-
-                            <option
-                                key={option.value}
-                                value={option.value}
-                            >
-
-                                {option.label}
-
-                            </option>
-
-                        ))
-
-                    }
-
-                </select>
-
-                <ChevronDown
-                    size={18}
-                    className="eve-select-icon"
-                />
-
-            </div>
-
-        </div>
-
-    );
-
+        <ChevronDown size={18} className="eve-select-icon" />
+      </div>
+    </FormField>
+  );
 };
 
 export default EveSelect;

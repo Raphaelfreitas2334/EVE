@@ -1,49 +1,74 @@
 import EveModal from "../../../../components/Feedback/Modal";
+import EveButton from "../../../../components/UI/Button";
+
+import StudentForm from "../../components/StudentForm";
+
+import { useStudentForm } from "../../hooks";
 
 interface CreateStudentDialogProps {
+  open: boolean;
 
-    open: boolean;
-
-    onClose: () => void;
-
+  onClose: () => void;
 }
 
-const CreateStudentDialog = ({
-    open,
-    onClose,
-}: CreateStudentDialogProps) => {
+const CreateStudentDialog = ({ open, onClose }: CreateStudentDialogProps) => {
+  const {
+    student,
 
-    return (
+    errors,
 
-        <EveModal
-            open={open}
-            onClose={onClose}
-            size="lg"
-        >
+    handleChange,
 
-            <EveModal.Header
-                title="Novo aluno"
-                onClose={onClose}
-            />
+    submit,
 
-            <EveModal.Body>
+    reset,
+  } = useStudentForm();
 
-                <p>Olá 👋</p>
+  const handleSave = async () => {
+    const success = await submit();
 
-                <p>Nosso modal está funcionando.</p>
+    if (!success) {
+      return;
+    }
 
-            </EveModal.Body>
+    /*
+            Futuramente:
 
-            <EveModal.Footer>
+            await studentService.create(student);
+        */
 
-                Footer
+    reset();
 
-            </EveModal.Footer>
+    onClose();
+  };
 
-        </EveModal>
+  const handleCancel = () => {
+    reset();
 
-    );
+    onClose();
+  };
 
+  return (
+    <EveModal open={open} onClose={handleCancel} size="lg">
+      <EveModal.Header title="Novo aluno" onClose={handleCancel} />
+
+      <EveModal.Body>
+        <StudentForm
+          student={student}
+          errors={errors}
+          onChange={handleChange}
+        />
+      </EveModal.Body>
+
+      <EveModal.Footer>
+        <EveButton variant="outline" onClick={handleCancel}>
+          Cancelar
+        </EveButton>
+
+        <EveButton onClick={handleSave}>Salvar aluno</EveButton>
+      </EveModal.Footer>
+    </EveModal>
+  );
 };
 
 export default CreateStudentDialog;

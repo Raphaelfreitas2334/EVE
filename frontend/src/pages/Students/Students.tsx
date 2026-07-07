@@ -11,39 +11,29 @@ import StudentTable from "./components/StudentTable";
 import CreateStudentDialog from "./dialogs/CreateStudentDialog";
 
 const Students = () => {
+  const [isCreateStudentDialogOpen, setIsCreateStudentDialogOpen] =
+    useState(false);
 
-    const [isCreateStudentDialogOpen, setIsCreateStudentDialogOpen] = useState(false);
+  return (
+    <main>
+      <StudentHeader />
 
-    return (
+      <StudentStats />
 
-        <main>
+      <StudentSearch
+        onCreateStudent={() => setIsCreateStudentDialogOpen(true)}
+      />
 
-            <StudentHeader />
+      <StudentContext />
 
-            <StudentStats />
+      <StudentTable />
 
-            <StudentSearch
-
-                onCreateStudent={() => setIsCreateStudentDialogOpen(true)}
-
-            />
-
-            <StudentContext />
-
-            <StudentTable />
-
-            <CreateStudentDialog
-
-                open={isCreateStudentDialogOpen}
-
-                onClose={() => setIsCreateStudentDialogOpen(false)}
-
-            />
-
-        </main>
-
-    );
-
+      <CreateStudentDialog
+        open={isCreateStudentDialogOpen}
+        onClose={() => setIsCreateStudentDialogOpen(false)}
+      />
+    </main>
+  );
 };
 
 export default Students;

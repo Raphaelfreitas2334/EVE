@@ -1,77 +1,186 @@
-.eve-select{
+.eve-select {
+  display: flex;
 
-    display:flex;
+  flex-direction: column;
 
-    flex-direction:column;
-
-    gap:6px;
-
+  gap: 6px;
 }
 
-.eve-select label{
+.eve-select label {
+  font-size: 13px;
 
-    font-size:13px;
+  color: var(--text-secondary);
 
-    color:var(--text-secondary);
-
-    font-weight:500;
-
+  font-weight: 500;
 }
 
-.eve-select-wrapper{
-
-    position:relative;
-
+.eve-select-wrapper {
+  position: relative;
 }
 
-.eve-select select{
+.eve-select select {
+  width: 100%;
 
-    width:100%;
+  height: 48px;
 
-    height:48px;
+  padding: 0 42px 0 16px;
 
-    padding:0 42px 0 16px;
+  border: 1px solid var(--border);
 
-    border:1px solid var(--border);
+  border-radius: 12px;
 
-    border-radius:12px;
+  background: var(--card);
 
-    background:var(--card);
+  color: var(--text);
 
-    color:var(--text);
+  font-size: 15px;
 
-    font-size:15px;
+  appearance: none;
 
-    appearance:none;
+  outline: none;
 
-    outline:none;
+  transition: 0.25s;
 
-    transition:.25s;
-
-    cursor:pointer;
-
+  cursor: pointer;
 }
 
-.eve-select select:focus{
+.eve-select select:focus {
+  border-color: var(--primary);
 
-    border-color:var(--primary);
-
-    box-shadow:0 0 0 4px rgba(109,40,217,.08);
-
+  box-shadow: 0 0 0 4px rgba(109, 40, 217, 0.08);
 }
 
-.eve-select-icon{
+.eve-select-icon {
+  position: absolute;
 
-    position:absolute;
+  right: 14px;
 
-    right:14px;
+  top: 50%;
 
-    top:50%;
+  transform: translateY(-50%);
 
-    transform:translateY(-50%);
+  pointer-events: none;
 
-    pointer-events:none;
+  color: #94a3b8;
+}
 
-    color:#94A3B8;
+/* ==========================================================
+   Label
+========================================================== */
 
+.eve-select-label {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.25rem;
+
+  margin-bottom: 0.5rem;
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+
+  color: var(--text);
+}
+
+/* ==========================================================
+   Campo obrigatório
+========================================================== */
+
+.required {
+  color: var(--danger);
+
+  font-weight: 700;
+}
+
+/* ==========================================================
+   Estados
+========================================================== */
+
+.eve-select-wrapper {
+  position: relative;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.eve-select-wrapper.has-error {
+  border-color: var(--danger);
+}
+
+.eve-select-wrapper.has-success {
+  border-color: var(--success);
+}
+
+.eve-select-wrapper:focus-within {
+  transform: translateY(-1px);
+
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+/* ==========================================================
+   Helper
+========================================================== */
+
+.eve-select-helper {
+  display: block;
+
+  margin-top: 0.45rem;
+
+  font-size: 0.82rem;
+
+  color: var(--text-secondary);
+}
+
+/* ==========================================================
+   Error
+========================================================== */
+
+.eve-select-error {
+  display: block;
+
+  margin-top: 0.45rem;
+
+  font-size: 0.82rem;
+
+  color: var(--danger);
+
+  animation: fadeIn 0.18s ease;
+}
+
+/* ==========================================================
+   Success
+========================================================== */
+
+.eve-select-success {
+  display: block;
+
+  margin-top: 0.45rem;
+
+  font-size: 0.82rem;
+
+  color: var(--success);
+
+  animation: fadeIn 0.18s ease;
+}
+
+/* ==========================================================
+   Animation
+========================================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
 }
