@@ -1,0 +1,65 @@
+.eve-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.eve-badge.success{
+
+    background:#DCFCE7;
+
+    color:#15803D;
+
+}
+
+.eve-badge.warning{
+
+    background:#FEF3C7;
+
+    color:#B45309;
+
+}
+
+.eve-badge.danger{
+
+    background:#FEE2E2;
+
+    color:#B91C1C;
+
+}
+
+.eve-badge.info{
+
+    background:#DBEAFE;
+
+    color:#1D4ED8;
+
+}
+
+.eve-badge.primary{
+
+    background:#EDE9FE;
+
+    color:#6D28D9;
+
+}
+
+.eve-badge.gray{
+
+    background:#F3F4F6;
+
+    color:#374151;
+
+}

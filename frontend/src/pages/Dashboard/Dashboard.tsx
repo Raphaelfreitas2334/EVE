@@ -8,6 +8,8 @@ import DashboardInsights from "./components/DashboardInsights/DashboardInsights"
 
 import IntelligenceCenter from "./components/IntelligenceCenter";
 import DashboardCharts from "./components/DashboardCharts/DashboardCharts";
+import DashboardPulse from "./components/DashboardPulse/DashboardPulse";
+import DashboardActivities from "./components/DashboardActivities/DashboardActivities";
   
 
 const Dashboard = () => {
@@ -20,6 +22,10 @@ const Dashboard = () => {
       />
 
       <DashboardStats />
+
+      <DashboardActivities />
+
+      <DashboardPulse />
 
       <IntelligenceCenter />
 

@@ -1,0 +1,85 @@
+.eve-dropdown{
+
+    position:relative;
+
+}
+
+.dropdown-trigger{
+
+    border:none;
+
+    background:none;
+
+    cursor:pointer;
+
+    color:var(--text-secondary);
+
+    padding:8px;
+
+    border-radius:8px;
+
+}
+
+.dropdown-trigger:hover{
+
+    background:#F3F4F6;
+
+}
+
+.dropdown-menu{
+
+    position:absolute;
+
+    right:0;
+
+    top:42px;
+
+    width:220px;
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+
+    z-index:100;
+
+}
+
+.dropdown-item{
+
+    width:100%;
+
+    border:none;
+
+    background:none;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:14px 16px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+}
+
+.dropdown-item:hover{
+
+    background:#F8F8FC;
+
+}
+
+.dropdown-item.danger{
+
+    color:#DC2626;
+
+}

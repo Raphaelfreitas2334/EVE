@@ -1,0 +1,49 @@
+.eve-metric{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+}
+
+.metric-value{
+
+    font-size:18px;
+
+    font-weight:700;
+
+}
+
+.metric-value.primary{
+
+    color:var(--primary);
+
+}
+
+.metric-value.success{
+
+    color:var(--success);
+
+}
+
+.metric-value.warning{
+
+    color:var(--warning);
+
+}
+
+.metric-value.danger{
+
+    color:var(--danger);
+
+}
+
+.eve-metric small{
+
+    color:var(--text-secondary);
+
+    font-size:12px;
+
+}

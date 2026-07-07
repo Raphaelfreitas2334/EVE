@@ -1,91 +1,132 @@
 import "./EveInput.css";
 
 import { useState } from "react";
-import type { InputHTMLAttributes } from "react";
+import type {
+    InputHTMLAttributes,
+    ReactNode,
+} from "react";
 
 import {
-  Mail,
-  Lock,
-  Eye,
-  EyeOff,
+    Eye,
+    EyeOff,
 } from "lucide-react";
 
-interface EveInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  label?: string;
-  error?: string;
+interface EveInputProps
+    extends InputHTMLAttributes<HTMLInputElement> {
+
+    label?: string;
+
+    error?: string;
+
+    icon?: ReactNode;
+
 }
 
 const EveInput = ({
-  label,
-  error,
-  type,
-  className = "",
-  ...rest
+    label,
+    error,
+    icon,
+    type = "text",
+    className = "",
+    ...rest
 }: EveInputProps) => {
 
-  const [showPassword, setShowPassword] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
-  const isPassword = type === "password";
+    const isPassword = type === "password";
 
-  return (
-    <div className="eve-input-group">
+    return (
 
-      {label && (
-        <label className="eve-input-label">
-          {label}
-        </label>
-      )}
+        <div className="eve-input-group">
 
-      <div className="eve-input-wrapper">
+            {
 
-        {type === "email" ? (
-          <Mail size={18} className="input-icon" />
-        ) : (
-          <Lock size={18} className="input-icon" />
-        )}
+                label && (
 
-        <input
-          type={
-            isPassword
-              ? showPassword
-                ? "text"
-                : "password"
-              : type
-          }
-          className={`eve-input ${className}`}
-          {...rest}
-        />
+                    <label className="eve-input-label">
 
-        {isPassword && (
+                        {label}
 
-          <button
-            type="button"
-            className="toggle-password"
-            onClick={() =>
-              setShowPassword(!showPassword)
+                    </label>
+
+                )
+
             }
-          >
 
-            {showPassword ? (
-              <EyeOff size={18} />
-            ) : (
-              <Eye size={18} />
-            )}
+            <div className="eve-input-wrapper">
 
-          </button>
+                {
 
-        )}
+                    icon && (
 
-      </div>
+                        <span className="input-icon">
 
-      {error && (
-        <span className="eve-input-error">
-          {error}
-        </span>
-      )}
+                            {icon}
 
-    </div>
-  );
+                        </span>
+
+                    )
+
+                }
+
+                <input
+                    type={
+                        isPassword
+                            ? showPassword
+                                ? "text"
+                                : "password"
+                            : type
+                    }
+                    className={`eve-input ${className}`}
+                    {...rest}
+                />
+
+                {
+
+                    isPassword && (
+
+                        <button
+                            type="button"
+                            className="toggle-password"
+                            onClick={() =>
+                                setShowPassword(!showPassword)
+                            }
+                        >
+
+                            {
+
+                                showPassword
+                                    ? <EyeOff size={18}/>
+                                    : <Eye size={18}/>
+
+                            }
+
+                        </button>
+
+                    )
+
+                }
+
+            </div>
+
+            {
+
+                error && (
+
+                    <span className="eve-input-error">
+
+                        {error}
+
+                    </span>
+
+                )
+
+            }
+
+        </div>
+
+    );
+
 };
 
 export default EveInput;

@@ -1,0 +1,85 @@
+.activity-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.activity-icon{
+
+    width:56px;
+
+    height:56px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-shrink:0;
+
+}
+
+.activity-icon.primary{
+
+    background:#F3E8FF;
+
+    color:var(--primary);
+
+}
+
+.activity-icon.success{
+
+    background:#DCFCE7;
+
+    color:var(--success);
+
+}
+
+.activity-icon.warning{
+
+    background:#FEF3C7;
+
+    color:var(--warning);
+
+}
+
+.activity-icon.danger{
+
+    background:#FEE2E2;
+
+    color:var(--danger);
+
+}
+
+.activity-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.activity-content h4{
+
+    margin:0;
+
+    color:var(--text);
+
+    font-size:18px;
+
+}
+
+.activity-content p{
+
+    margin-top:4px;
+
+    color:var(--text-secondary);
+
+}

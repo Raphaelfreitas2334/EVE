@@ -1,0 +1,77 @@
+.eve-select{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+
+}
+
+.eve-select label{
+
+    font-size:13px;
+
+    color:var(--text-secondary);
+
+    font-weight:500;
+
+}
+
+.eve-select-wrapper{
+
+    position:relative;
+
+}
+
+.eve-select select{
+
+    width:100%;
+
+    height:48px;
+
+    padding:0 42px 0 16px;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    background:var(--card);
+
+    color:var(--text);
+
+    font-size:15px;
+
+    appearance:none;
+
+    outline:none;
+
+    transition:.25s;
+
+    cursor:pointer;
+
+}
+
+.eve-select select:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 4px rgba(109,40,217,.08);
+
+}
+
+.eve-select-icon{
+
+    position:absolute;
+
+    right:14px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    pointer-events:none;
+
+    color:#94A3B8;
+
+}

@@ -1,0 +1,61 @@
+.student-attendance{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.attendance-track{
+
+    width:80px;
+
+    height:8px;
+
+    background:#ECECF3;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+}
+
+.attendance-fill{
+
+    height:100%;
+
+    border-radius:999px;
+
+    transition:.3s;
+
+}
+
+.attendance-fill.success{
+
+    background:#22C55E;
+
+}
+
+.attendance-fill.warning{
+
+    background:#F59E0B;
+
+}
+
+.attendance-fill.danger{
+
+    background:#EF4444;
+
+}
+
+.student-attendance span{
+
+    font-weight:600;
+
+    color:var(--text);
+
+    min-width:38px;
+
+}

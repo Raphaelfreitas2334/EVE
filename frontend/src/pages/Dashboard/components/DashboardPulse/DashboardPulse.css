@@ -1,0 +1,47 @@
+.dashboard-pulse{
+
+    margin:40px 0;
+
+}
+
+.dashboard-pulse-header{
+
+    margin-bottom:24px;
+
+}
+
+.dashboard-pulse-header h2{
+
+    font-size:32px;
+
+    color:var(--text);
+
+    margin-bottom:6px;
+
+}
+
+.dashboard-pulse-header p{
+
+    color:var(--text-secondary);
+
+}
+
+.dashboard-pulse-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:24px;
+
+}
+
+@media(max-width:1100px){
+
+    .dashboard-pulse-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

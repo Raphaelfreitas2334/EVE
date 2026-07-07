@@ -1,0 +1,37 @@
+.dashboard-activities{
+
+    margin-top:40px;
+
+}
+
+.dashboard-activities-header{
+
+    margin-bottom:24px;
+
+}
+
+.dashboard-activities-header h2{
+
+    font-size:32px;
+
+    color:var(--text);
+
+    margin-bottom:6px;
+
+}
+
+.dashboard-activities-header p{
+
+    color:var(--text-secondary);
+
+}
+
+.dashboard-activities-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
