@@ -1,0 +1,9 @@
+.teacher-details {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 24px;
+
+  padding: 32px;
+}

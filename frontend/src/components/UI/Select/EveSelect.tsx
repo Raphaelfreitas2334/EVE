@@ -2,8 +2,6 @@ import "./EveSelect.css";
 
 import type { ChangeEventHandler } from "react";
 
-import { ChevronDown } from "lucide-react";
-
 import FormField from "../../Forms/FormField";
 
 interface Option {
@@ -68,7 +66,7 @@ const EveSelect = ({
           ))}
         </select>
 
-        <ChevronDown size={18} className="eve-select-icon" />
+        {/* <ChevronDown size={18} className="eve-select-icon" /> */}
       </div>
     </FormField>
   );

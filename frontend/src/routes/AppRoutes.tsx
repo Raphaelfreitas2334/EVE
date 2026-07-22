@@ -15,6 +15,7 @@ import Reports from "../pages/Reports/Reports";
 import Users from "../pages/Users/Users";
 import Settings from "../pages/Settings/Settings";
 import Home from "../pages/Home/Home";
+import TeacherDetails from "../pages/Teachers/TeacherDetails";
 
 const AppRoutes = () => {
   return (
@@ -24,12 +25,16 @@ const AppRoutes = () => {
 
         <Route path="/home" element={<Home />} />
 
+        <Route path="/login" element={<Login />} />
+
         <Route element={<MainLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
 
           <Route path="/students" element={<Students />} />
 
           <Route path="/teachers" element={<Teachers />} />
+
+          <Route path="/teachers/:teacherId" element={<TeacherDetails />} />
 
           <Route path="/classes" element={<Classes />} />
 
@@ -44,8 +49,6 @@ const AppRoutes = () => {
           <Route path="/users" element={<Users />} />
 
           <Route path="/settings" element={<Settings />} />
-
-          <Route path="/login" element={<Login />} />
         </Route>
       </Routes>
     </BrowserRouter>

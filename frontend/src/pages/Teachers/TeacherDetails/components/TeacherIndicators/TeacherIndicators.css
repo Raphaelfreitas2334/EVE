@@ -1,0 +1,99 @@
+.teacher-indicators {
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius);
+
+  padding: 24px;
+}
+
+.teacher-indicators-header {
+  margin-bottom: 24px;
+}
+
+.teacher-indicators-header h3 {
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: 20px;
+}
+
+.teacher-indicators-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 20px;
+}
+
+.teacher-indicator-card {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  padding: 22px;
+
+  border-radius: 14px;
+
+  border: 1px solid var(--border);
+
+  background: var(--surface);
+
+  transition: 0.2s;
+}
+
+.teacher-indicator-card:hover {
+  transform: translateY(-3px);
+
+  border-color: var(--primary);
+}
+
+.teacher-indicator-icon {
+  width: 60px;
+
+  height: 60px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: var(--surface-hover);
+
+  color: var(--primary);
+}
+
+.teacher-indicator-content {
+  flex: 1;
+}
+
+.teacher-indicator-title {
+  display: block;
+
+  color: var(--text-secondary);
+
+  font-size: 0.9rem;
+}
+
+.teacher-indicator-content h2 {
+  margin: 6px 0;
+
+  color: var(--text);
+
+  font-size: 2rem;
+}
+
+.teacher-indicator-content p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 0.85rem;
+}

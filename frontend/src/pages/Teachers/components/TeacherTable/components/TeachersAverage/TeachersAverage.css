@@ -1,0 +1,37 @@
+.teachers-average {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.teachers-average strong {
+  display: block;
+
+  font-size: 15px;
+
+  color: var(--text);
+}
+
+.teachers-average span {
+  font-size: 12px;
+
+  color: var(--text-secondary);
+}
+
+.teachers-average.excellent svg {
+  color: #7c3aed;
+}
+
+.teachers-average.good svg {
+  color: #22c55e;
+}
+
+.teachers-average.warning svg {
+  color: #f59e0b;
+}
+
+.teachers-average.danger svg {
+  color: #ef4444;
+}

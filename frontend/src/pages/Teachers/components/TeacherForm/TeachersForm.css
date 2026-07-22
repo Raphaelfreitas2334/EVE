@@ -1,0 +1,21 @@
+.teachers-form {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 24px;
+}
+
+.teachers-form-full {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+  .teachers-form {
+    grid-template-columns: 1fr;
+  }
+
+  .teachers-form-full {
+    grid-column: auto;
+  }
+}

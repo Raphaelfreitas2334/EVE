@@ -1,20 +1,43 @@
 import "./Sidebar.css";
 
 import { NavLink } from "react-router-dom";
-
 import { CircleUserRound } from "lucide-react";
 
 import { MENU } from "../../../constants/menu";
 
-const Sidebar = () => {
+export type ScreenMode = "desktop" | "notebook" | "mobile";
+
+interface SidebarProps {
+  screenMode: ScreenMode;
+  expanded: boolean;
+  mobileOpen: boolean;
+  onNavigate: () => void;
+}
+
+const Sidebar = ({
+  screenMode,
+  expanded,
+  mobileOpen,
+  onNavigate,
+}: SidebarProps) => {
+  const className = [
+    "sidebar",
+    screenMode,
+    expanded ? "expanded" : "collapsed",
+    mobileOpen ? "mobile-open" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <aside className="sidebar">
-      <div className="logo">
+    <aside className={className}>
+      <div className="sidebar-logo">
         <h2>EVE</h2>
+
         <span>Educational Vision Ecosystem</span>
       </div>
 
-      <nav>
+      <nav className="sidebar-menu">
         <ul>
           {MENU.map((item) => {
             const Icon = item.icon;
@@ -23,6 +46,7 @@ const Sidebar = () => {
               <li key={item.route}>
                 <NavLink
                   to={item.route}
+                  onClick={onNavigate}
                   className={({ isActive }) =>
                     isActive ? "menu-link active" : "menu-link"
                   }
@@ -37,9 +61,9 @@ const Sidebar = () => {
         </ul>
       </nav>
 
-      <div className="sidebar-footer">
+      <footer className="sidebar-footer">
         <div className="user-avatar">
-          <CircleUserRound size={42} />
+          <CircleUserRound size={44} />
         </div>
 
         <div className="user-info">
@@ -47,7 +71,7 @@ const Sidebar = () => {
 
           <span>Administrador</span>
         </div>
-      </div>
+      </footer>
     </aside>
   );
 };

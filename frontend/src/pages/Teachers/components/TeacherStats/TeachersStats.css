@@ -1,0 +1,9 @@
+.teachers-stats {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 24px;
+
+  margin-bottom: 40px;
+}

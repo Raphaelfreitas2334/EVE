@@ -1,27 +1,49 @@
+import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
-import { Bell, UserCircle } from "lucide-react";
+import { Bell, CircleUserRound, LogOut, Menu } from "lucide-react";
 
-const Navbar = () => {
+interface NavbarProps {
+  showMenuButton: boolean;
+  onMenuClick: () => void;
+}
 
-    return (
+const Navbar = ({ showMenuButton, onMenuClick }: NavbarProps) => {
+  const navigate = useNavigate();
+  return (
+    <header className="navbar">
+      <div className="navbar-left">
+        {showMenuButton && (
+          <button
+            className="navbar-menu-button"
+            onClick={onMenuClick}
+            aria-label="Abrir menu"
+          >
+            <Menu size={22} />
+          </button>
+        )}
 
-        <header className="navbar">
+        <h1>Dashboard</h1>
+      </div>
 
-            <h2>Dashboard</h2>
+      <div className="navbar-right">
+        <button
+          className="navbar-icon logout-button"
+          aria-label="Sair"
+          onClick={() => navigate("/login")}
+        >
+          <LogOut size={20} />
+        </button>
+        <button className="navbar-icon" aria-label="Notificações">
+          <Bell size={20} />
+        </button>
 
-            <div className="navbar-right">
-
-                <Bell />
-
-                <UserCircle />
-
-            </div>
-
-        </header>
-
-    );
-
+        <button className="navbar-icon" aria-label="Perfil">
+          <CircleUserRound size={24} />
+        </button>
+      </div>
+    </header>
+  );
 };
 
 export default Navbar;

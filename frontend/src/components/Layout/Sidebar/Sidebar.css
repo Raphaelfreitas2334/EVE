@@ -1,95 +1,135 @@
+/* ==========================================================
+   SIDEBAR
+========================================================== */
+
 .sidebar {
-  width: 260px;
-  height: 100vh;
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  width: var(--sidebar-width);
 
   background: var(--sidebar);
-  color: white;
+
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
 
   display: flex;
   flex-direction: column;
 
   overflow: hidden;
+
+  transition:
+    width 0.25s ease,
+    transform 0.25s ease;
+
+  z-index: 1000;
 }
 
-.logo {
-  padding: 30px;
+/* ==========================================================
+   LOGO
+========================================================== */
+
+.sidebar-logo {
+  height: 92px;
+
+  padding: 22px 24px;
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  flex-shrink: 0;
+
+  transition: 0.25s;
 }
 
-.logo h2 {
-  font-size: 32px;
+.sidebar-logo h2 {
+  margin: 0;
 
   color: var(--primary);
+
+  font-size: 2rem;
+
+  white-space: nowrap;
 }
 
-.logo span {
-  font-size: 13px;
+.sidebar-logo span {
+  display: block;
 
-  color: #a1a1aa;
+  margin-top: 6px;
+
+  color: #9ca3af;
+
+  font-size: 0.75rem;
+
+  white-space: nowrap;
+
+  transition: opacity 0.2s;
 }
 
-.sidebar nav {
+/* ==========================================================
+   MENU
+========================================================== */
+
+.sidebar-menu {
   flex: 1;
-
-  margin-top: 30px;
 
   overflow-y: auto;
 
   overflow-x: hidden;
+
+  padding: 18px 0;
+
+  scrollbar-width: none;
 }
 
-.sidebar ul {
-  display: flex;
+.sidebar-menu::-webkit-scrollbar {
+  width: 0;
 
-  flex-direction: column;
-
-  gap: 5px;
+  height: 0;
 }
 
-.sidebar li {
-  display: flex;
+.sidebar-menu ul {
+  margin: 0;
 
-  align-items: center;
+  padding: 0;
 
-  gap: 15px;
-
-  padding: 15px 25px;
-
-  cursor: pointer;
-
-  transition: 0.3s;
+  list-style: none;
 }
 
-.sidebar li:hover {
-  background: #1f2937;
-}
-
-.sidebar svg {
-  color: #d4d4d8;
+.sidebar-menu li {
+  margin: 0;
 }
 
 .menu-link {
+  height: 48px;
+
   display: flex;
+
   align-items: center;
-  gap: 15px;
 
-  width: 100%;
+  gap: 14px;
 
-  padding: 15px 25px;
+  padding: 0 24px;
 
-  color: #d4d4d8;
+  color: #d1d5db;
 
-  transition: 0.3s;
+  text-decoration: none;
+
+  transition: 0.2s;
+
+  white-space: nowrap;
 }
 
 .menu-link:hover {
-  background: #1f2937;
+  background: rgba(255, 255, 255, 0.08);
+
   color: white;
 }
 
 .menu-link.active {
   background: var(--primary);
+
   color: white;
 }
 
@@ -97,59 +137,108 @@
   flex-shrink: 0;
 }
 
-.sidebar nav::-webkit-scrollbar {
-  width: 6px;
-}
-
-.sidebar nav::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 10px;
-}
-
-.sidebar nav::-webkit-scrollbar-track {
-  background: transparent;
-}
+/* ==========================================================
+   FOOTER
+========================================================== */
 
 .sidebar-footer {
   display: flex;
 
   align-items: center;
 
-  gap: 15px;
+  gap: 14px;
 
-  padding: 20px;
+  padding: 18px 24px;
 
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 
-  background: #111827;
+  flex-shrink: 0;
+
+  transition: 0.25s;
 }
 
 .user-avatar {
   display: flex;
 
-  align-items: center;
-
   justify-content: center;
+
+  align-items: center;
 }
 
 .user-avatar svg {
-  color: #a855f7;
+  color: var(--primary);
 }
 
 .user-info {
   display: flex;
 
   flex-direction: column;
+
+  transition: opacity 0.2s;
 }
 
 .user-info strong {
-  font-size: 14px;
-
   color: white;
+
+  font-size: 0.9rem;
 }
 
 .user-info span {
-  font-size: 12px;
-
   color: #9ca3af;
+
+  font-size: 0.75rem;
+}
+
+/* ==========================================================
+   NOTEBOOK (80px)
+========================================================== */
+
+.sidebar.notebook.collapsed {
+  width: 80px;
+}
+
+.sidebar.notebook.collapsed .sidebar-logo {
+  padding: 22px 0;
+
+  text-align: center;
+}
+
+.sidebar.notebook.collapsed .sidebar-logo span {
+  opacity: 0;
+
+  display: none;
+}
+
+.sidebar.notebook.collapsed .menu-link {
+  justify-content: center;
+
+  padding: 0;
+}
+
+.sidebar.notebook.collapsed .menu-link span {
+  display: none;
+}
+
+.sidebar.notebook.collapsed .sidebar-footer {
+  justify-content: center;
+
+  padding-inline: 0;
+}
+
+.sidebar.notebook.collapsed .user-info {
+  display: none;
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+.sidebar.mobile {
+  width: 260px;
+
+  transform: translateX(-100%);
+}
+
+.sidebar.mobile.mobile-open {
+  transform: translateX(0);
 }
