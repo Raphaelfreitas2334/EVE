@@ -29,18 +29,23 @@ interface EveBarChartProps {
 
     color?: string;
 
-}
+    height?: number;
 
+}
 const EveBarChart = ({
     labels,
     data,
     title,
     color = "#6D28D9",
+    height = 350,
 }: EveBarChartProps) => {
 
     return (
 
-        <div className="eve-bar-chart">
+        <div
+            className="eve-bar-chart"
+            style={{ height }}
+        >
 
             <Bar
 

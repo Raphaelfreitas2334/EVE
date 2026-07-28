@@ -1,0 +1,25 @@
+.classes-table-header{
+
+    display:grid;
+
+    grid-template-columns:
+        2fr
+        2fr
+        1fr
+        1fr
+        1fr
+        60px;
+
+    align-items:center;
+
+    padding:18px 24px;
+
+    gap:24px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:var(--text-secondary);
+
+}

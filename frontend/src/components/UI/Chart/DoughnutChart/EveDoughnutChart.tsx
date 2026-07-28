@@ -23,6 +23,8 @@ interface EveDoughnutChartProps{
 
     colors?:string[];
 
+    height?:number;
+
 }
 
 const EveDoughnutChart = ({
@@ -35,11 +37,15 @@ const EveDoughnutChart = ({
         "#EF4444",
         "#3B82F6",
     ],
+    height = 350,
 }: EveDoughnutChartProps) => {
 
     return(
 
-        <div className="eve-doughnut-chart">
+        <div
+            className="eve-doughnut-chart"
+            style={{ height }}
+        >
 
             <Doughnut
 
