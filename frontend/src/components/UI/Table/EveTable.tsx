@@ -1,18 +1,39 @@
 import "./EveTable.css";
 
-interface EveTableProps {
+import type {
+    HTMLAttributes,
+    ReactNode,
+} from "react";
 
-    children: React.ReactNode;
+interface EveTableProps
+    extends HTMLAttributes<HTMLElement> {
+
+    children: ReactNode;
 
 }
 
 const EveTable = ({
+
     children,
+
+    className = "",
+
+    ...rest
+
 }: EveTableProps) => {
 
     return (
 
-        <section className="eve-table">
+        <section
+
+            className={`
+                eve-table
+                ${className}
+            `}
+
+            {...rest}
+
+        >
 
             {children}
 

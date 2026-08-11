@@ -1,0 +1,17 @@
+.eve-horizontal-bar-chart {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 220px;
+
+}
+
+.eve-horizontal-bar-chart canvas {
+
+    width: 100% !important;
+
+    height: 100% !important;
+
+}

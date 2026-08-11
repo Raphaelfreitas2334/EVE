@@ -64,19 +64,7 @@ const TablePagination = <T,>({
 
             <div className="eve-table-pagination-info">
 
-                Mostrando
-
-                <strong>{table.startItem}</strong>
-
-                a
-
-                <strong>{table.endItem}</strong>
-
-                de
-
-                <strong>{table.totalItems}</strong>
-
-                registros
+                Mostrando <strong>{table.startItem}</strong> a <strong>{table.endItem}</strong> de <strong>{table.totalItems}</strong> registros
 
             </div>
 

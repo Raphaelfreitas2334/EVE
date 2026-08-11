@@ -15,29 +15,57 @@ ChartJS.register(
     Legend
 );
 
-interface EveDoughnutChartProps{
+interface EveDoughnutChartProps {
 
-    labels:string[];
+    labels: string[];
 
-    data:number[];
+    data: number[];
 
-    colors?:string[];
+    colors?: string[];
 
-    height?:number;
+    height?: number;
+
+    /**
+     * Tamanho do furo interno.
+     * Ex:
+     * "70%"
+     * "80%"
+     */
+    cutout?: string | number;
+
+    /**
+     * Posição da legenda.
+     */
+    legendPosition?:
+        | "top"
+        | "left"
+        | "bottom"
+        | "right";
 
 }
 
 const EveDoughnutChart = ({
+
     labels,
+
     data,
+
     colors = [
+
         "#6D28D9",
+
         "#22C55E",
+
         "#F59E0B",
+
         "#EF4444",
+
         "#3B82F6",
+
     ],
+
     height = 350,
+
 }: EveDoughnutChartProps) => {
 
     return(

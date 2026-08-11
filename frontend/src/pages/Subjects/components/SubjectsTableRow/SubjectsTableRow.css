@@ -1,0 +1,135 @@
+.subjects-table-row {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(220px, 2fr)
+        minmax(180px, 2fr)
+        110px
+        130px
+        120px
+        60px;
+
+    align-items: center;
+
+    gap: 24px;
+
+    padding: 18px 24px;
+
+    border-bottom: 1px solid var(--border);
+
+    transition: .25s ease;
+
+}
+
+.subjects-table-row:last-child {
+
+    border-bottom: none;
+
+}
+
+.subjects-table-row:hover {
+
+    background: var(--surface);
+
+}
+
+.subjects-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+}
+
+.subjects-info strong {
+
+    color: var(--text);
+
+    font-weight: 600;
+
+    font-size: .95rem;
+
+}
+
+.subjects-info small {
+
+    color: var(--text-secondary);
+
+    font-size: .80rem;
+
+}
+
+.subjects-teacher {
+
+    color: var(--text);
+
+    font-weight: 500;
+
+}
+
+.subjects-students {
+
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 4px;
+
+}
+
+.subjects-students strong {
+
+    font-size: .95rem;
+
+    color: var(--text);
+
+}
+
+.subjects-students small {
+
+    color: var(--text-secondary);
+
+}
+
+.subjects-period {
+
+    color: var(--text);
+
+}
+
+.table-action {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    width: 38px;
+
+    height: 38px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: var(--text-secondary);
+
+    cursor: pointer;
+
+    transition: .2s ease;
+
+}
+
+.table-action:hover {
+
+    background: rgba(109, 40, 217, .08);
+
+    color: var(--primary);
+
+}

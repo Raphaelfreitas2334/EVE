@@ -1,0 +1,215 @@
+.eve-progress-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+.eve-progress-list-title {
+
+    margin: 0;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    color: #111827;
+
+}
+
+.eve-progress-list-items {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+.eve-progress-list-item {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+.eve-progress-list-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 16px;
+
+}
+
+.eve-progress-list-label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    min-width: 0;
+
+    font-size: .92rem;
+
+    font-weight: 500;
+
+    color: #374151;
+
+}
+
+.eve-progress-list-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 20px;
+
+    height: 20px;
+
+    flex-shrink: 0;
+
+}
+
+.eve-progress-list-values {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+
+}
+
+.eve-progress-list-value {
+
+    font-size: .88rem;
+
+    font-weight: 600;
+
+    color: #111827;
+
+}
+
+.eve-progress-list-percent {
+
+    font-size: .85rem;
+
+    font-weight: 600;
+
+    color: #6B7280;
+
+    min-width: 42px;
+
+    text-align: right;
+
+}
+
+.eve-progress-list-description {
+
+    margin-top: -2px;
+
+    color: #9CA3AF;
+
+    font-size: .80rem;
+
+}
+
+.eve-progress-list-track {
+
+    width: 100%;
+
+    height: 8px;
+
+    background: #E5E7EB;
+
+    border-radius: 999px;
+
+    overflow: hidden;
+
+}
+
+.eve-progress-list-bar {
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    transition:
+        width .5s ease,
+        background-color .3s ease;
+
+}
+
+.eve-progress-list.compact {
+
+    gap: 14px;
+
+}
+
+.eve-progress-list.compact .eve-progress-list-items {
+
+    gap: 12px;
+
+}
+
+.eve-progress-list.compact .eve-progress-list-track {
+
+    height: 6px;
+
+}
+
+.eve-progress-list.compact .eve-progress-list-label {
+
+    font-size: .85rem;
+
+}
+
+.eve-progress-list.compact .eve-progress-list-value {
+
+    font-size: .82rem;
+
+}
+
+.eve-progress-list.compact .eve-progress-list-percent {
+
+    font-size: .80rem;
+
+}
+
+@media (max-width: 768px) {
+
+    .eve-progress-list-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .eve-progress-list-values {
+
+        width: 100%;
+
+        justify-content: space-between;
+
+    }
+
+}

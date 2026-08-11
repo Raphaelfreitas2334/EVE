@@ -1,75 +1,175 @@
 import "./EveSelect.css";
 
-import type { ChangeEventHandler } from "react";
+import {
+    ChevronDown,
+} from "lucide-react";
+
+import type {
+    ChangeEvent,
+} from "react";
 
 import FormField from "../../Forms/FormField";
 
-interface Option {
-  value: string;
+export interface EveSelectOption {
 
-  label: string;
+    value: string;
+
+    label: string;
+
 }
 
-interface EveSelectProps {
-  label?: string;
+export interface EveSelectProps {
 
-  required?: boolean;
+    label?: string;
 
-  helper?: string;
+    required?: boolean;
 
-  error?: string;
+    helper?: string;
 
-  success?: string;
+    error?: string;
 
-  value?: string;
+    success?: string;
 
-  options: Option[];
+    value?: string;
 
-  placeholder?: string;
+    options: EveSelectOption[];
 
-  onChange?: ChangeEventHandler<HTMLSelectElement>;
+    placeholder?: string;
+
+    disabled?: boolean;
+
+    onChange?: (
+
+        value: string,
+
+    ) => void;
+
 }
 
 const EveSelect = ({
-  label,
-  required,
-  helper,
-  error,
-  success,
-  value,
-  options,
-  placeholder = "Selecione...",
-  onChange,
+
+    label,
+
+    required,
+
+    helper,
+
+    error,
+
+    success,
+
+    value = "",
+
+    options,
+
+    placeholder = "Selecione...",
+
+    disabled = false,
+
+    onChange,
+
 }: EveSelectProps) => {
-  return (
-    <FormField
-      label={label}
-      required={required}
-      helper={helper}
-      error={error}
-      success={success}
-    >
-      <div
-        className={`
-                    eve-select-wrapper
-                    ${error ? "has-error" : ""}
-                    ${success ? "has-success" : ""}
-                `}
-      >
-        <select value={value} onChange={onChange}>
-          <option value="">{placeholder}</option>
 
-          {options.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
+    const handleChange = (
 
-        {/* <ChevronDown size={18} className="eve-select-icon" /> */}
-      </div>
-    </FormField>
-  );
+        event: ChangeEvent<HTMLSelectElement>,
+
+    ) => {
+
+        onChange?.(
+
+            event.target.value,
+
+        );
+
+    };
+
+    return (
+
+        <FormField
+
+            label={label}
+
+            required={required}
+
+            helper={helper}
+
+            error={error}
+
+            success={success}
+
+        >
+
+            <div
+
+                className={[
+
+                    "eve-select-wrapper",
+
+                    error && "has-error",
+
+                    success && "has-success",
+
+                ]
+
+                    .filter(Boolean)
+
+                    .join(" ")}
+
+            >
+
+                <select
+
+                    value={value}
+
+                    disabled={disabled}
+
+                    onChange={handleChange}
+
+                >
+
+                    <option value="">
+
+                        {placeholder}
+
+                    </option>
+
+                    {
+
+                        options.map(option => (
+
+                            <option
+
+                                key={option.value}
+
+                                value={option.value}
+
+                            >
+
+                                {option.label}
+
+                            </option>
+
+                        ))
+
+                    }
+
+                </select>
+
+                <ChevronDown
+
+                    size={18}
+
+                    className="eve-select-icon"
+
+                />
+
+            </div>
+
+        </FormField>
+
+    );
+
 };
 
 export default EveSelect;

@@ -1,0 +1,43 @@
+.eve-table-head {
+
+    display: flex;
+
+    align-items: center;
+
+    min-height: 52px;
+
+    font-size: .85rem;
+
+    font-weight: 600;
+
+    color: #64748B;
+
+    text-transform: uppercase;
+
+    letter-spacing: .04em;
+
+}
+
+.eve-table-head-left {
+
+    justify-content: flex-start;
+
+    text-align: left;
+
+}
+
+.eve-table-head-center {
+
+    justify-content: center;
+
+    text-align: center;
+
+}
+
+.eve-table-head-right {
+
+    justify-content: flex-end;
+
+    text-align: right;
+
+}

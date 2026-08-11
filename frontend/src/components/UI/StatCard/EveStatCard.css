@@ -1,71 +1,137 @@
-.eve-stat-card{
+.eve-stat-card {
 
-    background:white;
+    background: #FFFFFF;
 
-    border-radius:24px;
+    border: 1px solid #ECEEF2;
 
-    padding:28px;
+    border-radius: 18px;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.05);
+    padding: 22px;
 
-    transition:.30s;
+    transition: .25s ease;
 
-    cursor:pointer;
+    display: flex;
 
-}
+    flex-direction: column;
 
-.eve-stat-card:hover{
+    gap: 10px;
 
-    transform:translateY(-6px);
-
-    box-shadow:0 20px 45px rgba(0,0,0,.10);
+    box-shadow: 0 4px 16px rgba(15, 23, 42, .04);
 
 }
 
-.stat-icon{
+.eve-stat-card:hover {
 
-    width:56px;
+    transform: translateY(-4px);
 
-    height:56px;
-
-    border-radius:16px;
-
-    background:#F3E8FF;
-
-    color:#6D28D9;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    margin-bottom:22px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, .10);
 
 }
 
-.stat-title{
+.stat-icon {
 
-    color:#6B7280;
+    width: 52px;
 
-    font-size:14px;
+    height: 52px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(109, 40, 217, .10);
+
+    color: #6D28D9;
 
 }
 
-.eve-stat-card h2{
+.stat-title {
 
-    margin:10px 0;
+    margin-top: 4px;
 
-    font-size:36px;
+    font-size: .90rem;
 
-    color:#111827;
+    color: #6B7280;
+
+    font-weight: 500;
 
 }
 
-.eve-stat-card p{
+.stat-value {
 
-    color:#22C55E;
+    margin: 0;
 
-    font-weight:600;
+    font-size: 2rem;
+
+    font-weight: 700;
+
+    color: #111827;
+
+    line-height: 1;
+
+}
+
+.stat-subtitle {
+
+    margin: 0;
+
+    font-size: .88rem;
+
+    color: #6B7280;
+
+    line-height: 1.4;
+
+}
+
+.stat-trend {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    flex-wrap: wrap;
+
+    font-size: .88rem;
+
+}
+
+.stat-trend strong {
+
+    font-size: .92rem;
+
+}
+
+.stat-trend.success {
+
+    color: #22C55E;
+
+}
+
+.stat-trend.danger {
+
+    color: #EF4444;
+
+}
+
+.stat-trend.warning {
+
+    color: #F59E0B;
+
+}
+
+.stat-trend.info {
+
+    color: #3B82F6;
+
+}
+
+.stat-trend span {
+
+    color: #6B7280;
 
 }

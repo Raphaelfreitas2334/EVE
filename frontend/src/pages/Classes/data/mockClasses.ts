@@ -51,7 +51,7 @@ export const mockClasses: ClassModel[] = [
         status: "Encerrada",
     },
     {
-        id: 1,
+        id: 5,
         name: "ADS-1",
         course: "Análise e Desenvolvimento de Sistemas",
         teacher: "Carlos Henrique",
@@ -61,7 +61,7 @@ export const mockClasses: ClassModel[] = [
         status: "Ativa",
     },
     {
-        id: 2,
+        id: 6,
         name: "ADS-2",
         course: "Análise e Desenvolvimento de Sistemas",
         teacher: "Fernanda Souza",
@@ -71,7 +71,7 @@ export const mockClasses: ClassModel[] = [
         status: "Ativa",
     },
     {
-        id: 3,
+        id: 7,
         name: "DS-1",
         course: "Ciência de Dados",
         teacher: "Ricardo Oliveira",
@@ -81,7 +81,7 @@ export const mockClasses: ClassModel[] = [
         status: "Ativa",
     },
     {
-        id: 4,
+        id: 8,
         name: "ADM-1",
         course: "Administração",
         teacher: "Juliana Lima",
@@ -91,7 +91,7 @@ export const mockClasses: ClassModel[] = [
         status: "Encerrada",
     },
     {
-        id: 3,
+        id: 9,
         name: "DS-1",
         course: "Ciência de Dados",
         teacher: "Ricardo Oliveira",
@@ -101,7 +101,7 @@ export const mockClasses: ClassModel[] = [
         status: "Ativa",
     },
     {
-        id: 4,
+        id: 10,
         name: "ADM-1",
         course: "Administração",
         teacher: "Juliana Lima",
@@ -111,7 +111,7 @@ export const mockClasses: ClassModel[] = [
         status: "Encerrada",
     },
     {
-        id: 4,
+        id: 11,
         name: "ADM-1",
         course: "Administração",
         teacher: "Juliana Lima",

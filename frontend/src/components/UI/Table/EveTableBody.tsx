@@ -1,18 +1,39 @@
 import "./EveTableBody.css";
 
-interface EveTableBodyProps {
+import type {
+    HTMLAttributes,
+    ReactNode,
+} from "react";
 
-    children: React.ReactNode;
+interface EveTableBodyProps
+    extends HTMLAttributes<HTMLDivElement> {
+
+    children: ReactNode;
 
 }
 
 const EveTableBody = ({
+
     children,
+
+    className = "",
+
+    ...rest
+
 }: EveTableBodyProps) => {
 
     return (
 
-        <div className="eve-table-body">
+        <div
+
+            className={`
+                eve-table-body
+                ${className}
+            `}
+
+            {...rest}
+
+        >
 
             {children}
 

@@ -1,0 +1,485 @@
+export type AttendanceStatus =
+    | "Excelente"
+    | "Monitorar"
+    | "Atenção"
+    | "Crítico";
+
+export interface AttendanceModel {
+
+    id: number;
+
+    name: string;
+
+    course: string;
+
+    classroom: string;
+
+    teacher: string;
+
+    subject: string;
+
+    attendance: number;
+
+    absences: number;
+
+    frequency: number;
+
+    status: AttendanceStatus;
+
+    date: string;
+
+    period: "Manhã" | "Tarde" | "Noite";
+
+}
+
+export const mockAttendance: AttendanceModel[] = [
+
+    {
+        id: 1,
+        name: "João Pedro Santos",
+        period: "Manhã",
+        course: "Desenvolvimento de Sistemas",
+        classroom: "3º DS",
+        teacher: "Raphael Santos",
+        subject: "Programação Front-End",
+        attendance: 174,
+        absences: 6,
+        frequency: 96.7,
+        status: "Excelente",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 2,
+        name: "Maria Eduarda",
+        period: "Manhã",
+        course: "Desenvolvimento de Sistemas",
+        classroom: "3º DS",
+        teacher: "Raphael Santos",
+        subject: "Programação Front-End",
+        attendance: 167,
+        absences: 13,
+        frequency: 92.8,
+        status: "Excelente",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 3,
+        name: "Carlos Henrique",
+        period: "Manhã",
+        course: "Desenvolvimento de Sistemas",
+        classroom: "2º DS",
+        teacher: "Fernanda Alves",
+        subject: "Banco de Dados",
+        attendance: 154,
+        absences: 26,
+        frequency: 85.6,
+        status: "Monitorar",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 4,
+        name: "Ana Carolina",
+        period: "Manhã",
+        course: "Desenvolvimento de Sistemas",
+        classroom: "2º DS",
+        teacher: "Fernanda Alves",
+        subject: "Banco de Dados",
+        attendance: 171,
+        absences: 9,
+        frequency: 95,
+        status: "Excelente",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 5,
+        name: "Lucas Ferreira",
+        period: "Manhã",
+        course: "Desenvolvimento de Sistemas",
+        classroom: "1º DS",
+        teacher: "Carlos Oliveira",
+        subject: "Algoritmos",
+        attendance: 146,
+        absences: 34,
+        frequency: 81.1,
+        status: "Monitorar",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 6,
+        name: "Beatriz Martins",
+        period: "Manhã",
+        course: "Desenvolvimento de Sistemas",
+        classroom: "1º DS",
+        teacher: "Carlos Oliveira",
+        subject: "Algoritmos",
+        attendance: 133,
+        absences: 47,
+        frequency: 73.9,
+        status: "Atenção",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 7,
+        name: "Gabriel Lima",
+        period: "Tarde",
+        course: "Ciência de Dados",
+        classroom: "3º CD",
+        teacher: "Juliana Lima",
+        subject: "Machine Learning",
+        attendance: 176,
+        absences: 4,
+        frequency: 97.8,
+        status: "Excelente",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 8,
+        name: "Amanda Souza",
+        period: "Tarde",
+        course: "Ciência de Dados",
+        classroom: "3º CD",
+        teacher: "Juliana Lima",
+        subject: "Machine Learning",
+        attendance: 165,
+        absences: 15,
+        frequency: 91.7,
+        status: "Excelente",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 9,
+        name: "Bruno Almeida",
+        period: "Tarde",
+        course: "Ciência de Dados",
+        classroom: "2º CD",
+        teacher: "Eduardo Martins",
+        subject: "Power BI",
+        attendance: 157,
+        absences: 23,
+        frequency: 87.2,
+        status: "Monitorar",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 10,
+        name: "Camila Rocha",
+        period: "Tarde",
+        course: "Ciência de Dados",
+        classroom: "2º CD",
+        teacher: "Eduardo Martins",
+        subject: "Power BI",
+        attendance: 126,
+        absences: 54,
+        frequency: 70,
+        status: "Crítico",
+        date: "31/07/2026",
+    },
+        {
+        id: 11,
+        name: "Daniel Oliveira",
+        period: "Tarde",
+        course: "Ciência de Dados",
+        classroom: "1º CD",
+        teacher: "Mariana Costa",
+        subject: "Análise Exploratória de Dados",
+        attendance: 149,
+        absences: 31,
+        frequency: 82.8,
+        status: "Monitorar",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 12,
+        name: "Fernanda Silva",
+        period: "Tarde",
+        course: "Ciência de Dados",
+        classroom: "1º CD",
+        teacher: "Mariana Costa",
+        subject: "Análise Exploratória de Dados",
+        attendance: 138,
+        absences: 42,
+        frequency: 76.7,
+        status: "Monitorar",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 13,
+        name: "Gustavo Ribeiro",
+        period: "Noite",
+        course: "Administração",
+        classroom: "3º ADM",
+        teacher: "Patrícia Gomes",
+        subject: "Marketing",
+        attendance: 172,
+        absences: 8,
+        frequency: 95.6,
+        status: "Excelente",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 14,
+        name: "Isabela Ferreira",
+        period: "Noite",
+        course: "Administração",
+        classroom: "3º ADM",
+        teacher: "Patrícia Gomes",
+        subject: "Marketing",
+        attendance: 162,
+        absences: 18,
+        frequency: 90,
+        status: "Excelente",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 15,
+        name: "Juliana Martins",
+        period: "Noite",
+        course: "Administração",
+        classroom: "2º ADM",
+        teacher: "Carlos Oliveira",
+        subject: "Gestão Financeira",
+        attendance: 150,
+        absences: 30,
+        frequency: 83.3,
+        status: "Monitorar",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 16,
+        name: "Leonardo Costa",
+        period: "Noite",
+        course: "Administração",
+        classroom: "2º ADM",
+        teacher: "Carlos Oliveira",
+        subject: "Gestão Financeira",
+        attendance: 136,
+        absences: 44,
+        frequency: 75.6,
+        status: "Monitorar",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 17,
+        name: "Marcos Vinícius",
+        period: "Noite",
+        course: "Administração",
+        classroom: "1º ADM",
+        teacher: "André Ferreira",
+        subject: "Empreendedorismo",
+        attendance: 124,
+        absences: 56,
+        frequency: 68.9,
+        status: "Crítico",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 18,
+        name: "Natália Gomes",
+        period: "Noite",
+        course: "Administração",
+        classroom: "1º ADM",
+        teacher: "André Ferreira",
+        subject: "Empreendedorismo",
+        attendance: 144,
+        absences: 36,
+        frequency: 80,
+        status: "Monitorar",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 19,
+        name: "Otávio Souza",
+        period: "Noite",
+        course: "Desenvolvimento de Sistemas",
+        classroom: "3º DS",
+        teacher: "Raphael Santos",
+        subject: "Programação Front-End",
+        attendance: 177,
+        absences: 3,
+        frequency: 98.3,
+        status: "Excelente",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 20,
+        name: "Paula Fernandes",
+        period: "Noite",
+        course: "Ciência de Dados",
+        classroom: "3º CD",
+        teacher: "Juliana Lima",
+        subject: "Machine Learning",
+        attendance: 158,
+        absences: 22,
+        frequency: 87.8,
+        status: "Monitorar",
+        date: "31/07/2026",
+    },
+        {
+        id: 21,
+        name: "Rafael Almeida",
+        period: "Noite",
+        course: "Desenvolvimento de Sistemas",
+        classroom: "2º DS",
+        teacher: "Fernanda Alves",
+        subject: "Banco de Dados",
+        attendance: 175,
+        absences: 5,
+        frequency: 97.2,
+        status: "Excelente",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 22,
+        name: "Sara Oliveira",
+        period: "Noite",
+        course: "Desenvolvimento de Sistemas",
+        classroom: "1º DS",
+        teacher: "Carlos Oliveira",
+        subject: "Algoritmos",
+        attendance: 152,
+        absences: 28,
+        frequency: 84.4,
+        status: "Monitorar",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 23,
+        name: "Thiago Martins",
+        period: "Noite",
+        course: "Ciência de Dados",
+        classroom: "2º CD",
+        teacher: "Eduardo Martins",
+        subject: "Power BI",
+        attendance: 132,
+        absences: 48,
+        frequency: 73.3,
+        status: "Atenção",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 24,
+        name: "Vanessa Lima",
+        period: "Noite",
+        course: "Ciência de Dados",
+        classroom: "1º CD",
+        teacher: "Mariana Costa",
+        subject: "Análise Exploratória de Dados",
+        attendance: 170,
+        absences: 10,
+        frequency: 94.4,
+        status: "Excelente",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 25,
+        name: "William Santos",
+        period: "Noite",
+        course: "Administração",
+        classroom: "3º ADM",
+        teacher: "Patrícia Gomes",
+        subject: "Marketing",
+        attendance: 155,
+        absences: 25,
+        frequency: 86.1,
+        status: "Monitorar",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 26,
+        name: "Yasmin Ferreira",
+        period: "Noite",
+        course: "Administração",
+        classroom: "2º ADM",
+        teacher: "Carlos Oliveira",
+        subject: "Gestão Financeira",
+        attendance: 121,
+        absences: 59,
+        frequency: 67.2,
+        status: "Crítico",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 27,
+        name: "Arthur Gomes",
+        period: "Noite",
+        course: "Desenvolvimento de Sistemas",
+        classroom: "3º DS",
+        teacher: "Raphael Santos",
+        subject: "Programação Front-End",
+        attendance: 166,
+        absences: 14,
+        frequency: 92.2,
+        status: "Excelente",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 28,
+        name: "Bianca Rodrigues",
+        period: "Noite",
+        course: "Ciência de Dados",
+        classroom: "3º CD",
+        teacher: "Juliana Lima",
+        subject: "Machine Learning",
+        attendance: 148,
+        absences: 32,
+        frequency: 82.2,
+        status: "Monitorar",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 29,
+        name: "Caio Henrique",
+        period: "Noite",
+        course: "Administração",
+        classroom: "1º ADM",
+        teacher: "André Ferreira",
+        subject: "Empreendedorismo",
+        attendance: 141,
+        absences: 39,
+        frequency: 78.3,
+        status: "Monitorar",
+        date: "31/07/2026",
+    },
+
+    {
+        id: 30,
+        name: "Eduarda Costa",
+        period: "Noite",
+        course: "Desenvolvimento de Sistemas",
+        classroom: "2º DS",
+        teacher: "Fernanda Alves",
+        subject: "Banco de Dados",
+        attendance: 118,
+        absences: 62,
+        frequency: 65.6,
+        status: "Crítico",
+        date: "31/07/2026",
+    }
+
+];

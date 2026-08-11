@@ -1,186 +1,119 @@
-.eve-select {
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 6px;
-}
-
-.eve-select label {
-  font-size: 13px;
-
-  color: var(--text-secondary);
-
-  font-weight: 500;
-}
-
 .eve-select-wrapper {
-  position: relative;
+
+    position: relative;
+
+    width: 100%;
+
 }
 
-.eve-select select {
-  width: 100%;
+.eve-select-wrapper select {
 
-  height: 48px;
+    width: 100%;
 
-  padding: 0 42px 0 16px;
+    height: 48px;
 
-  border: 1px solid var(--border);
+    padding: 0 44px 0 16px;
 
-  border-radius: 12px;
+    border: 1px solid #E5E7EB;
 
-  background: var(--card);
+    border-radius: 12px;
 
-  color: var(--text);
+    background: #FFFFFF;
 
-  font-size: 15px;
+    color: #111827;
 
-  appearance: none;
+    font-size: .95rem;
 
-  outline: none;
+    font-weight: 500;
 
-  transition: 0.25s;
+    appearance: none;
 
-  cursor: pointer;
+    cursor: pointer;
+
+    outline: none;
+
+    transition: all .25s ease;
+
 }
 
-.eve-select select:focus {
-  border-color: var(--primary);
+.eve-select-wrapper select:hover {
 
-  box-shadow: 0 0 0 4px rgba(109, 40, 217, 0.08);
+    border-color: #C4B5FD;
+
+    background: #FAFAFF;
+
+}
+
+.eve-select-wrapper select:focus {
+
+    border-color: #6D28D9;
+
+    box-shadow: 0 0 0 4px rgba(109,40,217,.12);
+
 }
 
 .eve-select-icon {
-  position: absolute;
 
-  right: 14px;
+    position: absolute;
 
-  top: 50%;
+    right: 16px;
 
-  transform: translateY(-50%);
+    top: 50%;
 
-  pointer-events: none;
+    transform: translateY(-50%);
 
-  color: #94a3b8;
+    color: #6D28D9;
+
+    pointer-events: none;
+
+    transition: transform .25s ease;
+
 }
 
-/* ==========================================================
-   Label
-========================================================== */
+.eve-select-wrapper:focus-within .eve-select-icon {
 
-.eve-select-label {
-  display: inline-flex;
+    transform: translateY(-50%) rotate(180deg);
 
-  align-items: center;
-
-  gap: 0.25rem;
-
-  margin-bottom: 0.5rem;
-
-  font-size: 0.9rem;
-
-  font-weight: 600;
-
-  color: var(--text);
 }
 
-/* ==========================================================
-   Campo obrigatório
-========================================================== */
+.eve-select-wrapper.has-error select {
 
-.required {
-  color: var(--danger);
+    border-color: #EF4444;
 
-  font-weight: 700;
 }
 
-/* ==========================================================
-   Estados
-========================================================== */
+.eve-select-wrapper.has-success select {
 
-.eve-select-wrapper {
-  position: relative;
+    border-color: #22C55E;
 
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    transform 0.2s ease;
 }
-
-.eve-select-wrapper.has-error {
-  border-color: var(--danger);
-}
-
-.eve-select-wrapper.has-success {
-  border-color: var(--success);
-}
-
-.eve-select-wrapper:focus-within {
-  transform: translateY(-1px);
-
-  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
-}
-
-/* ==========================================================
-   Helper
-========================================================== */
 
 .eve-select-helper {
-  display: block;
 
-  margin-top: 0.45rem;
+    margin-top: 6px;
 
-  font-size: 0.82rem;
+    font-size: .82rem;
 
-  color: var(--text-secondary);
+    color: #6B7280;
+
 }
-
-/* ==========================================================
-   Error
-========================================================== */
 
 .eve-select-error {
-  display: block;
 
-  margin-top: 0.45rem;
+    margin-top: 6px;
 
-  font-size: 0.82rem;
+    font-size: .82rem;
 
-  color: var(--danger);
+    color: #EF4444;
 
-  animation: fadeIn 0.18s ease;
 }
-
-/* ==========================================================
-   Success
-========================================================== */
 
 .eve-select-success {
-  display: block;
 
-  margin-top: 0.45rem;
+    margin-top: 6px;
 
-  font-size: 0.82rem;
+    font-size: .82rem;
 
-  color: var(--success);
+    color: #22C55E;
 
-  animation: fadeIn 0.18s ease;
-}
-
-/* ==========================================================
-   Animation
-========================================================== */
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-
-    transform: translateY(-4px);
-  }
-
-  to {
-    opacity: 1;
-
-    transform: translateY(0);
-  }
 }

@@ -4,24 +4,35 @@ import type { ReactNode } from "react";
 
 interface EveStatCardProps {
 
-    title:string;
+    title: string;
 
-    value:string;
+    value: string;
 
-    subtitle:string;
+    icon: ReactNode;
 
-    icon:ReactNode;
+    subtitle?: ReactNode;
+
+    trend?: {
+
+        value: string;
+
+        description: string;
+
+        color?: "success" | "danger" | "warning" | "info";
+
+    };
 
 }
 
 const EveStatCard = ({
     title,
     value,
+    icon,
     subtitle,
-    icon
-}:EveStatCardProps)=>{
+    trend,
+}: EveStatCardProps) => {
 
-    return(
+    return (
 
         <article className="eve-stat-card">
 
@@ -37,17 +48,41 @@ const EveStatCard = ({
 
             </span>
 
-            <h2>
+            <h2 className="stat-value">
 
                 {value}
 
             </h2>
 
-            <p>
+            {trend ? (
 
-                {subtitle}
+                <div
+                    className={`stat-trend ${trend.color ?? "success"}`}
+                >
 
-            </p>
+                    <strong>
+
+                        {trend.value}
+
+                    </strong>
+
+                    <span>
+
+                        {trend.description}
+
+                    </span>
+
+                </div>
+
+            ) : subtitle ? (
+
+                <p className="stat-subtitle">
+
+                    {subtitle}
+
+                </p>
+
+            ) : null}
 
         </article>
 

@@ -1,39 +1,44 @@
-.eve-button{
+.eve-button {
 
-    width:100%;
+    width: 100%;
 
-    height:58px;
+    height: 58px;
 
-    border:none;
+    border: none;
 
-    border-radius:16px;
+    border-radius: 16px;
 
-    cursor:pointer;
+    cursor: pointer;
 
-    font-size:16px;
+    font-size: 16px;
 
-    font-weight:600;
+    font-weight: 600;
 
-    transition:.30s;
+    transition: .30s;
 
-    display:flex;
+    display: inline-flex;
 
-    justify-content:center;
+    justify-content: center;
 
-    align-items:center;
+    align-items: center;
 
-    overflow:hidden;
+    gap: 10px;
 
-    position:relative;
+    overflow: hidden;
+
+    position: relative;
+
+    white-space: nowrap;
+
 }
 
 /* ================= PRIMARY ================= */
 
-.eve-button-primary{
+.eve-button-primary {
 
-    color:white;
+    color: white;
 
-    background:linear-gradient(
+    background: linear-gradient(
         135deg,
         #7C3AED,
         #6D28D9,
@@ -42,69 +47,196 @@
 
     box-shadow:
         0 12px 35px rgba(109,40,217,.35);
+
 }
 
-.eve-button-primary:hover{
+.eve-button-primary:hover {
 
-    transform:translateY(-3px);
+    transform: translateY(-3px);
 
     box-shadow:
         0 20px 45px rgba(109,40,217,.45);
+
 }
 
-.eve-button-primary:active{
+.eve-button-primary:active {
 
-    transform:scale(.98);
+    transform: scale(.98);
+
 }
 
 /* ================= SECONDARY ================= */
 
-.eve-button-secondary{
+.eve-button-secondary {
 
-    background:#EEF2FF;
+    background: #EEF2FF;
 
-    color:#6D28D9;
+    color: #6D28D9;
+
 }
 
 /* ================= SUCCESS ================= */
 
-.eve-button-success{
+.eve-button-success {
 
-    background:#16A34A;
+    background: #16A34A;
 
-    color:white;
+    color: white;
+
 }
 
 /* ================= DANGER ================= */
 
-.eve-button-danger{
+.eve-button-danger {
 
-    background:#DC2626;
+    background: #DC2626;
 
-    color:white;
+    color: white;
+
 }
 
 /* ================= OUTLINE ================= */
 
-.eve-button-outline{
+.eve-button-outline {
 
-    background:white;
+    background: white;
 
-    color:#6D28D9;
+    color: #6D28D9;
 
-    border:2px solid #6D28D9;
+    border: 2px solid #6D28D9;
+
 }
 
-.button-arrow{
+/* ================= SIZES ================= */
 
-    margin-left:12px;
+.eve-button-sm {
 
-    transition:.3s;
+    height: 38px;
 
-    font-size:18px;
+    padding: 0 14px;
+
+    font-size: .85rem;
+
+    border-radius: 12px;
+
 }
 
-.eve-button-primary:hover .button-arrow{
+.eve-button-md {
 
-    transform:translateX(5px);
+    height: 46px;
+
+    padding: 0 18px;
+
+}
+
+.eve-button-lg {
+
+    height: 58px;
+
+    padding: 0 24px;
+
+}
+
+/* ================= WIDTH ================= */
+
+.eve-button-full {
+
+    width: 100%;
+
+}
+
+/* ================= ICON ================= */
+
+.eve-button-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    line-height: 1;
+
+}
+
+.eve-button-text {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+/* ================= LOADING ================= */
+
+.eve-button-spinner {
+
+    width: 18px;
+
+    height: 18px;
+
+    border: 2px solid rgba(255,255,255,.35);
+
+    border-top-color: currentColor;
+
+    border-radius: 50%;
+
+    animation: eve-button-spin .8s linear infinite;
+
+}
+
+@keyframes eve-button-spin {
+
+    to {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+/* ================= DISABLED ================= */
+
+.eve-button:disabled {
+
+    opacity: .6;
+
+    cursor: not-allowed;
+
+    transform: none !important;
+
+    box-shadow: none !important;
+
+}
+
+/* ================= PRIMARY ARROW ================= */
+
+.button-arrow {
+
+    transition: .3s;
+
+    font-size: 18px;
+
+}
+
+.eve-button-primary:hover .button-arrow {
+
+    transform: translateX(5px);
+
+}
+
+/* ================= RESPONSIVO ================= */
+
+@media (max-width: 768px) {
+
+    .eve-button {
+
+        width: 100%;
+
+    }
+
 }

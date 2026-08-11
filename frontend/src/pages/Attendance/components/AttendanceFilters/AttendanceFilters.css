@@ -1,0 +1,65 @@
+.attendance-filters {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+}
+
+.attendance-filters-left {
+
+    flex: 1;
+
+    min-width: 260px;
+
+}
+
+.attendance-filters-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+}
+
+.attendance-filters-right>* {
+
+    flex-shrink: 0;
+
+}
+
+@media (max-width: 992px) {
+
+    .attendance-filters {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+    .attendance-filters-left {
+
+        width: 100%;
+
+    }
+
+    .attendance-filters-right {
+
+        width: 100%;
+
+        justify-content: flex-start;
+
+    }
+
+}

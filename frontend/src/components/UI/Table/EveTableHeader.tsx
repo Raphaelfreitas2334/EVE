@@ -1,25 +1,68 @@
-import "./EveTableHeader.css";
+import "./EveTableHead.css";
 
-interface EveTableHeaderProps {
+import type {
+    CSSProperties,
+    HTMLAttributes,
+    ReactNode,
+} from "react";
 
-    children: React.ReactNode;
+interface EveTableHeadProps
+    extends HTMLAttributes<HTMLDivElement> {
+
+    children: ReactNode;
+
+    align?: "left" | "center" | "right";
+
+    width?: string | number;
 
 }
 
-const EveTableHeader = ({
+const EveTableHead = ({
+
     children,
-}: EveTableHeaderProps) => {
+
+    align = "left",
+
+    width,
+
+    className = "",
+
+    style,
+
+    ...rest
+
+}: EveTableHeadProps) => {
+
+    const mergedStyle: CSSProperties = {
+
+        width,
+
+        ...style,
+
+    };
 
     return (
 
-        <header className="eve-table-header">
+        <div
+
+            className={`
+                eve-table-head
+                eve-table-head-${align}
+                ${className}
+            `}
+
+            style={mergedStyle}
+
+            {...rest}
+
+        >
 
             {children}
 
-        </header>
+        </div>
 
     );
 
 };
 
-export default EveTableHeader;
+export default EveTableHead;

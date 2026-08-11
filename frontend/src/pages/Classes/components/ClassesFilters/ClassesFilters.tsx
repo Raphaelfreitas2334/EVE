@@ -103,7 +103,10 @@ const ClassesFilters = ({
 
             </div>
 
-            <EveButton>
+            <EveButton  style={{
+                width: "180px",
+                height: "48px",
+            }}>
 
                 <Plus size={18} />
 
