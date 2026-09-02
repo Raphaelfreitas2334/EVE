@@ -1,0 +1,301 @@
+.eve-table-toolbar {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    width: 100%;
+
+    min-height: 64px;
+
+    padding:
+        0 20px;
+
+    box-sizing: border-box;
+
+    background:
+        var(
+            --eve-table-surface,
+            #1B1827
+        );
+
+    color:
+        var(
+            --eve-table-text,
+            #F8FAFC
+        );
+
+    border-bottom:
+        1px solid
+        var(
+            --eve-table-border,
+            rgba(255, 255, 255, .12)
+        );
+}
+
+
+/* ==========================================================
+   TÍTULO
+========================================================== */
+
+.eve-table-toolbar-title {
+
+    min-width: 0;
+
+    color:
+        var(
+            --eve-table-text,
+            #F8FAFC
+        );
+
+    font-size:
+        1.05rem;
+
+    font-weight:
+        650;
+
+    line-height:
+        1.2;
+
+    white-space:
+        nowrap;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+}
+
+
+/* ==========================================================
+   CONTEÚDO
+========================================================== */
+
+.eve-table-toolbar-content {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    min-width: 0;
+
+    margin-left: auto;
+}
+
+
+/* ==========================================================
+   AÇÕES
+========================================================== */
+
+.eve-table-toolbar-actions {
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+/* ==========================================================
+   WRAPPER
+========================================================== */
+
+.eve-table-toolbar-action-wrapper {
+
+    display: flex;
+
+    align-items: center;
+
+    height: 34px;
+}
+
+
+/* ==========================================================
+   DIVISOR
+========================================================== */
+
+.eve-table-toolbar-divider {
+
+    display: block;
+
+    width: 1px;
+
+    height: 24px;
+
+    margin:
+        0 8px;
+
+    background:
+        var(
+            --eve-table-border,
+            rgba(255, 255, 255, .12)
+        );
+}
+
+
+/* ==========================================================
+   BOTÃO
+========================================================== */
+
+.eve-table-toolbar-action {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 36px;
+
+    height: 34px;
+
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 6px;
+
+    background: transparent;
+
+    color:
+        var(
+            --eve-table-muted,
+            #94A3B8
+        );
+
+    cursor: pointer;
+
+    transition:
+        background .18s ease,
+        color .18s ease,
+        transform .18s ease;
+}
+
+
+/* ==========================================================
+   HOVER
+========================================================== */
+
+.eve-table-toolbar-action:hover:not(:disabled) {
+
+    background:
+        var(
+            --eve-table-primary-soft,
+            rgba(139, 92, 246, .10)
+        );
+
+    color:
+        var(
+            --eve-table-primary,
+            #A78BFA
+        );
+}
+
+
+/* ==========================================================
+   ATIVO
+========================================================== */
+
+.eve-table-toolbar-action-active {
+    background:
+        var(
+            --eve-table-primary-soft,
+            rgba(139, 92, 246, 0.14)
+        );
+
+    color:
+        var(
+            --eve-table-primary,
+            #A78BFA
+        );
+}
+
+
+/* ==========================================================
+   CLICK
+========================================================== */
+
+.eve-table-toolbar-action:active:not(:disabled) {
+
+    transform:
+        scale(.94);
+}
+
+
+/* ==========================================================
+   DESABILITADO
+========================================================== */
+
+.eve-table-toolbar-action:disabled {
+
+    opacity:
+        .35;
+
+    cursor:
+        not-allowed;
+}
+
+
+/* ==========================================================
+   FOCO
+========================================================== */
+
+.eve-table-toolbar-action:focus-visible {
+
+    outline:
+        2px solid
+        var(
+            --eve-table-primary,
+            #8B5CF6
+        );
+
+    outline-offset:
+        2px;
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 640px) {
+
+    .eve-table-toolbar {
+
+        min-height:
+            58px;
+
+        padding:
+            0 12px;
+
+    }
+
+
+    .eve-table-toolbar-title {
+
+        font-size:
+            .95rem;
+
+    }
+
+
+    .eve-table-toolbar-action {
+
+        width:
+            32px;
+
+    }
+
+
+    .eve-table-toolbar-divider {
+
+        margin:
+            0 4px;
+
+    }
+
+}

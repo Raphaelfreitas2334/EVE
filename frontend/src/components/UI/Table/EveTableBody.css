@@ -1,7 +1,12 @@
-.eve-table-body{
+.eve-table-body {
+    display: flex 1fr;
+    flex-direction: column;
 
-    display:flex;
+    min-width: max-content;
 
-    flex-direction:column;
-
+    background: var(
+        --eve-table-bg,
+        #15131F
+    );
+    
 }

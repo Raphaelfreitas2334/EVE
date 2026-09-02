@@ -1,7 +1,6 @@
-import "./AttendanceFilters.css";
+import "./GradesFilters.css";
 
 import {
-    CalendarDays,
     RotateCcw,
 } from "lucide-react";
 
@@ -9,7 +8,7 @@ import EveButton from "../../../../components/UI/Button";
 import EveSearch from "../../../../components/UI/Search";
 import EveSelect from "../../../../components/UI/Select";
 
-interface AttendanceFiltersProps {
+interface GradesFiltersProps {
 
     filters: {
 
@@ -57,7 +56,7 @@ interface AttendanceFiltersProps {
 
 }
 
-const AttendanceFilters = ({
+const GradesFilters = ({
 
     filters,
 
@@ -73,17 +72,17 @@ const AttendanceFilters = ({
 
     onClearFilters,
 
-}: AttendanceFiltersProps) => {
+}: GradesFiltersProps) => {
 
     return (
 
-        <section className="attendance-filters">
+        <section className="grades-filters">
 
             {/* ==========================================================
                 PESQUISA
             ========================================================== */}
 
-            <div className="attendance-filters-left">
+            <div className="grades-filters-left">
 
                 <EveSearch
 
@@ -102,7 +101,7 @@ const AttendanceFilters = ({
                 FILTROS
             ========================================================== */}
 
-            <div className="attendance-filters-right">
+            <div className="grades-filters-right">
 
                 {/* ======================================================
                     CURSO
@@ -285,4 +284,4 @@ const AttendanceFilters = ({
 
 };
 
-export default AttendanceFilters;
+export default GradesFilters;

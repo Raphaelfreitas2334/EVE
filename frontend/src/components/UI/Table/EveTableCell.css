@@ -1,37 +1,33 @@
 .eve-table-cell {
-
     display: flex;
-
     align-items: center;
 
-    min-height: 56px;
+    min-height: 52px;
+    min-width: 0;
 
-    color: #1E293B;
+    padding: 0 4px;
 
-    font-size: .92rem;
+    color: var(
+        --eve-table-text,
+        #F8FAFC
+    );
 
+    font-size: .9rem;
+
+    line-height: 1.35;
 }
 
 .eve-table-cell-left {
-
     justify-content: flex-start;
-
     text-align: left;
-
 }
 
 .eve-table-cell-center {
-
     justify-content: center;
-
     text-align: center;
-
 }
 
 .eve-table-cell-right {
-
     justify-content: flex-end;
-
     text-align: right;
-
 }

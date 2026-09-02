@@ -22,11 +22,8 @@ export interface EveDataTableColumn<T = EveDataTableRow> {
     sortable?: boolean;
 
     render?: (
-
         row: T,
-
         rowIndex: number,
-
     ) => ReactNode;
 
 }
@@ -46,11 +43,8 @@ export interface EveDataTableProps<T = EveDataTableRow> {
     loading?: boolean;
 
     actions?: (
-
         row: T,
-
         rowIndex: number,
-
     ) => ReactNode;
 
     actionsTitle?: ReactNode;

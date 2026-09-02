@@ -9,3 +9,6 @@ export { default as EveTableRow } from "./EveTableRow";
 export { default as EveTableHead } from "./EveTableHead";
 
 export { default as EveTableCell } from "./EveTableCell";
+
+export { default as EveTableToolbar } from "./EveTableToolbar";
+

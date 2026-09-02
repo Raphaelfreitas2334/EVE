@@ -1,11 +1,24 @@
 import "./EveDataTable.css";
 
 import {
+    Columns3,
+    Download,
+    ListFilter,
+    PanelsTopLeft,
+    Redo2,
+    Search,
+    Undo2,
+} from "lucide-react";
+
+import {
+    useEffect,
     useMemo,
+    useState,
     type ReactNode,
 } from "react";
 
 import EmptyState from "../EmptyState";
+
 import TablePagination from "../TablePagination";
 
 import EveTable, {
@@ -14,6 +27,7 @@ import EveTable, {
     EveTableHead,
     EveTableHeader,
     EveTableRow,
+    EveTableToolbar,
 } from "../Table";
 
 import type {
@@ -21,7 +35,14 @@ import type {
     EveDataTableProps,
 } from "./types";
 
-const EveDataTable = <T extends object>({
+
+/* ================================================================
+   COMPONENT
+================================================================ */
+
+const EveDataTable = <
+    T extends object
+>({
 
     rowKey = "id",
 
@@ -41,9 +62,11 @@ const EveDataTable = <T extends object>({
 
     actionsWidth = "120px",
 
-    emptyTitle = "Nenhum registro encontrado",
+    emptyTitle =
+        "Nenhum registro encontrado",
 
-    emptyDescription = "Não existem registros para exibir.",
+    emptyDescription =
+        "Não existem registros para exibir.",
 
     emptyIcon,
 
@@ -51,119 +74,359 @@ const EveDataTable = <T extends object>({
 
 }: EveDataTableProps<T>) => {
 
-    /*
-    |--------------------------------------------------------------------------
-    | Colunas visíveis
-    |--------------------------------------------------------------------------
-    */
 
-    const visibleColumns = useMemo(
+    /* ============================================================
+       COLUNAS INICIAIS
+    ============================================================ */
 
-        () =>
+    const initialVisibleColumnKeys =
+        useMemo(
 
-            columns.filter(
+            () =>
+                columns
+                    .filter(
+                        column =>
+                            !column.hidden,
+                    )
+                    .map(
+                        column =>
+                            String(
+                                column.key,
+                            ),
+                    ),
 
-                column => !column.hidden,
+            [columns],
 
-            ),
+        );
 
-        [columns],
 
+    /* ============================================================
+       COLUNAS VISÍVEIS
+    ============================================================ */
+
+    const [
+        visibleColumnKeys,
+        setVisibleColumnKeys,
+    ] = useState<string[]>(
+        initialVisibleColumnKeys,
     );
 
-    /*
-    |--------------------------------------------------------------------------
-    | Colunas finais
-    |--------------------------------------------------------------------------
-    */
 
-    const finalColumns = useMemo<
+    /* ============================================================
+       SINCRONIZAÇÃO
+    ============================================================ */
 
-        EveDataTableColumn<T>[]
+    useEffect(() => {
 
-    >(() => {
+        setVisibleColumnKeys(
+            initialVisibleColumnKeys,
+        );
 
-        if (!actions) {
+    }, [
+        initialVisibleColumnKeys,
+    ]);
 
-            return visibleColumns;
 
-        }
+    /* ============================================================
+       FILTRO DAS COLUNAS
+    ============================================================ */
 
-        return [
+    const visibleColumns =
+        useMemo(
 
-            ...visibleColumns,
+            () =>
+                columns.filter(
+                    column =>
+                        visibleColumnKeys.includes(
+                            String(
+                                column.key,
+                            ),
+                        ),
+                ),
 
-            {
+            [
+                columns,
+                visibleColumnKeys,
+            ],
 
-                key: "__actions",
+        );
 
-                title: actionsTitle,
 
-                width: actionsWidth,
+    /* ============================================================
+       COLUNAS FINAIS
+    ============================================================ */
 
-                align: "center",
+    const finalColumns =
+        useMemo<
+            EveDataTableColumn<T>[]
+        >(
+
+            () => {
+
+                if (!actions) {
+
+                    return visibleColumns;
+
+                }
+
+
+                return [
+
+                    ...visibleColumns,
+
+                    {
+
+                        key:
+                            "__actions",
+
+                        title:
+                            actionsTitle,
+
+                        width:
+                            actionsWidth,
+
+                        align:
+                            "center",
+
+                    },
+
+                ];
 
             },
 
-        ];
+            [
+                visibleColumns,
 
-    }, [
+                actions,
 
-        visibleColumns,
+                actionsTitle,
 
-        actions,
+                actionsWidth,
+            ],
 
-        actionsTitle,
+        );
 
-        actionsWidth,
 
-    ]);
+    /* ============================================================
+       GRID
+    ============================================================ */
 
-    /*
-    |--------------------------------------------------------------------------
-    | Grid
-    |--------------------------------------------------------------------------
-    */
+    const gridTemplateColumns =
+        useMemo(
 
-    const gridTemplateColumns = useMemo(
+            () =>
 
-        () =>
+                finalColumns
+                    .map(
+                        column =>
+                            column.width ??
+                            "minmax(0, 1fr)",
+                    )
+                    .join(" "),
 
-            finalColumns
+            [
+                finalColumns,
+            ],
 
-                .map(
+        );
 
+
+    /* ============================================================
+       TOGGLE COLUNA
+    ============================================================ */
+
+    const handleToggleColumn = (
+        key: string,
+    ) => {
+
+        setVisibleColumnKeys(
+            current => {
+
+                if (
+                    current.includes(key)
+                ) {
+
+                    return current.filter(
+                        item =>
+                            item !== key,
+                    );
+
+                }
+
+
+                return [
+
+                    ...current,
+
+                    key,
+
+                ];
+
+            },
+        );
+
+    };
+
+
+    /* ============================================================
+       TOGGLE TODAS
+    ============================================================ */
+
+    const handleToggleAllColumns =
+        () => {
+
+            const selectableKeys =
+                columns.map(
                     column =>
+                        String(
+                            column.key,
+                        ),
+                );
 
-                        column.width ?? "minmax(0, 1fr)",
 
-                )
+            const allVisible =
+                selectableKeys.length > 0 &&
+                selectableKeys.every(
+                    key =>
+                        visibleColumnKeys.includes(
+                            key,
+                        ),
+                );
 
-                .join(" "),
 
-        [finalColumns],
+            if (allVisible) {
 
-    );
+                setVisibleColumnKeys(
+                    [],
+                );
 
-    /*
-    |--------------------------------------------------------------------------
-    | Loading
-    |--------------------------------------------------------------------------
-    */
+                return;
+
+            }
+
+
+            setVisibleColumnKeys(
+                selectableKeys,
+            );
+
+        };
+
+
+    /* ============================================================
+       RESET
+    ============================================================ */
+
+    const handleResetColumns =
+        () => {
+
+            setVisibleColumnKeys(
+                initialVisibleColumnKeys,
+            );
+
+        };
+
+
+    /* ============================================================
+       TOOLBAR ACTIONS
+    ============================================================ */
+
+    const toolbarActions = [
+
+        {
+            icon: Undo2,
+
+            label: "Desfazer",
+
+            disabled: true,
+        },
+
+        {
+            icon: Redo2,
+
+            label: "Refazer",
+
+            disabled: true,
+        },
+
+        {
+            icon: Columns3,
+
+            label: "Colunas",
+
+            active: false,
+        },
+
+        {
+            icon: ListFilter,
+
+            label: "Filtros",
+
+            disabled: true,
+        },
+
+        {
+            icon: PanelsTopLeft,
+
+            label: "Agrupamento",
+
+            dividerBefore: true,
+
+            disabled: true,
+        },
+
+        {
+            icon: Download,
+
+            label: "Exportar",
+
+            dividerBefore: true,
+
+            disabled: true,
+        },
+
+        {
+            icon: Search,
+
+            label: "Pesquisar",
+
+            dividerBefore: true,
+
+            disabled: true,
+        },
+
+    ];
+
+
+    /* ============================================================
+       LOADING
+    ============================================================ */
 
     if (loading) {
 
         return (
 
-            <div className="eve-data-table">
+            <div
+                className="eve-data-table"
+            >
 
                 <EveTable>
+
+                    <EveTableToolbar
+                        title="Data Grid Premium"
+
+                        actions={
+                            toolbarActions
+                        }
+                    />
 
                     <EmptyState
 
                         title="Carregando..."
 
-                        description="Aguarde enquanto carregamos os dados."
+                        description="
+                            Aguarde enquanto carregamos
+                            os dados.
+                        "
 
                     />
 
@@ -175,67 +438,99 @@ const EveDataTable = <T extends object>({
 
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | Tabela
-    |--------------------------------------------------------------------------
-    */
+
+    /* ============================================================
+       TABELA
+    ============================================================ */
 
     return (
 
-        <div className="eve-data-table">
+        <div
+            className="eve-data-table"
+        >
 
             <EveTable>
 
-                {/* ==========================================================
+
+                {/* ==================================================
+                    TOOLBAR
+                ================================================== */}
+
+                <EveTableToolbar
+                    title="Data Grid Premium"
+
+                    actions={
+                        toolbarActions
+                    }
+
+                    columns={
+                        columns
+                    }
+
+                    visibleKeys={
+                        visibleColumnKeys
+                    }
+
+                    onToggleColumn={
+                        handleToggleColumn
+                    }
+
+                    onToggleAll={
+                        handleToggleAllColumns
+                    }
+
+                    onResetColumns={
+                        handleResetColumns
+                    }
+                />
+
+
+                {/* ==================================================
                     HEADER
-                ========================================================== */}
+                ================================================== */}
 
                 <EveTableHeader>
 
                     <EveTableRow
-
                         hover={false}
 
-                        columns={gridTemplateColumns}
-
+                        columns={
+                            gridTemplateColumns
+                        }
                     >
 
                         {finalColumns.map(
-
                             column => (
 
                                 <EveTableHead
-
-                                    key={String(
-
-                                        column.key,
-
-                                    )}
-
-                                    align={
-
-                                        column.align
-
+                                    key={
+                                        String(
+                                            column.key,
+                                        )
                                     }
 
+                                    align={
+                                        column.align
+                                    }
                                 >
 
-                                    {column.title}
+                                    {
+                                        column.title
+                                    }
 
                                 </EveTableHead>
 
                             ),
-
                         )}
 
                     </EveTableRow>
 
                 </EveTableHeader>
 
-                {/* ==========================================================
+
+                {/* ==================================================
                     BODY
-                ========================================================== */}
+                ================================================== */}
 
                 <EveTableBody>
 
@@ -243,130 +538,121 @@ const EveDataTable = <T extends object>({
 
                         <EmptyState
 
-                            icon={emptyIcon}
-
-                            title={emptyTitle}
-
-                            description={
-
-                                emptyDescription
-
+                            icon={
+                                emptyIcon
                             }
 
-                            action={emptyAction}
+                            title={
+                                emptyTitle
+                            }
+
+                            description={
+                                emptyDescription
+                            }
+
+                            action={
+                                emptyAction
+                            }
 
                         />
 
                     ) : (
 
                         rows.map(
-
-                            (row, index) => {
+                            (
+                                row,
+                                index,
+                            ) => {
 
                                 const record =
-
                                     row as Record<
-
                                         string,
-
                                         unknown
-
                                     >;
 
+
                                 const key =
-
                                     record[
-
                                         String(
-
                                             rowKey,
-
                                         )
-
                                     ] ??
-
                                     index;
+
 
                                 return (
 
                                     <EveTableRow
 
-                                        key={String(key)}
+                                        key={
+                                            String(
+                                                key,
+                                            )
+                                        }
 
-                                        hover={hoverRows}
+                                        hover={
+                                            hoverRows
+                                        }
 
                                         columns={
-
                                             gridTemplateColumns
-
                                         }
 
                                     >
 
                                         {finalColumns.map(
-
                                             column => {
 
                                                 const value =
-
                                                     record[
-
                                                         String(
-
                                                             column.key,
-
                                                         )
-
                                                     ];
+
 
                                                 return (
 
                                                     <EveTableCell
 
-                                                        key={String(
-
-                                                            column.key,
-
-                                                        )}
+                                                        key={
+                                                            String(
+                                                                column.key,
+                                                            )
+                                                        }
 
                                                         align={
-
                                                             column.align
-
                                                         }
 
                                                     >
 
-                                                        {column.key ===
+                                                        {
+                                                            column.key ===
+                                                            "__actions"
 
-                                                        "__actions"
-
-                                                            ? actions?.(
-
-                                                                  row,
-
-                                                                  index,
-
-                                                              )
-
-                                                            : column.render
-
-                                                              ? column.render(
-
+                                                                ? actions?.(
                                                                     row,
-
                                                                     index,
-
                                                                 )
 
-                                                              : (value as ReactNode)}
+                                                                : column.render
+
+                                                                    ? column.render(
+                                                                        row,
+                                                                        index,
+                                                                    )
+
+                                                                    : (
+                                                                        value as ReactNode
+                                                                    )
+                                                        }
 
                                                     </EveTableCell>
 
                                                 );
 
                                             },
-
                                         )}
 
                                     </EveTableRow>
@@ -374,33 +660,40 @@ const EveDataTable = <T extends object>({
                                 );
 
                             },
-
                         )
 
                     )}
 
                 </EveTableBody>
 
-                {/* ==========================================================
+
+                {/* ==================================================
                     PAGINAÇÃO
-                ========================================================== */}
+                ================================================== */}
 
                 {table && (
 
                     <TablePagination
-
-                        table={table}
-
+                        table={
+                            table
+                        }
                     />
 
                 )}
 
             </EveTable>
 
-            </div>
+        </div>
 
     );
 
 };
 
+
 export default EveDataTable;
+
+
+
+
+
+
