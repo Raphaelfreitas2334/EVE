@@ -1,0 +1,49 @@
+.teacher-details-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 24px;
+}
+
+.teacher-details-header-info {
+  display: flex;
+
+  align-items: center;
+
+  gap: 24px;
+}
+
+.teacher-details-header h1 {
+  margin: 4px 0;
+
+  font-size: 2rem;
+
+  color: var(--text);
+}
+
+.teacher-details-header p {
+  color: var(--text-secondary);
+}
+
+.teacher-details-breadcrumb {
+  font-size: 0.85rem;
+
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .teacher-details-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .teacher-details-header-info {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+}

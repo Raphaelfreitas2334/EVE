@@ -1,0 +1,111 @@
+.teacher-observations {
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius);
+
+  padding: 24px;
+}
+
+.teacher-observations-header {
+  margin-bottom: 24px;
+}
+
+.teacher-observations-header h3 {
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: 20px;
+}
+
+.teacher-observations-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+.teacher-observation-card {
+  display: flex;
+
+  gap: 16px;
+
+  padding: 18px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  background: var(--surface);
+}
+
+.teacher-observation-icon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 44px;
+
+  height: 44px;
+
+  border-radius: 12px;
+
+  background: var(--surface-hover);
+
+  color: var(--primary);
+
+  flex-shrink: 0;
+}
+
+.teacher-observation-content {
+  flex: 1;
+}
+
+.teacher-observation-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 10px;
+
+  gap: 16px;
+}
+
+.teacher-observation-top strong {
+  color: var(--text);
+}
+
+.teacher-observation-top span {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  color: var(--text-secondary);
+
+  font-size: 0.9rem;
+}
+
+.teacher-observation-content p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .teacher-observation-top {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+}

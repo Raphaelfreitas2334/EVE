@@ -1,0 +1,83 @@
+.teacher-classes {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.teacher-classes-header {
+  margin-bottom: 24px;
+}
+
+.teacher-classes-header h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 20px;
+}
+
+.teacher-classes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.teacher-class-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 20px;
+
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  background: var(--surface);
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.teacher-class-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+}
+
+.teacher-class-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 56px;
+  height: 56px;
+
+  border-radius: 12px;
+
+  background: var(--surface-hover);
+
+  color: var(--primary);
+}
+
+.teacher-class-content {
+  flex: 1;
+}
+
+.teacher-class-content h4 {
+  margin: 0 0 10px;
+  color: var(--text);
+}
+
+.teacher-class-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.teacher-class-info span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}

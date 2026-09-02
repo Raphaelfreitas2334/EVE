@@ -1,0 +1,61 @@
+.pulse-item{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:12px;
+
+    padding:14px 0;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.pulse-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.pulse-dot{
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    margin-top:7px;
+
+    flex-shrink:0;
+
+}
+
+.pulse-item p{
+
+    margin:0;
+
+    color:var(--text);
+
+    line-height:1.5;
+
+}
+
+.pulse-item.success .pulse-dot{
+
+    background:var(--success);
+
+}
+
+.pulse-item.warning .pulse-dot{
+
+    background:var(--warning);
+
+}
+
+.pulse-item.danger .pulse-dot{
+
+    background:var(--danger);
+
+}

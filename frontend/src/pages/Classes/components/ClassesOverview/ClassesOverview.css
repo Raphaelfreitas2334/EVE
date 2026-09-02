@@ -1,0 +1,21 @@
+.classes-overview-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-bottom:16px;
+
+}
+
+.classes-overview-header h3{
+
+    margin:0;
+
+    font-size:16px;
+
+    font-weight:600;
+
+}

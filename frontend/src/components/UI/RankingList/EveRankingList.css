@@ -1,0 +1,280 @@
+.eve-ranking-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+.eve-ranking-list-title {
+
+    margin: 0;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    color: #111827;
+
+}
+
+.eve-ranking-list-items {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+}
+
+.eve-ranking-list-item {
+
+    background: #FFFFFF;
+
+    border: 1px solid #E5E7EB;
+
+    border-radius: 16px;
+
+    padding: 16px;
+
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
+
+}
+
+.eve-ranking-list-item:hover {
+
+    border-color: #D1D5DB;
+
+    box-shadow: 0 10px 24px rgba(15, 23, 42, .08);
+
+    transform: translateY(-2px);
+
+}
+
+.eve-ranking-list-main {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 16px;
+
+}
+
+.eve-ranking-list-avatar {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: #F3F4F6;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #6D28D9;
+
+    flex-shrink: 0;
+
+}
+
+.eve-ranking-list-content {
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    min-width: 0;
+
+}
+
+.eve-ranking-list-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 16px;
+
+}
+
+.eve-ranking-list-name {
+
+    margin: 0;
+
+    font-size: .95rem;
+
+    font-weight: 600;
+
+    color: #111827;
+
+}
+
+.eve-ranking-list-subtitle {
+
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: .82rem;
+
+    color: #6B7280;
+
+}
+
+.eve-ranking-list-value {
+
+    font-size: .95rem;
+
+    font-weight: 700;
+
+    color: #111827;
+
+    white-space: nowrap;
+
+}
+
+.eve-ranking-list-track {
+
+    width: 100%;
+
+    height: 8px;
+
+    background: #E5E7EB;
+
+    border-radius: 999px;
+
+    overflow: hidden;
+
+}
+
+.eve-ranking-list-bar {
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    transition:
+        width .5s ease,
+        background-color .25s ease;
+
+}
+
+.eve-ranking-list-footer {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+}
+
+.eve-ranking-list-badge {
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+.eve-ranking-list-action {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #6B7280;
+
+}
+
+.eve-ranking-list.compact {
+
+    gap: 12px;
+
+}
+
+.eve-ranking-list.compact .eve-ranking-list-item {
+
+    padding: 12px;
+
+}
+
+.eve-ranking-list.compact .eve-ranking-list-avatar {
+
+    width: 40px;
+
+    height: 40px;
+
+}
+
+.eve-ranking-list.compact .eve-ranking-list-track {
+
+    height: 6px;
+
+}
+
+.eve-ranking-list.compact .eve-ranking-list-name {
+
+    font-size: .9rem;
+
+}
+
+.eve-ranking-list.compact .eve-ranking-list-subtitle {
+
+    font-size: .75rem;
+
+}
+
+.eve-ranking-list.compact .eve-ranking-list-value {
+
+    font-size: .85rem;
+
+}
+
+@media (max-width: 768px) {
+
+    .eve-ranking-list-top {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .eve-ranking-list-value {
+
+        margin-top: 4px;
+
+    }
+
+    .eve-ranking-list-footer {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+}

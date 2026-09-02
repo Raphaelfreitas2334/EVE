@@ -1,0 +1,21 @@
+.student-form {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 24px;
+}
+
+.student-form-full {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+  .student-form {
+    grid-template-columns: 1fr;
+  }
+
+  .student-form-full {
+    grid-column: auto;
+  }
+}

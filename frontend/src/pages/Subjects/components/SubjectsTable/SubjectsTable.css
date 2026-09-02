@@ -1,0 +1,29 @@
+.subjects-table-header {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(220px, 2fr)
+        minmax(180px, 2fr)
+        110px
+        130px
+        120px
+        60px;
+
+    align-items: center;
+
+    gap: 24px;
+
+    padding: 18px 24px;
+
+    border-bottom: 1px solid #ECEEF2;
+
+    background: #FAFAFB;
+
+    font-size: .85rem;
+
+    font-weight: 600;
+
+    color: #6B7280;
+
+}

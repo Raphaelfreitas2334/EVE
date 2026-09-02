@@ -1,0 +1,49 @@
+.teachers-context {
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius);
+
+  padding: 24px;
+
+  margin-bottom: 32px;
+}
+
+.teachers-context-header {
+  margin-bottom: 20px;
+}
+
+.teachers-context-header h3 {
+  font-size: 20px;
+
+  color: var(--text);
+}
+
+.teachers-context-header p {
+  color: var(--text-secondary);
+
+  margin-top: 4px;
+}
+
+.teachers-context-filters {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 16px;
+
+  align-items: end;
+}
+
+@media (max-width: 1200px) {
+  .teachers-context-filters {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .teachers-context-filters {
+    grid-template-columns: 1fr;
+  }
+}

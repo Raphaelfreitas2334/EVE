@@ -1,0 +1,49 @@
+.student-search{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:24px;
+
+    margin-bottom:32px;
+
+}
+
+.student-search-input{
+
+    flex:1;
+
+}
+
+.student-search-actions{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+@media(max-width:900px){
+
+    .student-search{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .student-search-actions{
+
+        width:100%;
+
+        justify-content:flex-end;
+
+        flex-wrap:wrap;
+
+    }
+
+}

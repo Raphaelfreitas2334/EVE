@@ -1,0 +1,152 @@
+.eve-table-head {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 50px;
+    min-width: 0;
+
+    padding: 0 12px;
+
+    color: var(
+        --eve-table-text,
+        #F8FAFC
+    );
+
+    font-size: .92rem;
+    font-weight: 600;
+
+    letter-spacing: 0;
+
+    white-space: nowrap;
+
+    border-right: 1px solid var(
+        --eve-table-border,
+        rgba(255, 255, 255, .12)
+    );
+
+    transition:
+        background .18s ease,
+        color .18s ease;
+}
+
+.eve-table-head:last-child {
+    border-right: none;
+}
+
+/* ==========================================================
+   ALINHAMENTO
+========================================================== */
+
+.eve-table-head-left {
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.eve-table-head-center {
+    justify-content: center;
+    text-align: center;
+}
+
+.eve-table-head-right {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+/* ==========================================================
+   HOVER
+========================================================== */
+
+.eve-table-head:hover {
+    background: var(
+        --eve-table-primary-soft,
+        rgba(139, 92, 246, .08)
+    );
+
+    color: var(
+        --eve-table-primary,
+        #A78BFA
+    );
+}
+
+/* ==========================================================
+   CONTEÚDO EM DUAS LINHAS
+========================================================== */
+
+.eve-table-head-content {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    min-width: 0;
+
+    line-height: 1.15;
+}
+
+.eve-table-head-label {
+    font-size: .92rem;
+    font-weight: 600;
+}
+
+.eve-table-head-subtitle {
+    margin-top: 2px;
+
+    color: var(
+        --eve-table-muted,
+        #94A3B8
+    );
+
+    font-size: .75rem;
+    font-weight: 500;
+
+    line-height: 1;
+}
+
+/* ==========================================================
+   ORDENAÇÃO
+========================================================== */
+
+.eve-table-head-sort {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+.eve-table-head-sort-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(
+        --eve-table-muted,
+        #94A3B8
+    );
+
+    font-size: 1rem;
+
+    transition:
+        color .18s ease,
+        transform .18s ease;
+}
+
+.eve-table-head-sort:hover
+.eve-table-head-sort-icon {
+    color: var(
+        --eve-table-primary,
+        #A78BFA
+    );
+}
+
+.eve-table-head-sorted
+.eve-table-head-sort-icon {
+    color: var(
+        --eve-table-primary,
+        #A78BFA
+    );
+}

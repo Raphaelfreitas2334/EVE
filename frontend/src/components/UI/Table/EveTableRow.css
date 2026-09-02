@@ -1,0 +1,43 @@
+.eve-table-row {
+    display: grid;
+    align-items: center;
+
+    gap: 16px;
+
+    min-width: max-content;
+
+    padding: 0 20px;
+
+    border-bottom: 1px solid var(
+        --eve-table-border,
+        rgba(255, 255, 255, .08)
+    );
+
+    transition:
+        background .18s ease,
+        box-shadow .18s ease;
+}
+
+.eve-table-row:last-child {
+    border-bottom: none;
+}
+
+.eve-table-row-hover:hover {
+    background: var(
+        --eve-table-primary-soft,
+        rgba(139, 92, 246, .08)
+    );
+}
+
+.eve-table-row-selected {
+    background: var(
+        --eve-table-primary-soft,
+        rgba(139, 92, 246, .12)
+    );
+
+    box-shadow:
+        inset 3px 0 0 var(
+            --eve-table-primary,
+            #8B5CF6
+        );
+}

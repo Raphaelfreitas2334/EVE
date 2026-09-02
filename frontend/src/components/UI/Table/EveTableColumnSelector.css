@@ -1,0 +1,306 @@
+.eve-table-column-selector {
+    width: 340px;
+    max-width: calc(100vw - 24px);
+
+    background: var(
+        --eve-table-surface,
+        #211E2B
+    );
+
+    color: var(
+        --eve-table-text,
+        #F8FAFC
+    );
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.45),
+        0 6px 18px rgba(0, 0, 0, 0.30);
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+}
+
+
+/* ==========================================================
+   PESQUISA
+========================================================== */
+
+.eve-table-column-selector-search {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 16px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.10);
+
+    color: #94A3B8;
+}
+
+.eve-table-column-selector-search input {
+    width: 100%;
+    height: 48px;
+
+    padding: 0 12px;
+
+    border: 2px solid #60A5FA;
+
+    border-radius: 6px;
+
+    outline: none;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color: #F8FAFC;
+
+    font-family: inherit;
+
+    font-size: 0.95rem;
+
+    box-sizing: border-box;
+}
+
+.eve-table-column-selector-search input::placeholder {
+    color: #94A3B8;
+}
+
+
+/* ==========================================================
+   LISTA
+========================================================== */
+
+.eve-table-column-selector-list {
+    max-height: 360px;
+
+    overflow-y: auto;
+
+    padding: 8px 0;
+}
+
+.eve-table-column-selector-list::-webkit-scrollbar {
+    width: 7px;
+}
+
+.eve-table-column-selector-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.eve-table-column-selector-list::-webkit-scrollbar-thumb {
+    background:
+        rgba(255, 255, 255, 0.20);
+
+    border-radius: 10px;
+}
+
+
+/* ==========================================================
+   ITEM
+========================================================== */
+
+.eve-table-column-selector-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+
+    min-height: 44px;
+
+    padding: 0 16px;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #F8FAFC;
+
+    font-family: inherit;
+
+    font-size: 0.95rem;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease;
+}
+
+.eve-table-column-selector-item:hover {
+    background:
+        rgba(139, 92, 246, 0.10);
+}
+
+.eve-table-column-selector-item.is-checked:hover {
+    background:
+        rgba(139, 92, 246, 0.14);
+}
+
+
+/* ==========================================================
+   CHECKBOX
+========================================================== */
+
+.eve-table-column-checkbox {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    width: 24px;
+
+    height: 24px;
+
+    border:
+        2px solid #CBD5E1;
+
+    border-radius: 3px;
+
+    box-sizing: border-box;
+
+    color: #0F172A;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.eve-table-column-checkbox.checked {
+    background: #60A5FA;
+
+    border-color: #60A5FA;
+}
+
+
+/* ==========================================================
+   TEXTO
+========================================================== */
+
+.eve-table-column-label {
+    min-width: 0;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+
+/* ==========================================================
+   EMPTY
+========================================================== */
+
+.eve-table-column-selector-empty {
+    padding: 24px 16px;
+
+    color: #94A3B8;
+
+    font-size: 0.9rem;
+
+    text-align: center;
+}
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.eve-table-column-selector-footer {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    min-height: 66px;
+
+    padding: 0 16px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.10);
+}
+
+
+/* ==========================================================
+   TODAS
+========================================================== */
+
+.eve-table-column-selector-all {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #F8FAFC;
+
+    font-family: inherit;
+
+    font-size: 0.9rem;
+
+    cursor: pointer;
+}
+
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+.eve-table-column-selector-reset {
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #94A3B8;
+
+    font-family: inherit;
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.eve-table-column-selector-reset:hover {
+    color: #A78BFA;
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 640px) {
+
+    .eve-table-column-selector {
+        width:
+            min(340px, calc(100vw - 24px));
+    }
+
+    .eve-table-column-selector-list {
+        max-height: 300px;
+    }
+}

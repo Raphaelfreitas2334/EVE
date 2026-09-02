@@ -1,0 +1,57 @@
+.classes-filters{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    gap:24px;
+
+    margin-bottom:24px;
+
+}
+
+.classes-filters-left{
+
+    display:flex;
+
+    flex:1;
+
+    gap:16px;
+
+}
+
+.classes-filters-left > *{
+
+    flex:1;
+
+}
+
+@media(max-width:1200px){
+
+    .classes-filters{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .classes-filters-left{
+
+        flex-wrap:wrap;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .classes-filters-left{
+
+        flex-direction:column;
+
+    }
+
+}

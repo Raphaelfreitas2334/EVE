@@ -1,0 +1,244 @@
+/* ==========================================================
+   SIDEBAR
+========================================================== */
+
+.sidebar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  width: var(--sidebar-width);
+
+  background: var(--sidebar);
+
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  transition:
+    width 0.25s ease,
+    transform 0.25s ease;
+
+  z-index: 1000;
+}
+
+/* ==========================================================
+   LOGO
+========================================================== */
+
+.sidebar-logo {
+  height: 92px;
+
+  padding: 22px 24px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  flex-shrink: 0;
+
+  transition: 0.25s;
+}
+
+.sidebar-logo h2 {
+  margin: 0;
+
+  color: var(--primary);
+
+  font-size: 2rem;
+
+  white-space: nowrap;
+}
+
+.sidebar-logo span {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #9ca3af;
+
+  font-size: 0.75rem;
+
+  white-space: nowrap;
+
+  transition: opacity 0.2s;
+}
+
+/* ==========================================================
+   MENU
+========================================================== */
+
+.sidebar-menu {
+  flex: 1;
+
+  overflow-y: auto;
+
+  overflow-x: hidden;
+
+  padding: 18px 0;
+
+  scrollbar-width: none;
+}
+
+.sidebar-menu::-webkit-scrollbar {
+  width: 0;
+
+  height: 0;
+}
+
+.sidebar-menu ul {
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+.sidebar-menu li {
+  margin: 0;
+}
+
+.menu-link {
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 0 24px;
+
+  color: #d1d5db;
+
+  text-decoration: none;
+
+  transition: 0.2s;
+
+  white-space: nowrap;
+}
+
+.menu-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+
+  color: white;
+}
+
+.menu-link.active {
+  background: var(--primary);
+
+  color: white;
+}
+
+.menu-link svg {
+  flex-shrink: 0;
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.sidebar-footer {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 18px 24px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  flex-shrink: 0;
+
+  transition: 0.25s;
+}
+
+.user-avatar {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+.user-avatar svg {
+  color: var(--primary);
+}
+
+.user-info {
+  display: flex;
+
+  flex-direction: column;
+
+  transition: opacity 0.2s;
+}
+
+.user-info strong {
+  color: white;
+
+  font-size: 0.9rem;
+}
+
+.user-info span {
+  color: #9ca3af;
+
+  font-size: 0.75rem;
+}
+
+/* ==========================================================
+   NOTEBOOK (80px)
+========================================================== */
+
+.sidebar.notebook.collapsed {
+  width: 80px;
+}
+
+.sidebar.notebook.collapsed .sidebar-logo {
+  padding: 22px 0;
+
+  text-align: center;
+}
+
+.sidebar.notebook.collapsed .sidebar-logo span {
+  opacity: 0;
+
+  display: none;
+}
+
+.sidebar.notebook.collapsed .menu-link {
+  justify-content: center;
+
+  padding: 0;
+}
+
+.sidebar.notebook.collapsed .menu-link span {
+  display: none;
+}
+
+.sidebar.notebook.collapsed .sidebar-footer {
+  justify-content: center;
+
+  padding-inline: 0;
+}
+
+.sidebar.notebook.collapsed .user-info {
+  display: none;
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+.sidebar.mobile {
+  width: 260px;
+
+  transform: translateX(-100%);
+}
+
+.sidebar.mobile.mobile-open {
+  transform: translateX(0);
+}

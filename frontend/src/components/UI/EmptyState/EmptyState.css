@@ -1,0 +1,37 @@
+.empty-state{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding:72px 24px;
+
+    text-align:center;
+
+}
+
+.empty-state h3{
+
+    color:var(--text);
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+.empty-state p{
+
+    max-width:420px;
+
+    color:var(--text-secondary);
+
+    line-height:1.6;
+
+}

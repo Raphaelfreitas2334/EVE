@@ -1,0 +1,51 @@
+.student-average{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.student-average strong{
+
+    display:block;
+
+    font-size:15px;
+
+    color:var(--text);
+
+}
+
+.student-average span{
+
+    font-size:12px;
+
+    color:var(--text-secondary);
+
+}
+
+.student-average.excellent svg{
+
+    color:#7C3AED;
+
+}
+
+.student-average.good svg{
+
+    color:#22C55E;
+
+}
+
+.student-average.warning svg{
+
+    color:#F59E0B;
+
+}
+
+.student-average.danger svg{
+
+    color:#EF4444;
+
+}

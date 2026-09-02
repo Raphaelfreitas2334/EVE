@@ -1,0 +1,79 @@
+.eve-form-field {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.45rem;
+}
+
+.eve-form-label {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.25rem;
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+
+  color: var(--text-primary);
+}
+
+.required {
+  color: var(--danger);
+
+  font-weight: 700;
+}
+
+.eve-form-helper {
+  display: flex;
+
+  align-items: center;
+
+  font-size: 0.82rem;
+
+  color: var(--text-secondary);
+}
+
+.eve-form-error {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.4rem;
+
+  font-size: 0.82rem;
+
+  color: var(--danger);
+
+  animation: fadeIn 0.18s ease;
+}
+
+.eve-form-success {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.4rem;
+
+  font-size: 0.82rem;
+
+  color: var(--success);
+
+  animation: fadeIn 0.18s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}

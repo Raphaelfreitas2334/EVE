@@ -1,0 +1,67 @@
+.student-context{
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:24px;
+
+    margin-bottom:32px;
+
+}
+
+.student-context-header{
+
+    margin-bottom:20px;
+
+}
+
+.student-context-header h3{
+
+    font-size:20px;
+
+    color:var(--text);
+
+}
+
+.student-context-header p{
+
+    color:var(--text-secondary);
+
+    margin-top:4px;
+
+}
+
+.student-context-filters{
+
+    display:grid;
+
+    grid-template-columns:repeat(6,1fr);
+
+    gap:16px;
+
+    align-items:end;
+
+}
+
+@media(max-width:1200px){
+
+    .student-context-filters{
+
+        grid-template-columns:repeat(3,1fr);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .student-context-filters{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

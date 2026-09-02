@@ -1,19 +1,113 @@
-.layout{
+/* ==========================================================
+   ROOT LAYOUT
+========================================================== */
 
-    display:flex;
+.layout {
+  --sidebar-width: 260px;
 
+  display: flex;
+
+  min-height: 100vh;
+
+  background: var(--background);
+
+  overflow: hidden;
 }
 
-.content{
+/* ==========================================================
+   SIDEBAR MODES
+========================================================== */
 
-    margin-left:260px;
-
-    width:100%;
-
+.layout.desktop.expanded {
+  --sidebar-width: 260px;
 }
 
-main{
+.layout.notebook.expanded {
+  --sidebar-width: 260px;
+}
 
-    padding:30px;
+.layout.notebook.collapsed {
+  --sidebar-width: 80px;
+}
 
+.layout.mobile {
+  --sidebar-width: 0px;
+}
+
+/* ==========================================================
+   MAIN
+========================================================== */
+
+.layout-main {
+  flex: 1;
+
+  margin-left: var(--sidebar-width);
+
+  min-width: 0;
+
+  min-height: 100vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  transition: margin-left 0.25s ease;
+
+  overflow: hidden;
+}
+
+/* ==========================================================
+   CONTENT
+========================================================== */
+
+.layout-content {
+  flex: 1;
+
+  overflow-y: auto;
+
+  overflow-x: hidden;
+
+  padding: 30px;
+
+  background: var(--background);
+}
+
+/* ==========================================================
+   OVERLAY
+========================================================== */
+
+.layout-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.35);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transition: opacity 0.25s ease;
+
+  z-index: 900;
+
+  pointer-events: none;
+}
+
+.layout-overlay.show {
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 1024px) {
+  .layout-main {
+    margin-left: 0;
+  }
 }

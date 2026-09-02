@@ -1,0 +1,25 @@
+.classes-content {
+
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+
+}
+
+.classes-main {
+
+    flex: 1;
+    min-width: 0;
+
+}
+
+.classes-sidebar {
+
+    width: 320px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+
+}

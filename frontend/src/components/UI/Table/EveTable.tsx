@@ -1,0 +1,34 @@
+import "./EveTable.css";
+
+import type {
+    HTMLAttributes,
+    ReactNode,
+} from "react";
+
+interface EveTableProps
+    extends HTMLAttributes<HTMLElement> {
+
+    children: ReactNode;
+}
+
+const EveTable = ({
+    children,
+    className = "",
+    ...rest
+}: EveTableProps) => {
+
+    return (
+        <section
+            className={`
+                eve-table
+                eve-table-scroll
+                ${className}
+            `}
+            {...rest}
+        >
+            {children}
+        </section>
+    );
+};
+
+export default EveTable;

@@ -1,0 +1,41 @@
+.student-identity{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    min-width:0;
+
+}
+
+.student-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+    min-width:0;
+
+}
+
+.student-info strong{
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+.student-info span{
+
+    color:var(--text-secondary);
+
+    font-size:14px;
+
+}

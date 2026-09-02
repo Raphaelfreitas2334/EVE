@@ -1,0 +1,164 @@
+/* ==========================================================
+   NAVBAR
+========================================================== */
+
+.navbar {
+  height: 70px;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid var(--border);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 24px;
+
+  flex-shrink: 0;
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 900;
+}
+
+/* ==========================================================
+   LEFT
+========================================================== */
+
+.navbar-left {
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+}
+
+.navbar-left h1 {
+  margin: 0;
+
+  font-size: 1.5rem;
+
+  color: var(--text);
+
+  font-weight: 600;
+}
+
+/* ==========================================================
+   RIGHT
+========================================================== */
+
+.navbar-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+.navbar-icon,
+.navbar-menu-button {
+  width: 40px;
+
+  height: 40px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: transparent;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.navbar-icon:hover,
+.navbar-menu-button:hover {
+  background: var(--surface);
+}
+
+.navbar-menu-button:hover {
+  transform: rotate(90deg);
+}
+
+.navbar-icon svg,
+.navbar-menu-button svg {
+  color: var(--text);
+}
+
+/* ==========================================================
+   RESPONSIVO
+========================================================== */
+
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 0 16px;
+  }
+}
+
+.logout-button {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+/* Ícone */
+.logout-button svg {
+  color: #ef4444;
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+/* Hover */
+.logout-button:hover {
+  background: #fef2f2;
+
+  transform: translateY(-4px);
+
+  box-shadow: 0 10px 20px rgba(239, 68, 68, 0.18);
+}
+
+/* Faz o ícone acompanhar o movimento */
+.logout-button:hover svg {
+  transform: scale(1.15);
+
+  color: #dc2626;
+}
+
+/* Clique */
+.logout-button:active {
+  transform: translateY(-1px) scale(0.96);
+}

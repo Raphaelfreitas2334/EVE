@@ -1,0 +1,119 @@
+.eve-select-wrapper {
+
+    position: relative;
+
+    width: 100%;
+
+}
+
+.eve-select-wrapper select {
+
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 44px 0 16px;
+
+    border: 1px solid #E5E7EB;
+
+    border-radius: 12px;
+
+    background: #FFFFFF;
+
+    color: #111827;
+
+    font-size: .95rem;
+
+    font-weight: 500;
+
+    appearance: none;
+
+    cursor: pointer;
+
+    outline: none;
+
+    transition: all .25s ease;
+
+}
+
+.eve-select-wrapper select:hover {
+
+    border-color: #C4B5FD;
+
+    background: #FAFAFF;
+
+}
+
+.eve-select-wrapper select:focus {
+
+    border-color: #6D28D9;
+
+    box-shadow: 0 0 0 4px rgba(109,40,217,.12);
+
+}
+
+.eve-select-icon {
+
+    position: absolute;
+
+    right: 16px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #6D28D9;
+
+    pointer-events: none;
+
+    transition: transform .25s ease;
+
+}
+
+.eve-select-wrapper:focus-within .eve-select-icon {
+
+    transform: translateY(-50%) rotate(180deg);
+
+}
+
+.eve-select-wrapper.has-error select {
+
+    border-color: #EF4444;
+
+}
+
+.eve-select-wrapper.has-success select {
+
+    border-color: #22C55E;
+
+}
+
+.eve-select-helper {
+
+    margin-top: 6px;
+
+    font-size: .82rem;
+
+    color: #6B7280;
+
+}
+
+.eve-select-error {
+
+    margin-top: 6px;
+
+    font-size: .82rem;
+
+    color: #EF4444;
+
+}
+
+.eve-select-success {
+
+    margin-top: 6px;
+
+    font-size: .82rem;
+
+    color: #22C55E;
+
+}

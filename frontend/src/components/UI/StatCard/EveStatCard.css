@@ -1,0 +1,137 @@
+.eve-stat-card {
+
+    background: #FFFFFF;
+
+    border: 1px solid #ECEEF2;
+
+    border-radius: 18px;
+
+    padding: 22px;
+
+    transition: .25s ease;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    box-shadow: 0 4px 16px rgba(15, 23, 42, .04);
+
+}
+
+.eve-stat-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 12px 30px rgba(15, 23, 42, .10);
+
+}
+
+.stat-icon {
+
+    width: 52px;
+
+    height: 52px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(109, 40, 217, .10);
+
+    color: #6D28D9;
+
+}
+
+.stat-title {
+
+    margin-top: 4px;
+
+    font-size: .90rem;
+
+    color: #6B7280;
+
+    font-weight: 500;
+
+}
+
+.stat-value {
+
+    margin: 0;
+
+    font-size: 2rem;
+
+    font-weight: 700;
+
+    color: #111827;
+
+    line-height: 1;
+
+}
+
+.stat-subtitle {
+
+    margin: 0;
+
+    font-size: .88rem;
+
+    color: #6B7280;
+
+    line-height: 1.4;
+
+}
+
+.stat-trend {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    flex-wrap: wrap;
+
+    font-size: .88rem;
+
+}
+
+.stat-trend strong {
+
+    font-size: .92rem;
+
+}
+
+.stat-trend.success {
+
+    color: #22C55E;
+
+}
+
+.stat-trend.danger {
+
+    color: #EF4444;
+
+}
+
+.stat-trend.warning {
+
+    color: #F59E0B;
+
+}
+
+.stat-trend.info {
+
+    color: #3B82F6;
+
+}
+
+.stat-trend span {
+
+    color: #6B7280;
+
+}

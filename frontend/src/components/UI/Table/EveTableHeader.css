@@ -1,0 +1,28 @@
+.eve-table-header {
+    display: flex;
+    align-items: stretch;
+
+    width: 100%;
+    min-width: max-content;
+    min-height: 70px;
+
+    background: var(
+        --eve-table-surface,
+        #1B1827
+    );
+
+    border-bottom: 1px solid var(
+        --eve-table-border,
+        rgba(255, 255, 255, .12)
+    );
+
+    color: var(
+        --eve-table-text,
+        #F8FAFC
+    );
+
+    overflow: hidden;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, .12);
+}

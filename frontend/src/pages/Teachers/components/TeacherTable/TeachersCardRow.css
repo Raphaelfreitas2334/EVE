@@ -1,0 +1,76 @@
+.teachers-row {
+  display: grid;
+
+  grid-template-columns:
+    40px
+    3fr
+    140px
+    100px
+    100px
+    100px
+    50px;
+
+  align-items: center;
+
+  gap: 16px;
+
+  padding: 20px 24px;
+
+  border-bottom: 1px solid var(--border);
+
+  transition: 0.2s;
+}
+
+.teachers-row:hover {
+  background: #fafaff;
+}
+
+.teachers-info {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.teachers-info strong {
+  color: var(--text);
+}
+
+.teachers-info span {
+  color: var(--text-secondary);
+
+  font-size: 14px;
+}
+
+.teachers-status {
+  display: flex;
+
+  justify-content: center;
+}
+
+.teachers-alerts {
+  display: flex;
+
+  gap: 6px;
+
+  align-items: center;
+
+  color: #f59e0b;
+}
+
+.teachers-row button {
+  border: none;
+
+  background: none;
+
+  cursor: pointer;
+
+  color: var(--text-secondary);
+}
+
+.no-alert {
+  color: var(--text-secondary);
+
+  font-weight: 600;
+}

@@ -1,0 +1,71 @@
+.grades {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+}
+
+.grades-stats {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 20px;
+
+}
+
+.grades-grid {
+
+    display: grid;
+
+    grid-template-columns: 1.35fr 1fr 1fr;
+
+    gap: 20px;
+
+}
+
+.grades-grid-2 {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+
+}
+
+.grades-grid > * {
+
+    min-width: 0;
+
+}
+
+.grades-grid-2 > * {
+
+    min-width: 0;
+
+}
+
+@media (max-width: 1200px) {
+
+    .grades-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .grades-stats {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
