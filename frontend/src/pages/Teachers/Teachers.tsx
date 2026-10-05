@@ -1,6 +1,9 @@
 import "./Teachers.css";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
+
+import { teachers } from "./data/Teachers";
+
 import TeachersStats from "./components/TeacherStats";
 import TeachersSearch from "./components/TeacherSearch";
 import TeachersContext from "./components/TeacherContext";
@@ -8,27 +11,73 @@ import TeachersTable from "./components/TeacherTable";
 import CreateTeachersDialog from "./dialogs/CreateTeacherDialog";
 
 const Teachers = () => {
-  const [isCreateTeachersDialogOpen, setIsCreateTeachersDialogOpen] =
-    useState(false);
+    const [isCreateTeachersDialogOpen, setIsCreateTeachersDialogOpen] =
+        useState(false);
 
-  return (
-    <main>
-      <TeachersStats />
+    const [discipline, setDiscipline] = useState("");
+    const [category, setCategory] = useState("");
+    const [status, setStatus] = useState("");
 
-      <TeachersSearch
-        onCreateTeacher={() => setIsCreateTeachersDialogOpen(true)}
-      />
+    const disciplineOptions = useMemo(
+        () => [...new Set(teachers.map((teacher) => teacher.discipline))],
+        [],
+    );
 
-      <TeachersContext />
+    const categoryOptions = useMemo(
+        () => [...new Set(teachers.map((teacher) => teacher.category))],
+        [],
+    );
 
-      <TeachersTable />
+    const statusOptions = useMemo(
+        () => [...new Set(teachers.map((teacher) => teacher.status))],
+        [],
+    );
 
-      <CreateTeachersDialog
-        open={isCreateTeachersDialogOpen}
-        onClose={() => setIsCreateTeachersDialogOpen(false)}
-      />
-    </main>
-  );
+    const filteredTeachers = useMemo(() => {
+        return teachers.filter((teacher) => {
+            return (
+                (!discipline || teacher.discipline === discipline) &&
+                (!category || teacher.category === category) &&
+                (!status || teacher.status === status)
+            );
+        });
+    }, [discipline, category, status]);
+
+    const clearFilters = () => {
+        setDiscipline("");
+        setCategory("");
+        setStatus("");
+    };
+
+    return (
+        <main>
+            <TeachersStats teachers={filteredTeachers} />
+
+            <TeachersSearch
+                onCreateTeacher={() => setIsCreateTeachersDialogOpen(true)}
+            />
+
+            <TeachersContext
+                discipline={discipline}
+                category={category}
+                status={status}
+                disciplineOptions={disciplineOptions}
+                categoryOptions={categoryOptions}
+                statusOptions={statusOptions}
+                onDisciplineChange={setDiscipline}
+                onCategoryChange={setCategory}
+                onStatusChange={setStatus}
+                onClearFilters={clearFilters}
+            />
+
+            <TeachersTable teachers={filteredTeachers} />
+
+            <CreateTeachersDialog
+                open={isCreateTeachersDialogOpen}
+                onClose={() => setIsCreateTeachersDialogOpen(false)}
+            />
+        </main>
+    );
 };
 
 export default Teachers;

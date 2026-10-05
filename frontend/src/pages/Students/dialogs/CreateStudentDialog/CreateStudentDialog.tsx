@@ -2,8 +2,8 @@ import EveModal from "../../../../components/Feedback/Modal";
 import EveButton from "../../../../components/UI/Button";
 
 import StudentForm from "../../components/StudentForm";
+import useStudentForm from "./useStudentForm";
 
-import { useStudentForm } from "../../hooks";
 
 interface CreateStudentDialogProps {
   open: boolean;

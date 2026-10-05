@@ -2,38 +2,95 @@ import "./Students.css";
 
 import { useState } from "react";
 
-import StudentHeader from "./components/StudentHeader";
+import EvePageHeader from "../../components/UI/PageHeader";
+import Panel from "../../components/UI/Panel/Panel";
+
 import StudentStats from "./components/StudentStats";
-import StudentSearch from "./components/StudentSearch";
-import StudentContext from "./components/StudentContext";
-import StudentTable from "./components/StudentTable";
+import StudentsFilters from "./components/StudentsFilters";
 
 import CreateStudentDialog from "./dialogs/CreateStudentDialog";
 
+import useStudents from "./hooks/useStudents";
+import StudentTable from "./components/StudentTable/StudentTable";
+
 const Students = () => {
-  const [isCreateStudentDialogOpen, setIsCreateStudentDialogOpen] =
-    useState(false);
+    const [
+        isCreateStudentDialogOpen,
+        setIsCreateStudentDialogOpen,
+    ] = useState(false);
 
-  return (
-    <main>
-      <StudentHeader />
+    const {
+        filters,
+        stats,
+        table,
 
-      <StudentStats />
+        setCourse,
+        setClassroom,
+        setYear,
+        setBimester,
+        setPeriod,
 
-      <StudentSearch
-        onCreateStudent={() => setIsCreateStudentDialogOpen(true)}
-      />
+        clearFilters,
+    } = useStudents();
 
-      <StudentContext />
+    return (
+        <main className="students">
+            {/* ==================================================
+                CABEÇALHO
+            ================================================== */}
 
-      <StudentTable />
+            <EvePageHeader
+                title="Alunos"
+                subtitle="Gerencie os alunos da instituição e acompanhe seu desempenho acadêmico."
+            />
 
-      <CreateStudentDialog
-        open={isCreateStudentDialogOpen}
-        onClose={() => setIsCreateStudentDialogOpen(false)}
-      />
-    </main>
-  );
+            {/* ==================================================
+                FILTROS
+            ================================================== */}
+
+            <StudentsFilters
+                filters={filters}
+                onCourseChange={setCourse}
+                onClassroomChange={setClassroom}
+                onYearChange={setYear}
+                onBimesterChange={setBimester}
+                onPeriodChange={setPeriod}
+                onClearFilters={clearFilters}
+            />
+
+            {/* ==================================================
+                INDICADORES
+            ================================================== */}
+
+            <StudentStats stats={stats} />
+
+            {/* ==================================================
+                TABELA
+            ================================================== */}
+
+            <section className="students-content">
+                <main className="students-main">
+                    <Panel title="Lista de Alunos">
+                        <StudentTable
+                            students={table.rows}
+                            table={table}
+                        />
+                    </Panel>
+                </main>
+            </section>
+
+            {/* ==================================================
+                MODAL
+            ================================================== */}
+
+            <CreateStudentDialog
+                open={isCreateStudentDialogOpen}
+                onClose={() =>
+                    setIsCreateStudentDialogOpen(false)
+                }
+            />
+        </main>
+    );
 };
 
 export default Students;

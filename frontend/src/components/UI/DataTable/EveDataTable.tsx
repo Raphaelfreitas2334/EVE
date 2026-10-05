@@ -111,6 +111,16 @@ const EveDataTable = <
         initialVisibleColumnKeys,
     );
 
+    const [
+    searchTerm,
+    setSearchTerm,
+    ] = useState("");
+
+    const [
+        searchOpen,
+        setSearchOpen,
+    ] = useState(false);
+
 
     /* ============================================================
        SINCRONIZAÇÃO
@@ -150,6 +160,52 @@ const EveDataTable = <
             ],
 
         );
+
+    /* ============================================================
+    PESQUISA GLOBAL
+    ============================================================ */
+
+    const filteredRows = useMemo(() => {
+
+        const normalizedSearch = searchTerm
+            .trim()
+            .toLocaleLowerCase("pt-BR");
+
+        if (!normalizedSearch) {
+            return rows;
+        }
+
+        return rows.filter(row => {
+
+            const record =
+                row as Record<string, unknown>;
+
+            return visibleColumns.some(column => {
+
+                const value =
+                    record[String(column.key)];
+
+                if (
+                    value === null ||
+                    value === undefined
+                ) {
+                    return false;
+                }
+
+                return String(value)
+                    .trim()
+                    .toLocaleLowerCase("pt-BR")
+                    .includes(normalizedSearch);
+
+            });
+
+        });
+
+    }, [
+        rows,
+        visibleColumns,
+        searchTerm,
+    ]);
 
 
     /* ============================================================
@@ -327,6 +383,134 @@ const EveDataTable = <
 
 
     /* ============================================================
+       EXPORTAÇÃO CSV
+    ============================================================ */
+
+    const handleExportCsv = () => {
+
+        if (
+            rows.length === 0 ||
+            visibleColumns.length === 0
+        ) {
+            return;
+        }
+
+
+        const escapeCsvValue = (
+            value: unknown,
+        ) => {
+
+            const text =
+                value == null
+                    ? ""
+                    : String(value);
+
+
+            return `"${text.replace(
+                /"/g,
+                '""',
+            )}"`;
+
+        };
+
+
+        const header =
+            visibleColumns
+                .map(
+                    column =>
+                        escapeCsvValue(
+                            column.title,
+                        ),
+                )
+                .join(",");
+
+
+        const body =
+            rows.map(
+                row => {
+
+                    const record =
+                        row as Record<
+                            string,
+                            unknown
+                        >;
+
+
+                    return visibleColumns
+                        .map(
+                            column =>
+                                escapeCsvValue(
+                                    record[
+                                        String(
+                                            column.key,
+                                        )
+                                    ],
+                                ),
+                        )
+                        .join(",");
+
+                },
+            );
+
+
+        const csv =
+            [
+                header,
+                ...body,
+            ].join("\r\n");
+
+
+        const blob =
+            new Blob(
+                [
+                    "\uFEFF" + csv,
+                ],
+                {
+                    type:
+                        "text/csv;charset=utf-8;",
+                },
+            );
+
+
+        const url =
+            URL.createObjectURL(
+                blob,
+            );
+
+
+        const link =
+            document.createElement(
+                "a",
+            );
+
+
+        link.href =
+            url;
+
+
+        link.download =
+            "eve-data-table.csv";
+
+
+        document.body.appendChild(
+            link,
+        );
+
+
+        link.click();
+
+
+        link.remove();
+
+
+        URL.revokeObjectURL(
+            url,
+        );
+
+    };
+
+
+    /* ============================================================
        TOOLBAR ACTIONS
     ============================================================ */
 
@@ -381,7 +565,11 @@ const EveDataTable = <
 
             dividerBefore: true,
 
-            disabled: true,
+            onClick:
+                handleExportCsv,
+
+            disabled:
+                rows.length === 0,
         },
 
         {
@@ -391,7 +579,13 @@ const EveDataTable = <
 
             dividerBefore: true,
 
-            disabled: true,
+            onClick: () => {
+                setSearchOpen(
+                    previous => !previous,
+                );
+            },
+
+            disabled: false,
         },
 
     ];
@@ -417,16 +611,88 @@ const EveDataTable = <
                         actions={
                             toolbarActions
                         }
-                    />
+
+                        columns={
+                            columns
+                        }
+
+                        visibleKeys={
+                            visibleColumnKeys
+                        }
+
+                        onToggleColumn={
+                            handleToggleColumn
+                        }
+
+                        onToggleAll={
+                            handleToggleAllColumns
+                        }
+
+                        onResetColumns={
+                            handleResetColumns
+                        }
+                    >
+                        {searchOpen && (
+                            <div className="eve-data-table-search">
+
+                                <Search
+                                    size={16}
+                                    aria-hidden="true"
+                                />
+
+                                <input
+                                    type="search"
+                                    value={searchTerm}
+                                    onChange={
+                                        event =>
+                                            setSearchTerm(
+                                                event.target.value,
+                                            )
+                                    }
+                                    placeholder="Pesquisar..."
+                                    aria-label="Pesquisar registros"
+                                    autoFocus
+                                />
+
+                                {searchTerm && (
+                                    <button
+                                        type="button"
+                                        onClick={() =>
+                                            setSearchTerm("")
+                                        }
+                                        aria-label="Limpar pesquisa"
+                                    >
+                                        ×
+                                    </button>
+                                )}
+
+                            </div>
+                        )}
+                    </EveTableToolbar>
 
                     <EmptyState
 
-                        title="Carregando..."
+                        icon={
+                            emptyIcon
+                        }
 
-                        description="
-                            Aguarde enquanto carregamos
-                            os dados.
-                        "
+                        title={
+                            searchTerm
+                                ? "Nenhum resultado encontrado"
+                                : emptyTitle
+                        }
+
+                        description={
+                            searchTerm
+                                ? "Tente pesquisar por outro termo."
+                                : emptyDescription
+                        }
+
+                        action={
+                            searchTerm
+                                ? undefined
+                                : emptyAction
+                        }
 
                     />
 
@@ -457,6 +723,7 @@ const EveDataTable = <
                 ================================================== */}
 
                 <EveTableToolbar
+
                     title="Data Grid Premium"
 
                     actions={
@@ -482,27 +749,78 @@ const EveDataTable = <
                     onResetColumns={
                         handleResetColumns
                     }
-                />
+
+                >
+                    {searchOpen && (
+
+                        <div
+                            className="eve-data-table-search"
+                        >
+
+                            <Search
+                                size={16}
+                                aria-hidden="true"
+                            />
+
+                            <input
+                                type="search"
+                                value={
+                                    searchTerm
+                                }
+                                onChange={
+                                    event =>
+                                        setSearchTerm(
+                                            event.target.value,
+                                        )
+                                }
+                                placeholder="Pesquisar..."
+                                aria-label="Pesquisar registros"
+                                autoFocus
+                            />
+
+                            {searchTerm && (
+
+                                <button
+                                    type="button"
+                                    onClick={() =>
+                                        setSearchTerm("")
+                                    }
+                                    aria-label="Limpar pesquisa"
+                                >
+                                    ×
+                                </button>
+
+                            )}
+
+                        </div>
+
+                    )}
+
+                </EveTableToolbar>
 
 
                 {/* ==================================================
                     HEADER
                 ================================================== */}
 
+                <div className="eve-data-table-scroll-region">
                 <EveTableHeader>
 
                     <EveTableRow
+
                         hover={false}
 
                         columns={
                             gridTemplateColumns
                         }
+
                     >
 
                         {finalColumns.map(
                             column => (
 
                                 <EveTableHead
+
                                     key={
                                         String(
                                             column.key,
@@ -512,6 +830,7 @@ const EveDataTable = <
                                     align={
                                         column.align
                                     }
+
                                 >
 
                                     {
@@ -534,7 +853,7 @@ const EveDataTable = <
 
                 <EveTableBody>
 
-                    {rows.length === 0 ? (
+                    {filteredRows.length === 0 ? (
 
                         <EmptyState
 
@@ -558,7 +877,7 @@ const EveDataTable = <
 
                     ) : (
 
-                        rows.map(
+                        filteredRows.map(
                             (
                                 row,
                                 index,
@@ -665,7 +984,8 @@ const EveDataTable = <
                     )}
 
                 </EveTableBody>
-
+                
+                </div>
 
                 {/* ==================================================
                     PAGINAÇÃO
@@ -674,9 +994,11 @@ const EveDataTable = <
                 {table && (
 
                     <TablePagination
+
                         table={
                             table
                         }
+
                     />
 
                 )}
@@ -691,9 +1013,3 @@ const EveDataTable = <
 
 
 export default EveDataTable;
-
-
-
-
-
-

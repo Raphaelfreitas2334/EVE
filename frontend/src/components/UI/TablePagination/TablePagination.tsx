@@ -157,10 +157,8 @@ const TablePagination = <T,>({
                             label: "50 por página",
                         },
                     ]}
-                    onChange={(event) =>
-                        table.setPageSize(
-                            Number(event.target.value)
-                        )
+                    onChange={(value) =>
+                        table.setPageSize(Number(value))
                     }
                 />
 

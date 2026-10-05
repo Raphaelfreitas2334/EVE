@@ -5,9 +5,7 @@ import type {
     ReactNode,
 } from "react";
 
-interface EveTableProps
-    extends HTMLAttributes<HTMLElement> {
-
+interface EveTableProps extends HTMLAttributes<HTMLElement> {
     children: ReactNode;
 }
 
@@ -16,17 +14,17 @@ const EveTable = ({
     className = "",
     ...rest
 }: EveTableProps) => {
-
     return (
         <section
             className={`
                 eve-table
-                eve-table-scroll
                 ${className}
             `}
             {...rest}
         >
-            {children}
+            <div className="eve-table-content">
+                {children}
+            </div>
         </section>
     );
 };

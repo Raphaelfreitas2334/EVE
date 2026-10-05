@@ -11,7 +11,6 @@ import useClasses from "./hooks/useClasses";
 import ClassesOverview from "./components/ClassesOverview";
 import ClassesStudentsChart from "./components/ClassesStudentsChart";
 import ClassesSummary from "./components/ClassesSummary";
-import TablePagination from "../../components/UI/TablePagination";
 
 const Classes = () => {
 
@@ -31,6 +30,8 @@ const Classes = () => {
 
         setStatus,
 
+        clearFilters,
+
     } = useClasses();
 
     return (
@@ -43,14 +44,12 @@ const Classes = () => {
             />
 
             <ClassesFilters
-                search={filters.search}
-                course={filters.course}
-                period={filters.period}
-                status={filters.status}
+                filters={filters}
                 onSearchChange={setSearch}
                 onCourseChange={setCourse}
                 onPeriodChange={setPeriod}
                 onStatusChange={setStatus}
+                onClearFilters={clearFilters}
             />
 
             <ClassesStats
@@ -65,9 +64,6 @@ const Classes = () => {
 
                         <ClassesTable
                             classes={table.rows}
-                        />
-
-                        <TablePagination
                             table={table}
                         />
 

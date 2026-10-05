@@ -1,123 +1,95 @@
+
 import "./ClassesFilters.css";
 
-import { Plus } from "lucide-react";
+import { RotateCcw } from "lucide-react";
 
 import EveButton from "../../../../components/UI/Button";
 import EveSearch from "../../../../components/UI/Search";
 import EveSelect from "../../../../components/UI/Select";
 
 interface ClassesFiltersProps {
-    search: string;
-    course: string;
-    period: string;
-    status: string;
+    filters: {
+        search: string;
+        course: string;
+        period: string;
+        status: string;
+        courseOptions: string[];
+        periodOptions: string[];
+        statusOptions: string[];
+    };
 
     onSearchChange: (value: string) => void;
     onCourseChange: (value: string) => void;
     onPeriodChange: (value: string) => void;
     onStatusChange: (value: string) => void;
+    onClearFilters: () => void;
 }
 
 const ClassesFilters = ({
-    search,
-    course,
-    period,
-    status,
+    filters,
     onSearchChange,
     onCourseChange,
     onPeriodChange,
     onStatusChange,
+    onClearFilters,
 }: ClassesFiltersProps) => {
-
     return (
-
         <section className="classes-filters">
-
-            <div className="classes-filters-left">
-
+            <div className="classes-filters-search">
                 <EveSearch
-                    value={search}
+                    value={filters.search}
                     placeholder="Pesquisar turma..."
-                    onChange={(e) => onSearchChange(e.target.value)}
+                    onChange={onSearchChange}
                 />
-
-                <EveSelect
-                    value={course}
-                    placeholder="Curso"
-                    options={[
-                        {
-                            value: "Análise e Desenvolvimento de Sistemas",
-                            label: "ADS",
-                        },
-                        {
-                            value: "Ciência de Dados",
-                            label: "Ciência de Dados",
-                        },
-                        {
-                            value: "Administração",
-                            label: "Administração",
-                        },
-                    ]}
-                    onChange={(e) => onCourseChange(e.target.value)}
-                />
-
-                <EveSelect
-                    value={period}
-                    placeholder="Período"
-                    options={[
-                        {
-                            value: "Manhã",
-                            label: "Manhã",
-                        },
-                        {
-                            value: "Tarde",
-                            label: "Tarde",
-                        },
-                        {
-                            value: "Noite",
-                            label: "Noite",
-                        },
-                    ]}
-                    onChange={(e) => onPeriodChange(e.target.value)}
-                />
-
-                <EveSelect
-                    value={status}
-                    placeholder="Status"
-                    options={[
-                        {
-                            value: "Ativa",
-                            label: "Ativa",
-                        },
-                        {
-                            value: "Planejada",
-                            label: "Planejada",
-                        },
-                        {
-                            value: "Encerrada",
-                            label: "Encerrada",
-                        },
-                    ]}
-                    onChange={(e) => onStatusChange(e.target.value)}
-                />
-
             </div>
 
-            <EveButton  style={{
-                width: "180px",
-                height: "48px",
-            }}>
+            <div className="classes-filters-select">
+                <EveSelect
+                    value={filters.course}
+                    placeholder="Todos os cursos"
+                    options={filters.courseOptions.map((course) => ({
+                        value: course,
+                        label: course,
+                    }))}
+                    onChange={(value) => onCourseChange(value)}
+                />
+            </div>
 
-                <Plus size={18} />
+            <div className="classes-filters-select">
+                <EveSelect
+                    value={filters.period}
+                    placeholder="Todos os períodos"
+                    options={filters.periodOptions.map((period) => ({
+                        value: period,
+                        label: period,
+                    }))}
+                    onChange={(value) => onPeriodChange(value)}
+                />
+            </div>
 
-                Nova Turma
+            <div className="classes-filters-select">
+                <EveSelect
+                    value={filters.status}
+                    placeholder="Todos os status"
+                    options={filters.statusOptions.map((status) => ({
+                        value: status,
+                        label: status,
+                    }))}
+                    onChange={(value) => onStatusChange(value)}
+                />
+            </div>
 
-            </EveButton>
-
+            <div className="classes-filters-clear">
+                <EveButton
+                    variant="outline"
+                    onClick={onClearFilters}
+                >
+                    <RotateCcw size={18} />
+                    Limpar
+                </EveButton>
+            </div>
         </section>
-
     );
-
 };
 
 export default ClassesFilters;

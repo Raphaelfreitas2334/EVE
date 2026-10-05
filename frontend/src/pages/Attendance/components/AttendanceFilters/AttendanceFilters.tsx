@@ -1,7 +1,6 @@
 import "./AttendanceFilters.css";
 
 import {
-    CalendarDays,
     RotateCcw,
 } from "lucide-react";
 
@@ -65,12 +64,6 @@ const AttendanceFilters = ({
 
     onCourseChange,
 
-    onPeriodChange,
-
-    onClassroomChange,
-
-    onStatusChange,
-
     onClearFilters,
 
 }: AttendanceFiltersProps) => {
@@ -109,37 +102,17 @@ const AttendanceFilters = ({
                 ====================================================== */}
 
                 <EveSelect
-
                     value={filters.course}
-
-                    placeholder="Curso"
-
-                    options={[
-
-                        {
-
-                            label: "Todos",
-
-                            value: "",
-
-                        },
-
-                        ...filters.courseOptions.map(
-
+                    placeholder="Todos"
+                    options={
+                        filters.courseOptions.map(
                             course => ({
-
                                 label: course,
-
                                 value: course,
-
                             }),
-
-                        ),
-
-                    ]}
-
+                        )
+                    }
                     onChange={onCourseChange}
-
                 />
 
 
@@ -148,37 +121,17 @@ const AttendanceFilters = ({
                 ====================================================== */}
 
                 <EveSelect
-
-                    value={filters.classroom}
-
-                    placeholder="Turma"
-
-                    options={[
-
-                        {
-
-                            label: "Todas",
-
-                            value: "",
-
-                        },
-
-                        ...filters.classroomOptions.map(
-
-                            classroom => ({
-
-                                label: classroom,
-
-                                value: classroom,
-
+                    value={filters.course}
+                    placeholder="Todos"
+                    options={
+                        filters.courseOptions.map(
+                            course => ({
+                                label: course,
+                                value: course,
                             }),
-
-                        ),
-
-                    ]}
-
-                    onChange={onClassroomChange}
-
+                        )
+                    }
+                    onChange={onCourseChange}
                 />
 
 
@@ -187,37 +140,17 @@ const AttendanceFilters = ({
                 ====================================================== */}
 
                 <EveSelect
-
-                    value={filters.status}
-
-                    placeholder="Status"
-
-                    options={[
-
-                        {
-
-                            label: "Todos",
-
-                            value: "",
-
-                        },
-
-                        ...filters.statusOptions.map(
-
-                            status => ({
-
-                                label: status,
-
-                                value: status,
-
+                    value={filters.course}
+                    placeholder="Todos"
+                    options={
+                        filters.courseOptions.map(
+                            course => ({
+                                label: course,
+                                value: course,
                             }),
-
-                        ),
-
-                    ]}
-
-                    onChange={onStatusChange}
-
+                        )
+                    }
+                    onChange={onCourseChange}
                 />
 
 
@@ -226,37 +159,17 @@ const AttendanceFilters = ({
                 ====================================================== */}
 
                 <EveSelect
-
-                    value={filters.period}
-
-                    placeholder="Período"
-
-                    options={[
-
-                        {
-
-                            label: "Todos",
-
-                            value: "",
-
-                        },
-
-                        ...filters.periodOptions.map(
-
-                            period => ({
-
-                                label: period,
-
-                                value: period,
-
+                    value={filters.course}
+                    placeholder="Todos"
+                    options={
+                        filters.courseOptions.map(
+                            course => ({
+                                label: course,
+                                value: course,
                             }),
-
-                        ),
-
-                    ]}
-
-                    onChange={onPeriodChange}
-
+                        )
+                    }
+                    onChange={onCourseChange}
                 />
 
 

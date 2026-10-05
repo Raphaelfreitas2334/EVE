@@ -66,11 +66,11 @@ const GradesFilters = ({
 
     onPeriodChange,
 
+    onClearFilters,
+
     onClassroomChange,
 
     onStatusChange,
-
-    onClearFilters,
 
 }: GradesFiltersProps) => {
 
@@ -108,37 +108,17 @@ const GradesFilters = ({
                 ====================================================== */}
 
                 <EveSelect
-
                     value={filters.course}
-
-                    placeholder="Curso"
-
-                    options={[
-
-                        {
-
-                            label: "Todos",
-
-                            value: "",
-
-                        },
-
-                        ...filters.courseOptions.map(
-
+                    placeholder="Todos"
+                    options={
+                        filters.courseOptions.map(
                             course => ({
-
                                 label: course,
-
                                 value: course,
-
                             }),
-
-                        ),
-
-                    ]}
-
+                        )
+                    }
                     onChange={onCourseChange}
-
                 />
 
 
@@ -147,37 +127,17 @@ const GradesFilters = ({
                 ====================================================== */}
 
                 <EveSelect
-
                     value={filters.classroom}
-
-                    placeholder="Turma"
-
-                    options={[
-
-                        {
-
-                            label: "Todas",
-
-                            value: "",
-
-                        },
-
-                        ...filters.classroomOptions.map(
-
-                            classroom => ({
-
-                                label: classroom,
-
-                                value: classroom,
-
+                    placeholder="Todos"
+                    options={
+                        filters.classroomOptions.map(
+                            clasroom => ({
+                                label: clasroom,
+                                value: clasroom,
                             }),
-
-                        ),
-
-                    ]}
-
+                        )
+                    }
                     onChange={onClassroomChange}
-
                 />
 
 
@@ -186,37 +146,17 @@ const GradesFilters = ({
                 ====================================================== */}
 
                 <EveSelect
-
                     value={filters.status}
-
-                    placeholder="Status"
-
-                    options={[
-
-                        {
-
-                            label: "Todos",
-
-                            value: "",
-
-                        },
-
-                        ...filters.statusOptions.map(
-
+                    placeholder="Todos"
+                    options={
+                        filters.statusOptions.map(
                             status => ({
-
                                 label: status,
-
                                 value: status,
-
                             }),
-
-                        ),
-
-                    ]}
-
+                        )
+                    }
                     onChange={onStatusChange}
-
                 />
 
 
@@ -225,37 +165,17 @@ const GradesFilters = ({
                 ====================================================== */}
 
                 <EveSelect
-
                     value={filters.period}
-
-                    placeholder="Período"
-
-                    options={[
-
-                        {
-
-                            label: "Todos",
-
-                            value: "",
-
-                        },
-
-                        ...filters.periodOptions.map(
-
+                    placeholder="Todos"
+                    options={
+                        filters.periodOptions.map(
                             period => ({
-
                                 label: period,
-
                                 value: period,
-
                             }),
-
-                        ),
-
-                    ]}
-
+                        )
+                    }
                     onChange={onPeriodChange}
-
                 />
 
 
