@@ -2,14 +2,16 @@ import "./SubjectsFilters.css";
 
 import EveSearch from "../../../../components/UI/Search";
 import EveSelect from "../../../../components/UI/Select";
-import { RotateCcw } from "lucide-react";
-import EveButton from "../../../../components/UI/Button";
 
 interface SubjectsFiltersProps {
     search: string;
     course: string;
     period: string;
     status: string;
+
+    courseOptions: string[];
+    periodOptions: string[];
+    statusOptions: string[];
 
     onSearchChange: (value: string) => void;
     onCourseChange: (value: string) => void;
@@ -22,121 +24,57 @@ const SubjectsFilters = ({
     course,
     period,
     status,
+    courseOptions,
+    periodOptions,
+    statusOptions,
     onSearchChange,
     onCourseChange,
     onPeriodChange,
     onStatusChange,
 }: SubjectsFiltersProps) => {
-
     return (
-
-       <section className="subjects-filters">
-
-        <div className="subjects-filters-left">
-
-            <div className="subjects-filter-search">
-
+        <section className="subjects-filters">
+            <div className="subjects-filters-search">
                 <EveSearch
                     value={search}
                     placeholder="Pesquisar disciplina..."
-                    onChange={(e) => onSearchChange(e.target.value)}
+                    onChange={onSearchChange}
                 />
-
             </div>
 
-            <div className="subjects-filter-select">
-
+            <div className="subjects-filters-selects">
                 <EveSelect
                     value={course}
-                    placeholder="Curso"
-                    options={[
-                        {
-                            value: "ADS",
-                            label: "ADS",
-                        },
-                        {
-                            value: "Ciência de Dados",
-                            label: "Ciência de Dados",
-                        },
-                        {
-                            value: "Administração",
-                            label: "Administração",
-                        },
-                    ]}
-                    onChange={(e) => onCourseChange(e.target.value)}
+                    placeholder="Todos os cursos"
+                    options={courseOptions.map((item) => ({
+                        value: item,
+                        label: item,
+                    }))}
+                    onChange={onCourseChange}
                 />
-
-            </div>
-
-            <div className="subjects-filter-select">
 
                 <EveSelect
                     value={period}
-                    placeholder="Período"
-                    options={[
-                        {
-                            value: "Manhã",
-                            label: "Manhã",
-                        },
-                        {
-                            value: "Tarde",
-                            label: "Tarde",
-                        },
-                        {
-                            value: "Noite",
-                            label: "Noite",
-                        },
-                    ]}
-                    onChange={(e) => onPeriodChange(e.target.value)}
+                    placeholder="Todos os períodos"
+                    options={periodOptions.map((item) => ({
+                        value: item,
+                        label: item,
+                    }))}
+                    onChange={onPeriodChange}
                 />
-
-            </div>
-
-            <div className="subjects-filter-select">
 
                 <EveSelect
                     value={status}
-                    placeholder="Status"
-                    options={[
-                        {
-                            value: "Ativa",
-                            label: "Ativa",
-                        },
-                        {
-                            value: "Planejada",
-                            label: "Planejada",
-                        },
-                        {
-                            value: "Encerrada",
-                            label: "Encerrada",
-                        },
-                    ]}
-                    onChange={(e) => onStatusChange(e.target.value)}
+                    placeholder="Todos os status"
+                    options={statusOptions.map((item) => ({
+                        value: item,
+                        label: item,
+                    }))}
+                    onChange={onStatusChange}
                 />
-
             </div>
-
-        </div>
-
-        <div className="subjects-filters-actions">
-
-            <EveButton
-                variant="outline"
-                style={{
-                    width: "170px",
-                    height: "48px",
-                }}
-            >
-                <RotateCcw size={18} />
-                Limpar filtros
-            </EveButton>
-
-        </div>
-
-    </section>
-
+        </section>
     );
-
 };
 
 export default SubjectsFilters;

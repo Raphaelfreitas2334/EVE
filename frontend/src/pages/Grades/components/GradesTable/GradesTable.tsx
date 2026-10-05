@@ -14,19 +14,52 @@ import type {
 } from "../../data/mockGrades";
 
 interface GradesTableProps {
+
     rows: GradesModel[];
+
+    table: {
+        rows: GradesModel[];
+
+        currentPage: number;
+
+        totalPages: number;
+
+        totalItems: number;
+
+        pageSize: number;
+
+        startItem: number;
+
+        endItem: number;
+
+        hasPrevious: boolean;
+
+        hasNext: boolean;
+
+        setCurrentPage: (
+            page: number,
+        ) => void;
+
+        setPageSize: (
+            size: number,
+        ) => void;
+    };
+
 }
 
 const GradesTable = ({
     rows,
+    table,
 }: GradesTableProps) => {
 
     const columns: EveDataTableColumn<GradesModel>[] = [
 
         {
             key: "name",
+
             title: "Aluno",
-            width: "2fr",
+
+            width: "260px",
 
             render: (row) => (
 
@@ -38,7 +71,9 @@ const GradesTable = ({
                     }}
                 >
 
-                    <UserRound size={18} />
+                    <UserRound
+                        size={18}
+                    />
 
                     {row.name}
 
@@ -49,20 +84,27 @@ const GradesTable = ({
 
         {
             key: "course",
+
             title: "Curso",
-            width: "2fr",
+
+            width: "240px",
         },
 
         {
             key: "classroom",
+
             title: "Turma",
-            width: "1fr",
+
+            width: "100px",
         },
 
         {
             key: "grade1",
+
             title: "1º Bim.",
-            width: "90px",
+
+            width: "100px",
+
             align: "center",
 
             render: (row) => (
@@ -72,8 +114,11 @@ const GradesTable = ({
 
         {
             key: "grade2",
+
             title: "2º Bim.",
-            width: "90px",
+
+            width: "100px",
+
             align: "center",
 
             render: (row) => (
@@ -83,8 +128,11 @@ const GradesTable = ({
 
         {
             key: "grade3",
+
             title: "3º Bim.",
-            width: "90px",
+
+            width: "100px",
+
             align: "center",
 
             render: (row) => (
@@ -94,8 +142,11 @@ const GradesTable = ({
 
         {
             key: "grade4",
+
             title: "4º Bim.",
-            width: "90px",
+
+            width: "100px",
+
             align: "center",
 
             render: (row) => (
@@ -105,38 +156,50 @@ const GradesTable = ({
 
         {
             key: "average",
+
             title: "Média",
-            width: "90px",
+
+            width: "100px",
+
             align: "center",
 
             render: (row) => (
-                row.average.toFixed(1)
+
+                <strong>
+                    {row.average.toFixed(2)}
+                </strong>
+
             ),
         },
 
         {
             key: "status",
+
             title: "Status",
-            width: "130px",
+
+            width: "140px",
+
             align: "center",
 
-            render: (row) => {
+            render: (row) => (
 
-                const variant =
-                    row.status === "Excelente"
-                        ? "success"
-                        : row.status === "Bom"
-                            ? "info"
-                            : row.status === "Atenção"
-                                ? "warning"
-                                : "danger";
+                <EveBadge
+                    variant={
+                        row.status === "Excelente"
+                            ? "success"
+                            : row.status === "Bom"
+                                ? "info"
+                                : row.status === "Atenção"
+                                    ? "warning"
+                                    : "danger"
+                    }
+                >
 
-                return (
-                    <EveBadge variant={variant}>
-                        {row.status}
-                    </EveBadge>
-                );
-            },
+                    {row.status}
+
+                </EveBadge>
+
+            ),
         },
 
     ];
@@ -151,20 +214,21 @@ const GradesTable = ({
 
             rows={rows}
 
+            table={table}
+
             actions={(row) => (
 
                 <EveButton
-
                     variant="outline"
-
                     size="sm"
-
-                    icon={<Eye size={16} />}
-
+                    icon={
+                        <Eye
+                            size={16}
+                        />
+                    }
                     onClick={() => {
                         console.log(row);
                     }}
-
                 />
 
             )}

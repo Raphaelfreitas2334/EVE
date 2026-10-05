@@ -9,11 +9,8 @@ const useClasses = () => {
     // ============================
 
     const [search, setSearch] = useState("");
-
     const [course, setCourse] = useState("");
-
     const [period, setPeriod] = useState("");
-
     const [status, setStatus] = useState("");
 
     // ============================
@@ -21,54 +18,95 @@ const useClasses = () => {
     // ============================
 
     const [currentPage, setCurrentPage] = useState(1);
-
     const [pageSize, setPageSize] = useState(10);
 
     // ============================
-    // Dados Filtrados
+    // Opções dos filtros
+    // ============================
+
+    const courseOptions = useMemo(() => {
+
+        return Array.from(
+            new Set(
+                mockClasses.map(
+                    (item) => item.course
+                )
+            )
+        ).sort();
+
+    }, []);
+
+    const periodOptions = useMemo(() => {
+
+        return Array.from(
+            new Set(
+                mockClasses.map(
+                    (item) => item.period
+                )
+            )
+        ).sort();
+
+    }, []);
+
+    const statusOptions = useMemo(() => {
+
+        return Array.from(
+            new Set(
+                mockClasses.map(
+                    (item) => item.status
+                )
+            )
+        ).sort();
+
+    }, []);
+
+    // ============================
+    // Dados filtrados
     // ============================
 
     const filteredClasses = useMemo(() => {
 
         return mockClasses.filter((item) => {
 
+            const normalizedSearch =
+                search.trim().toLowerCase();
+
             const matchesSearch =
+                normalizedSearch === "" ||
                 item.name
                     .toLowerCase()
-                    .includes(search.toLowerCase());
+                    .includes(normalizedSearch);
 
             const matchesCourse =
-                !course || item.course === course;
+                !course ||
+                item.course === course;
 
             const matchesPeriod =
-                !period || item.period === period;
+                !period ||
+                item.period === period;
 
             const matchesStatus =
-                !status || item.status === status;
+                !status ||
+                item.status === status;
 
             return (
-
                 matchesSearch &&
                 matchesCourse &&
                 matchesPeriod &&
                 matchesStatus
-
             );
 
         });
 
     }, [
-
         search,
         course,
         period,
         status,
-
     ]);
 
     // ============================
-    // Sempre volta para página 1
-    // ao alterar filtros
+    // Reset da paginação
     // ============================
 
     useEffect(() => {
@@ -76,57 +114,79 @@ const useClasses = () => {
         setCurrentPage(1);
 
     }, [
-
         search,
         course,
         period,
         status,
-
     ]);
 
     // ============================
     // Paginação
     // ============================
 
-    const totalItems = filteredClasses.length;
+    const totalItems =
+        filteredClasses.length;
 
     const totalPages = Math.max(
-
         1,
-
-        Math.ceil(totalItems / pageSize)
-
+        Math.ceil(
+            totalItems / pageSize
+        )
     );
 
     const startItem =
-    totalItems === 0
-        ? 0
-        : (currentPage - 1) * pageSize + 1;
+        totalItems === 0
+            ? 0
+            : (currentPage - 1) * pageSize + 1;
 
     const endItem = Math.min(
         currentPage * pageSize,
         totalItems
     );
 
-    const hasPrevious = currentPage > 1;
+    const hasPrevious =
+        currentPage > 1;
 
-    const hasNext = currentPage < totalPages;
+    const hasNext =
+        currentPage < totalPages;
 
     const paginatedClasses = useMemo(() => {
 
-        const start = (currentPage - 1) * pageSize;
+        const start =
+            (currentPage - 1) * pageSize;
 
-        const end = start + pageSize;
+        const end =
+            start + pageSize;
 
-        return filteredClasses.slice(start, end);
+        return filteredClasses.slice(
+            start,
+            end
+        );
 
     }, [
-
         filteredClasses,
         currentPage,
         pageSize,
-
     ]);
+
+    // ============================
+    // Limpar filtros
+    // ============================
+
+    const clearFilters = () => {
+
+        setSearch("");
+        setCourse("");
+        setPeriod("");
+        setStatus("");
+
+        setCurrentPage(1);
+
+    };
+
+    // ============================
+    // Retorno
+    // ============================
 
     return {
 
@@ -137,7 +197,12 @@ const useClasses = () => {
             period,
             status,
 
+            courseOptions,
+            periodOptions,
+            statusOptions,
+
         },
+        
 
         filteredClasses,
 
@@ -166,7 +231,6 @@ const useClasses = () => {
             setPageSize: (size: number) => {
 
                 setPageSize(size);
-
                 setCurrentPage(1);
 
             },
@@ -174,12 +238,11 @@ const useClasses = () => {
         },
 
         setSearch,
-
         setCourse,
-
         setPeriod,
-
         setStatus,
+
+        clearFilters,
 
     };
 

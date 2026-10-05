@@ -1,15 +1,35 @@
-.student-table{
+.student-table {
+    background: var(--card);
+    border: none;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+    margin-top: 0;
+}
 
-    background:var(--card);
+.students-table-container {
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid var(--eve-table-border, rgba(255, 255, 255, 0.12));
+    border-radius: 12px;
+    background: var(--eve-table-surface, #1B1827);
+}
 
-    border:1px solid var(--border);
+.students-table-container .eve-table-pagination {
+    border-top: 1px solid var(--eve-table-border, rgba(255, 255, 255, 0.12));
+    border-radius: 0;
+    margin: 0;
+}
 
-    border-radius:16px;
+.students-table-container .student-table {
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin-top: 0 !important;
+}
 
-    overflow:hidden;
-
-    box-shadow:0 8px 24px rgba(0,0,0,.04);
-
-    margin-top:24px;
-
+.students-table-container {
+    border: 1px solid var(--eve-table-border, rgba(255, 255, 255, 0.12));
+    border-radius: 12px;
+    overflow: hidden;
 }

@@ -1,10 +1,9 @@
 .eve-table-header {
-    display: flex;
-    align-items: stretch;
+    display: block;
 
     width: 100%;
     min-width: max-content;
-    min-height: 70px;
+
 
     background: var(
         --eve-table-surface,

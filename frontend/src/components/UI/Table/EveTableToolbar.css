@@ -75,15 +75,11 @@
 ========================================================== */
 
 .eve-table-toolbar-content {
-
     display: flex;
-
     align-items: center;
-
     justify-content: flex-end;
-
+    gap: 12px;
     min-width: 0;
-
     margin-left: auto;
 }
 
@@ -255,6 +251,454 @@
 
     outline-offset:
         2px;
+}
+
+/* ==========================================================
+   PESQUISA
+========================================================== */
+
+.eve-data-table-search {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    width: 230px;
+
+    height: 36px;
+
+    flex-shrink: 0;
+
+    padding: 0 10px;
+
+    box-sizing: border-box;
+
+    border: 1px solid
+        rgba(139, 92, 246, 0.45);
+
+    border-radius: 7px;
+
+    background:
+        #242033;
+
+    color:
+        #F8FAFC;
+
+    box-shadow:
+        0 4px 14px
+        rgba(0, 0, 0, 0.20);
+}
+
+
+/* ==========================================================
+   ÍCONE
+========================================================== */
+
+.eve-data-table-search svg {
+
+    flex-shrink: 0;
+
+    color:
+        #94A3B8;
+}
+
+
+/* ==========================================================
+   INPUT
+========================================================== */
+
+.eve-data-table-search input {
+
+    flex: 1;
+
+    width: 100%;
+
+    min-width: 0;
+
+    height: 100%;
+
+    padding: 0;
+
+    margin: 0;
+
+    border: 0;
+
+    outline: none;
+
+    background:
+        transparent;
+
+    color:
+        #F8FAFC;
+
+    font-size: 0.9rem;
+
+    font-family: inherit;
+
+    font-weight: 400;
+}
+
+
+/* ==========================================================
+   PLACEHOLDER
+========================================================== */
+
+.eve-data-table-search input::placeholder {
+
+    color:
+        #94A3B8;
+
+    opacity: 1;
+}
+
+
+/* ==========================================================
+   AUTOFILL DO NAVEGADOR
+========================================================== */
+
+.eve-data-table-search input:-webkit-autofill,
+.eve-data-table-search input:-webkit-autofill:hover,
+.eve-data-table-search input:-webkit-autofill:focus {
+
+    -webkit-text-fill-color:
+        #F8FAFC;
+
+    -webkit-box-shadow:
+        0 0 0 1000px #242033 inset;
+
+    transition:
+        background-color 9999s ease-in-out 0s;
+}
+
+
+/* ==========================================================
+   BOTÃO LIMPAR
+========================================================== */
+
+.eve-data-table-search button {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 24px;
+
+    height: 24px;
+
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 5px;
+
+    background:
+        transparent;
+
+    color:
+        #CBD5E1;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    line-height: 1;
+
+    transition:
+        background .18s ease,
+        color .18s ease;
+}
+
+
+/* ==========================================================
+   HOVER LIMPAR
+========================================================== */
+
+.eve-data-table-search button:hover {
+
+    background:
+        rgba(139, 92, 246, 0.14);
+
+    color:
+        #F8FAFC;
+}
+
+
+/* ==========================================================
+   FOCO
+========================================================== */
+
+.eve-data-table-search:focus-within {
+
+    border-color:
+        #8B5CF6;
+
+    box-shadow:
+        0 0 0 2px
+        rgba(139, 92, 246, 0.12);
+}
+
+
+/* ==========================================================
+   CAMPO DE PESQUISA - EVE DATA TABLE
+========================================================== */
+
+.eve-data-table-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    width: 230px;
+    height: 36px;
+
+    flex-shrink: 0;
+
+    padding: 0 10px;
+
+    box-sizing: border-box;
+
+    background: #242033 !important;
+
+    border: 1px solid
+        rgba(139, 92, 246, 0.45);
+
+    border-radius: 7px;
+
+    color: #F8FAFC;
+
+    box-shadow:
+        0 4px 14px
+        rgba(0, 0, 0, 0.20);
+}
+
+
+/* ==========================================================
+   ÍCONE DA PESQUISA
+========================================================== */
+
+.eve-data-table-search svg {
+    flex-shrink: 0;
+
+    color: #94A3B8 !important;
+}
+
+
+/* ==========================================================
+   INPUT
+========================================================== */
+
+.eve-data-table-search input {
+    flex: 1;
+
+    width: 100%;
+    min-width: 0;
+
+    height: 100%;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border: 0 !important;
+    outline: none !important;
+
+    background: transparent !important;
+
+    color: #F8FAFC !important;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 400;
+
+    opacity: 1 !important;
+
+    -webkit-text-fill-color: #F8FAFC !important;
+}
+
+
+/* ==========================================================
+   PLACEHOLDER
+========================================================== */
+
+.eve-data-table-search input::placeholder {
+    color: #94A3B8 !important;
+
+    opacity: 1 !important;
+
+    -webkit-text-fill-color: #94A3B8 !important;
+}
+
+
+/* ==========================================================
+   ESTADO FOCADO
+========================================================== */
+
+.eve-data-table-search:focus-within {
+    border-color: #8B5CF6;
+
+    box-shadow:
+        0 0 0 2px
+        rgba(139, 92, 246, 0.15);
+}
+
+
+/* ==========================================================
+   BOTÃO LIMPAR
+========================================================== */
+
+.eve-data-table-search button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 24px;
+    height: 24px;
+
+    padding: 0 !important;
+
+    border: 0 !important;
+
+    border-radius: 5px;
+
+    background: transparent !important;
+
+    color: #CBD5E1 !important;
+
+    cursor: pointer;
+
+    font-size: 18px;
+    line-height: 1;
+
+    opacity: 1 !important;
+}
+
+
+/* ==========================================================
+   HOVER BOTÃO LIMPAR
+========================================================== */
+
+.eve-data-table-search button:hover {
+    background:
+        rgba(139, 92, 246, 0.14) !important;
+
+    color: #FFFFFF !important;
+}
+
+
+/* ==========================================================
+   AUTOFILL DO CHROME / EDGE
+========================================================== */
+
+.eve-data-table-search input:-webkit-autofill,
+.eve-data-table-search input:-webkit-autofill:hover,
+.eve-data-table-search input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #F8FAFC !important;
+
+    -webkit-box-shadow:
+        0 0 0 1000px #242033 inset !important;
+
+    box-shadow:
+        0 0 0 1000px #242033 inset !important;
+}
+
+
+/* ==========================================================
+   RESPONSIVO
+========================================================== */
+
+@media (max-width: 900px) {
+
+    .eve-data-table-search {
+        width: 210px;
+    }
+
+}
+
+
+@media (max-width: 640px) {
+
+    .eve-data-table-search {
+        position: absolute;
+
+        top: 58px;
+
+        left: 12px;
+        right: 12px;
+
+        width: auto;
+
+        z-index: 100;
+    }
+
+}
+
+
+/* ==========================================================
+   RESPONSIVO
+========================================================== */
+
+@media (max-width: 900px) {
+
+    .eve-data-table-search {
+
+        width: 210px;
+
+    }
+
+}
+
+
+@media (max-width: 640px) {
+
+    .eve-data-table-search {
+
+        position: absolute;
+
+        top: 58px;
+
+        left: 12px;
+
+        right: 12px;
+
+        width: auto;
+
+        z-index: 100;
+
+    }
+
+}
+
+@media (max-width: 900px) {
+
+    .eve-data-table-search {
+        width: 220px;
+    }
+
+}
+
+@media (max-width: 640px) {
+
+    .eve-table-toolbar-content {
+        gap: 6px;
+    }
+
+    .eve-data-table-search {
+        position: absolute;
+
+        top: 58px;
+        left: 12px;
+        right: 12px;
+
+        width: auto;
+
+        z-index: 100;
+    }
+
 }
 
 

@@ -2,8 +2,6 @@ import "./Subjects.css";
 
 import EvePageHeader from "../../components/UI/PageHeader";
 
-import TablePagination from "../../components/UI/TablePagination";
-
 import useSubjects from "./hooks/useSubjects";
 
 import SubjectsFilters from "./components/SubjectsFilters";
@@ -66,6 +64,9 @@ const Subjects = () => {
                         course={filters.course}
                         period={filters.period}
                         status={filters.status}
+                        courseOptions={filters.courseOptions}
+                        periodOptions={filters.periodOptions}
+                        statusOptions={filters.statusOptions}
                         onSearchChange={setSearch}
                         onCourseChange={setCourse}
                         onPeriodChange={setPeriod}
@@ -73,17 +74,11 @@ const Subjects = () => {
                     />
 
                     <Panel title="Lista de Disciplinas">
-
                         <SubjectsTable
                             subjects={table.rows}
-                        />
-
-                        <TablePagination
                             table={table}
                         />
-
                     </Panel>
-
                 </main>
 
                 <aside className="subjects-sidebar">

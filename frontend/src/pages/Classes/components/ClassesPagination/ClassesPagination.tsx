@@ -113,8 +113,8 @@ const ClassesPagination = ({
                         { value: "20", label: "20 por página" },
                         { value: "50", label: "50 por página" },
                     ]}
-                    onChange={(e) =>
-                        table.setPageSize(Number(e.target.value))
+                    onChange={(value) =>
+                        table.setPageSize(Number(value))
                     }
                 />
 

@@ -1,92 +1,94 @@
 .eve-table {
-    --eve-table-bg: var(
-        --card,
-        #15131F
-    );
-
-    --eve-table-surface: var(
-        --background-secondary,
-        #1B1827
-    );
-
-    --eve-table-border: var(
-        --border,
-        rgba(255, 255, 255, .08)
-    );
-
-    --eve-table-text: var(
-        --foreground,
-        #F8FAFC
-    );
-
-    --eve-table-muted: var(
-        --muted-foreground,
-        #94A3B8
-    );
-
-    --eve-table-primary: var(
-        --primary,
-        #8B5CF6
-    );
-
-    --eve-table-primary-soft: var(
-        --primary-soft,
-        rgba(139, 92, 246, .12)
-    );
+    --eve-table-bg: var(--card, #15131F);
+    --eve-table-surface: var(--background-secondary, #1B1827);
+    --eve-table-border: var(--border, rgba(255, 255, 255, .08));
+    --eve-table-text: var(--foreground, #F8FAFC);
+    --eve-table-muted: var(--muted-foreground, #94A3B8);
+    --eve-table-primary: var(--primary, #8B5CF6);
+    --eve-table-primary-soft: var(--primary-soft, rgba(139, 92, 246, .12));
 
     display: flex;
     flex-direction: column;
 
+    width: 100%;
     min-width: 0;
 
-    background: var(
-        --eve-table-bg
-    );
+    background: var(--eve-table-bg);
+    color: var(--eve-table-text);
 
-    color: var(
-        --eve-table-text
-    );
+    border: 1px solid var(--eve-table-border);
+    border-radius: var(--radius, 14px);
 
-    border: 1px solid var(
-        --eve-table-border
-    );
-
-    border-radius: var(
-        --radius,
-        14px
-    );
-
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, .16);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .16);
 
     overflow: hidden;
 }
 
-.eve-table-scroll {
+/* ==========================================================
+   CONTÊINER PRINCIPAL
+   Mantém toolbar, tabela e paginação na largura visível
+========================================================== */
+
+.eve-table-content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
     width: 100%;
+    min-width: 0;
+    max-width: 100%;
 
-    overflow: auto;
-
-    scrollbar-width: thin;
-
-    scrollbar-color:
-        var(--eve-table-primary)
-        transparent;
+    box-sizing: border-box;
 }
 
-.eve-table-scroll::-webkit-scrollbar {
+/* Toolbar, região da tabela e paginação */
+.eve-table-content > * {
+    width: 100%;
+    min-width: 0;
+    flex: 0 0 auto;
+
+    box-sizing: border-box;
+}
+
+/* ==========================================================
+   REGIÃO COM SCROLL HORIZONTAL
+   Somente cabeçalho e linhas rolam
+========================================================== */
+
+.eve-data-table-scroll-region {
+    display: block;
+
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--eve-table-primary) transparent;
+}
+
+.eve-data-table-scroll-region::-webkit-scrollbar {
     width: 8px;
     height: 8px;
 }
 
-.eve-table-scroll::-webkit-scrollbar-track {
+.eve-data-table-scroll-region::-webkit-scrollbar-track {
     background: transparent;
 }
 
-.eve-table-scroll::-webkit-scrollbar-thumb {
-    background: var(
-        --eve-table-primary
-    );
-
+.eve-data-table-scroll-region::-webkit-scrollbar-thumb {
+    background: var(--eve-table-primary);
     border-radius: 999px;
+}
+
+/*
+ * Cabeçalho e corpo podem ultrapassar a largura visível.
+ * Isso é o que permite a região criar a barra horizontal.
+ */
+.eve-data-table-scroll-region > .eve-table-header,
+.eve-data-table-scroll-region > .eve-table-body {
+    width: max-content;
+    min-width: 100%;
 }

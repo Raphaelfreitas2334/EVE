@@ -1,0 +1,69 @@
+.students-filters {
+    width: 100%;
+    margin-bottom: 24px;
+    padding: 24px;
+    box-sizing: border-box;
+
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.students-filters-header {
+    margin-bottom: 24px;
+}
+
+.students-filters-header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.students-filters-header p {
+    margin: 4px 0 0;
+    color: var(--text-secondary);
+}
+
+.students-filters-fields {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    align-items: end;
+    gap: 16px;
+}
+
+.students-filters-fields > * {
+    min-width: 0;
+}
+
+.students-filters-clear {
+    display: flex;
+    width: 100%;
+    align-items: end;
+}
+
+.students-filters-clear > * {
+    width: 100%;
+}
+
+@media (max-width: 1200px) {
+    .students-filters-fields {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .students-filters {
+        padding: 20px;
+    }
+
+    .students-filters-fields {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .students-filters-fields {
+        grid-template-columns: 1fr;
+    }
+}

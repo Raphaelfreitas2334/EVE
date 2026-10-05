@@ -1,11 +1,9 @@
 .eve-data-table {
     position: relative;
-
     width: 100%;
-
     min-width: 0;
-
-    overflow-x: auto;
+    /* A rolagem fica sob responsabilidade do EveTable */
+    overflow: visible;
 }
 
 .eve-data-table-empty {
@@ -24,10 +22,59 @@
     gap: 8px;
 }
 
-@media (max-width: 992px) {
+.eve-data-table-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 220px;
+    max-width: 320px;
+    padding: 8px 12px;
+    border: 1px solid var(--eve-border-color, #dcdfe4);
+    border-radius: 8px;
+    background: var(--eve-surface-color, #ffffff);
+}
 
-    .eve-data-table {
-        overflow-x: auto;
+.eve-data-table-search svg {
+    flex-shrink: 0;
+    color: var(--eve-text-muted, #737b87);
+}
+
+.eve-data-table-search input {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+}
+
+.eve-data-table-search input::placeholder {
+    color: var(--eve-text-muted, #737b87);
+}
+
+.eve-data-table-search button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.eve-data-table-search button:hover {
+    background: var(--eve-hover-color, #eeeeee);
+}
+
+@media (max-width: 768px) {
+    .eve-data-table-search {
+        width: 100%;
+        max-width: none;
     }
-
 }

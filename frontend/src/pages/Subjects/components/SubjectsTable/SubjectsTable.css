@@ -1,29 +1,40 @@
-.subjects-table-header {
+.subjects-data-table {
+    width: 100%;
+    min-width: 0;
+}
 
-    display: grid;
+.subjects-data-table .subjects-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
 
-    grid-template-columns:
-        minmax(220px, 2fr)
-        minmax(180px, 2fr)
-        110px
-        130px
-        120px
-        60px;
-
-    align-items: center;
-
-    gap: 24px;
-
-    padding: 18px 24px;
-
-    border-bottom: 1px solid #ECEEF2;
-
-    background: #FAFAFB;
-
-    font-size: .85rem;
-
+.subjects-data-table .subjects-info strong {
+    color: var(--eve-table-text, #F8FAFC);
+    font-size: .9rem;
     font-weight: 600;
+}
 
-    color: #6B7280;
+.subjects-data-table .subjects-info small {
+    color: var(--eve-table-muted, #94A3B8);
+    font-size: .78rem;
+}
 
+.subjects-data-table .subjects-students {
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+}
+
+.subjects-data-table .subjects-students strong {
+    color: var(--eve-table-text, #F8FAFC);
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.subjects-data-table .subjects-students small {
+    color: var(--eve-table-muted, #94A3B8);
+    font-size: .78rem;
 }

@@ -1,7 +1,5 @@
 .subjects-table-row {
-
     display: grid;
-
     grid-template-columns:
         minmax(220px, 2fr)
         minmax(180px, 2fr)
@@ -11,125 +9,97 @@
         60px;
 
     align-items: center;
-
     gap: 24px;
-
     padding: 18px 24px;
 
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--eve-table-border, rgba(255, 255, 255, .08));
+    color: var(--eve-table-text, #F8FAFC);
 
-    transition: .25s ease;
-
+    transition: background .2s ease;
 }
 
 .subjects-table-row:last-child {
-
     border-bottom: none;
-
 }
 
 .subjects-table-row:hover {
-
-    background: var(--surface);
-
+    background: var(--eve-table-surface, #1B1827);
 }
 
+/* Informações da disciplina */
 .subjects-info {
-
     display: flex;
-
     flex-direction: column;
-
     gap: 4px;
-
+    min-width: 0;
 }
 
 .subjects-info strong {
-
-    color: var(--text);
-
-    font-weight: 600;
-
+    color: var(--eve-table-text, #F8FAFC);
     font-size: .95rem;
-
+    font-weight: 600;
 }
 
 .subjects-info small {
-
-    color: var(--text-secondary);
-
+    color: var(--eve-table-muted, #94A3B8);
     font-size: .80rem;
-
 }
 
+/* Professor */
 .subjects-teacher {
-
-    color: var(--text);
-
+    color: var(--eve-table-text, #F8FAFC);
     font-weight: 500;
-
 }
 
+/* Quantidade de alunos */
 .subjects-students {
-
     display: flex;
-
     align-items: baseline;
-
     gap: 4px;
-
 }
 
 .subjects-students strong {
-
+    color: var(--eve-table-text, #F8FAFC);
     font-size: .95rem;
-
-    color: var(--text);
-
 }
 
 .subjects-students small {
-
-    color: var(--text-secondary);
-
+    color: var(--eve-table-muted, #94A3B8);
 }
 
+/* Período */
 .subjects-period {
-
-    color: var(--text);
-
+    color: var(--eve-table-text, #F8FAFC);
 }
 
+/* Ações */
 .table-action {
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
 
     width: 38px;
-
     height: 38px;
 
     border: none;
-
     border-radius: 10px;
-
     background: transparent;
 
-    color: var(--text-secondary);
-
+    color: var(--eve-table-muted, #94A3B8);
     cursor: pointer;
 
     transition: .2s ease;
-
 }
 
 .table-action:hover {
+    background: var(--eve-table-primary-soft, rgba(139, 92, 246, .12));
+    color: var(--eve-table-primary, #8B5CF6);
+}
 
-    background: rgba(109, 40, 217, .08);
-
-    color: var(--primary);
-
+/* Responsividade */
+@media (max-width: 900px) {
+    .subjects-table-header,
+    .subjects-table-row {
+        min-width: 900px;
+    }
 }

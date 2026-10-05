@@ -10,51 +10,62 @@ import {
 
 import EveStatCard from "../../../../components/UI/StatCard";
 
-const StudentStats = () => {
+interface StudentStatsProps {
+    stats: {
+        totalStudents: number;
+        activeStudents: number;
+        studentsInFollowUp: number;
+        studentsAtRisk: number;
+        newStudents: number;
+        currentMonth: string;
+    };
+}
 
-    return(
-
+const StudentStats = ({ stats }: StudentStatsProps) => {
+    return (
         <section className="student-stats">
-
             <EveStatCard
                 title="Alunos"
-                value="1.245"
-                subtitle="+12 este mês"
-                icon={<GraduationCap size={28}/>}
+                value={stats.totalStudents.toLocaleString("pt-BR")}
+                subtitle="Total conforme os filtros"
+                icon={<GraduationCap size={28} />}
             />
 
             <EveStatCard
                 title="Ativos"
-                value="1.180"
-                subtitle="94% do total"
-                icon={<CircleCheck size={28}/>}
+                value={stats.activeStudents.toLocaleString("pt-BR")}
+                subtitle={
+                    stats.totalStudents > 0
+                        ? `${Math.round(
+                              (stats.activeStudents / stats.totalStudents) * 100,
+                          )}% do total filtrado`
+                        : "Nenhum aluno encontrado"
+                }
+                icon={<CircleCheck size={28} />}
             />
 
             <EveStatCard
                 title="Em acompanhamento"
-                value="48"
-                subtitle="Baixa frequência"
-                icon={<TriangleAlert size={28}/>}
+                value={stats.studentsInFollowUp.toLocaleString("pt-BR")}
+                subtitle="Alunos que precisam de atenção"
+                icon={<TriangleAlert size={28} />}
             />
 
             <EveStatCard
                 title="Em risco"
-                value="17"
-                subtitle="Previstos pela IA"
-                icon={<CircleAlert size={28}/>}
+                value={stats.studentsAtRisk.toLocaleString("pt-BR")}
+                subtitle="Alunos classificados em risco"
+                icon={<CircleAlert size={28} />}
             />
 
             <EveStatCard
                 title="Novos"
-                value="26"
-                subtitle="Julho"
-                icon={<UserPlus size={28}/>}
+                value={stats.newStudents.toLocaleString("pt-BR")}
+                subtitle={`Matrículas em ${stats.currentMonth}`}
+                icon={<UserPlus size={28} />}
             />
-
         </section>
-
     );
-
 };
 
 export default StudentStats;

@@ -157,11 +157,10 @@ const Attendance = () => {
             >
 
                 <AttendanceTable
-
                     rows={table.rows}
-
+                    table={table}
                 />
-
+                    
             </Panel>
 
         </main>

@@ -1,88 +1,100 @@
-import EveButton from "../../../../components/UI/Button";
-import EveSelect from "../../../../components/UI/Select";
 import "./TeachersContext.css";
+
+import EveSelect from "../../../../components/UI/Select";
+import EveButton from "../../../../components/UI/Button";
 
 import { RotateCcw } from "lucide-react";
 
-const TeachersContext = () => {
-  return (
-    <section className="teachers-context">
-      <div className="teachers-context-header">
-        <h3>Filtros</h3>
+interface TeachersContextProps {
+    discipline: string;
+    category: string;
+    status: string;
 
-        <p>Utilize os filtros abaixo para localizar professores rapidamente.</p>
-      </div>
+    disciplineOptions: string[];
+    categoryOptions: string[];
+    statusOptions: string[];
 
-      <div className="teachers-context-filters">
-        <EveSelect
-          label="Disciplina"
-          options={[
-            {
-              value: "frontend",
-              label: "Programação Front-End",
-            },
-            {
-              value: "backend",
-              label: "Programação Back-End",
-            },
-            {
-              value: "database",
-              label: "Banco de Dados",
-            },
-            {
-              value: "datascience",
-              label: "Data Science",
-            },
-          ]}
-        />
+    onDisciplineChange: (value: string) => void;
+    onCategoryChange: (value: string) => void;
+    onStatusChange: (value: string) => void;
+    onClearFilters: () => void;
+}
 
-        <EveSelect
-          label="Categoria"
-          options={[
-            {
-              value: "paeet",
-              label: "PAEET",
-            },
-            {
-              value: "categoria-o",
-              label: "Categoria O",
-            },
-            {
-              value: "efetivo",
-              label: "Efetivo",
-            },
-          ]}
-        />
+const TeachersContext = ({
+    discipline,
+    category,
+    status,
+    disciplineOptions,
+    categoryOptions,
+    statusOptions,
+    onDisciplineChange,
+    onCategoryChange,
+    onStatusChange,
+    onClearFilters,
+}: TeachersContextProps) => {
+    return (
+        <section className="teachers-context">
+            <div className="teachers-context-header">
+                <h3>Filtros</h3>
 
-        <EveSelect
-          label="Status"
-          options={[
-            {
-              value: "ativo",
-              label: "Ativo",
-            },
-            {
-              value: "licenca",
-              label: "Licença",
-            },
-            {
-              value: "ferias",
-              label: "Férias",
-            },
-            {
-              value: "afastado",
-              label: "Afastado",
-            },
-          ]}
-        />
+                <p>
+                    Utilize os filtros abaixo para localizar professores rapidamente.
+                </p>
+            </div>
 
-        <EveButton variant="outline">
-          <RotateCcw size={18} />
-          Limpar filtros
-        </EveButton>
-      </div>
-    </section>
-  );
+            <div className="teachers-context-filters">
+                <EveSelect
+                    label="Disciplina"
+                    value={discipline}
+                    placeholder="Selecione..."
+                    options={[
+                        { value: "", label: "Todas as disciplinas" },
+                        ...disciplineOptions.map((item) => ({
+                            value: item,
+                            label: item,
+                        })),
+                    ]}
+                    onChange={onDisciplineChange}
+                />
+
+                <EveSelect
+                    label="Categoria"
+                    value={category}
+                    placeholder="Selecione..."
+                    options={[
+                        { value: "", label: "Todas as categorias" },
+                        ...categoryOptions.map((item) => ({
+                            value: item,
+                            label: item,
+                        })),
+                    ]}
+                    onChange={onCategoryChange}
+                />
+
+                <EveSelect
+                    label="Status"
+                    value={status}
+                    placeholder="Selecione..."
+                    options={[
+                        { value: "", label: "Todos os status" },
+                        ...statusOptions.map((item) => ({
+                            value: item,
+                            label: item,
+                        })),
+                    ]}
+                    onChange={onStatusChange}
+                />
+
+                <EveButton
+                    variant="outline"
+                    onClick={onClearFilters}
+                >
+                    <RotateCcw size={18} />
+                    Limpar filtros
+                </EveButton>
+            </div>
+        </section>
+    );
 };
 
 export default TeachersContext;
